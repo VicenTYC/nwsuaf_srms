@@ -8,13 +8,22 @@
   <sql id="Base_Column_List" >
     id, name
   </sql>
+
+	<select id="selectByManager" resultType="cn.nwsuaf.edu.srms.entity.Platform">
+		SELECT platform.id,platform.name
+		FROM platform,user_plat
+		WHERE user_plat.user_id = #{userId} AND user_plat.plat_id = platform.id
+	</select>
+
+
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from platform
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from platform
     where id = #{id,jdbcType=INTEGER}
   </delete>
