@@ -4,6 +4,8 @@ import cn.nwsuaf.edu.srms.entity.ComSupplier;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Mapper
 @Component
 public interface ComSupplierMapper {
@@ -18,4 +20,6 @@ public interface ComSupplierMapper {
     int updateByPrimaryKeySelective(ComSupplier record);
 
     int updateByPrimaryKey(ComSupplier record);
+
+    List<ComSupplier> getAll();
 }

@@ -33,43 +33,42 @@ public class ManagerFirmController {
     @PostMapping(value = "maintainer/list")
     @ResponseBody
     public ResultVO<List<ComMaintainer>> getAllMaintainer() {
-
         return managerFirmService.getAllMaintainer();
     }
 
     @ApiOperation(value = "添加维修商")
     @PostMapping(value = "maintainer/add")
     @ResponseBody
-    public ResultVO addMaintainer(@RequestBody ComMaintainer comMaintain) {
-        return null;
+    public ResultVO<String> addMaintainer(@RequestBody ComMaintainer comMaintain) {
+        return managerFirmService.addMaintainer(comMaintain);
     }
 
     @ApiOperation(value = "查询生产商")
     @PostMapping(value = "producer/list")
     @ResponseBody
-    public ResultVO getAllProducer() {
-        return null;
+    public ResultVO<List<ComProducer>> getAllProducer() {
+        return managerFirmService.getAllProducer();
     }
 
     @ApiOperation(value = "添加生产商")
     @PostMapping(value = "producer/add")
     @ResponseBody
     public ResultVO addProducer(@RequestBody ComProducer comProducer) {
-        return null;
+        return managerFirmService.addProducer(comProducer);
     }
 
     @ApiOperation(value = "查询供应商")
     @PostMapping(value = "supplier/list")
     @ResponseBody
-    public ResultVO getAllSupplier() {
-        return null;
+    public ResultVO<List<ComSupplier>> getAllSupplier() {
+        return managerFirmService.getAllSupplier();
     }
 
     @ApiOperation(value = "添加供应商")
     @PostMapping(value = "supplier/add")
     @ResponseBody
-    public ResultVO addSupplier(@RequestBody ComSupplier comSupplier) {
-        return ResultUtil.createBySuccessMessage("kekejun");
+    public ResultVO<String> addSupplier(@RequestBody ComSupplier comSupplier) {
+        return managerFirmService.addSupplier(comSupplier);
     }
 
 }

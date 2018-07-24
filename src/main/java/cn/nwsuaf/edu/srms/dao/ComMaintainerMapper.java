@@ -4,6 +4,8 @@ import cn.nwsuaf.edu.srms.entity.ComMaintainer;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Mapper
 @Component
 public interface ComMaintainerMapper {
@@ -18,4 +20,6 @@ public interface ComMaintainerMapper {
     int updateByPrimaryKeySelective(ComMaintainer record);
 
     int updateByPrimaryKey(ComMaintainer record);
+
+    List<ComMaintainer> getAll();
 }

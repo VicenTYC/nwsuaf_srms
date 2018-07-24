@@ -1,5 +1,6 @@
 package cn.nwsuaf.edu.srms.config;
 
+import cn.nwsuaf.edu.srms.util.ResultUtil;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
@@ -25,8 +26,7 @@ public class GlobalExceptionHandler {
         if (msg == null || msg.equals("")) {
             msg = "服务器出错";
         }
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("error", msg);
-        return jsonObject;
+
+        return ResultUtil.createByErrorMessage(msg);
     }
 }
