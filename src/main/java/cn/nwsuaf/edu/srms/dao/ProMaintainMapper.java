@@ -4,6 +4,8 @@ import cn.nwsuaf.edu.srms.entity.ProMaintain;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Mapper
 @Component
 public interface ProMaintainMapper {
@@ -18,4 +20,6 @@ public interface ProMaintainMapper {
     int updateByPrimaryKeySelective(ProMaintain record);
 
     int updateByPrimaryKey(ProMaintain record);
+
+    List<ProMaintain> getByPlat(String platId);
 }

@@ -4,6 +4,8 @@ import cn.nwsuaf.edu.srms.entity.ProMaterial;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Mapper
 @Component
 public interface ProMaterialMapper {
@@ -18,4 +20,6 @@ public interface ProMaterialMapper {
     int updateByPrimaryKeySelective(ProMaterial record);
 
     int updateByPrimaryKey(ProMaterial record);
+
+    List<ProMaterial> getByPlat(String platId);
 }

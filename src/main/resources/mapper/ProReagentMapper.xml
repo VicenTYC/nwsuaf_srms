@@ -10,13 +10,21 @@
   <sql id="Base_Column_List" >
     id, name, specification, plat_id
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+
+	<select id="getByPlat" resultType="cn.nwsuaf.edu.srms.entity.ProReagent">
+		SELECT id,name,specification
+		FROM pro_reagent
+		WHERE plat_id =#{platId}
+	</select>
+
+
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from pro_reagent
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from pro_reagent
     where id = #{id,jdbcType=INTEGER}
   </delete>

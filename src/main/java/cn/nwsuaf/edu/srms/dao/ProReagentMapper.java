@@ -4,6 +4,8 @@ import cn.nwsuaf.edu.srms.entity.ProReagent;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Mapper
 @Component
 public interface ProReagentMapper {
@@ -18,4 +20,6 @@ public interface ProReagentMapper {
     int updateByPrimaryKeySelective(ProReagent record);
 
     int updateByPrimaryKey(ProReagent record);
+
+    List<ProReagent> getByPlat(String platId);
 }
