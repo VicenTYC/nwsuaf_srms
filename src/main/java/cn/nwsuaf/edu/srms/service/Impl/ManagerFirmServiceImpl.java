@@ -8,7 +8,7 @@ import cn.nwsuaf.edu.srms.entity.ComProducer;
 import cn.nwsuaf.edu.srms.entity.ComSupplier;
 import cn.nwsuaf.edu.srms.service.ManagerFirmService;
 import cn.nwsuaf.edu.srms.util.ResultUtil;
-import cn.nwsuaf.edu.srms.vo.ResultVO;
+import cn.nwsuaf.edu.srms.vo.ResultVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,14 +32,14 @@ public class ManagerFirmServiceImpl implements ManagerFirmService {
 
 
     @Override
-    public ResultVO<List<ComMaintainer>> getAllMaintainer() {
+    public ResultVo<List<ComMaintainer>> getAllMaintainer() {
 
         List<ComMaintainer> comMaintainerList = comMaintainerMapper.getAll();
         return ResultUtil.createBySuccess(comMaintainerList);
     }
 
     @Override
-    public ResultVO<String> addMaintainer(ComMaintainer comMaintain) {
+    public ResultVo<String> addMaintainer(ComMaintainer comMaintain) {
 
         int result = comMaintainerMapper.insert(comMaintain);
         if(result == 1){
@@ -49,13 +49,13 @@ public class ManagerFirmServiceImpl implements ManagerFirmService {
     }
 
     @Override
-    public ResultVO<List<ComProducer>> getAllProducer() {
+    public ResultVo<List<ComProducer>> getAllProducer() {
         List<ComProducer> comProducerList = comProducerMapper.getAll();
         return ResultUtil.createBySuccess(comProducerList);
     }
 
     @Override
-    public ResultVO addProducer(ComProducer comProducer) {
+    public ResultVo addProducer(ComProducer comProducer) {
 
         int result = comProducerMapper.insert(comProducer);
         if(result == 1){
@@ -65,14 +65,14 @@ public class ManagerFirmServiceImpl implements ManagerFirmService {
     }
 
     @Override
-    public ResultVO<List<ComSupplier>> getAllSupplier() {
+    public ResultVo<List<ComSupplier>> getAllSupplier() {
 
         List<ComSupplier> comSupplierList = comSupplierMapper.getAll();
         return ResultUtil.createBySuccess(comSupplierList);
     }
 
     @Override
-    public ResultVO<String> addSupplier(ComSupplier comSupplier) {
+    public ResultVo<String> addSupplier(ComSupplier comSupplier) {
         int result = comSupplierMapper.insert(comSupplier);
         if(result == 1){
             return ResultUtil.createBySuccessMessage("添加供应商成功");

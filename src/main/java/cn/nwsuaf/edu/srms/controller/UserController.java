@@ -5,7 +5,7 @@ import cn.nwsuaf.edu.srms.common.Const;
 import cn.nwsuaf.edu.srms.entity.User;
 import cn.nwsuaf.edu.srms.service.UserService;
 import cn.nwsuaf.edu.srms.util.ResultUtil;
-import cn.nwsuaf.edu.srms.vo.ResultVO;
+import cn.nwsuaf.edu.srms.vo.ResultVo;
 import cn.nwsuaf.edu.srms.vo.UserVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -14,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
-import javax.xml.transform.Result;
 
 /**
  * Created by IntelliJ IDEA.
@@ -33,14 +32,14 @@ public class UserController {
     @ApiOperation(value = "负责人和超级负责人登录")
     @PostMapping(value = "login")
     @ResponseBody
-    public ResultVO<String> login(@RequestParam(name = "username")@ApiParam(value = "登录id",required = true) String username,
+    public ResultVo<String> login(@RequestParam(name = "username")@ApiParam(value = "登录id",required = true) String username,
                                   @RequestParam(name = "password")@ApiParam(value = "登录密码",required = true) String password,
                                   HttpSession session) {
 
-        ResultVO<User> userResultVO = userService.login(username,password);
+        ResultVo<User> userResultVo = userService.login(username,password);
 
-        if(userResultVO.isSuccess()) {
-            session.setAttribute(Const.CURRENT_USER,String.valueOf(userResultVO.getData().getId()));
+        if(userResultVo.isSuccess()) {
+            session.setAttribute(Const.CURRENT_USER,String.valueOf(userResultVo.getData().getId()));
             return ResultUtil.createBySuccessMessage(Const.LOGIN.SUCCESS);
         }
 
@@ -50,14 +49,14 @@ public class UserController {
 //    @ApiOperation(value = "负责人登录")
 //    @PostMapping(value = "manager_login")
 //    @ResponseBody
-//    public ResultVO<String> managerLogin(@RequestParam(name = "username") String username, @RequestParam(name = "password") String password) {
+//    public ResultVo<String> managerLogin(@RequestParam(name = "username") String username, @RequestParam(name = "password") String password) {
 //        return null;
 //    }
 //
 //    @ApiOperation(value = "超级负责人登录")
 //    @PostMapping(value = "admin_login")
 //    @ResponseBody
-//    public ResultVO<String> adminLogin(@RequestParam(name = "username") String username, @RequestParam(name = "password") String password) {
+//    public ResultVo<String> adminLogin(@RequestParam(name = "username") String username, @RequestParam(name = "password") String password) {
 //        return null;
 //    }
 
@@ -65,7 +64,7 @@ public class UserController {
     @PostMapping(value = "logout")
     @ResponseBody
     @LoginRequired
-    public ResultVO<String> logout(HttpSession session) {
+    public ResultVo<String> logout(HttpSession session) {
         session.removeAttribute(Const.CURRENT_USER);
         return ResultUtil.createBySuccessMessage(Const.LOGINOUT.SUCCESS);
     }
@@ -74,7 +73,7 @@ public class UserController {
     @PostMapping(value = "get_info")
     @ResponseBody
     @LoginRequired
-    public ResultVO<UserVo> getInfo(HttpSession session) {
+    public ResultVo<UserVo> getInfo(HttpSession session) {
 
         String userId = (String)session.getAttribute(Const.CURRENT_USER);
         return userService.getUserInfo(userId);
@@ -85,7 +84,7 @@ public class UserController {
     @PostMapping(value = "update_info")
     @ResponseBody
     @LoginRequired
-    public ResultVO<UserVo> updateInfo(@RequestBody UserVo userVo, HttpSession session) {
+    public ResultVo<UserVo> updateInfo(@RequestBody UserVo userVo, HttpSession session) {
 
         String userId = (String)session.getAttribute(Const.CURRENT_USER);
         return userService.updateUserInfo(userId,userVo);
@@ -95,7 +94,7 @@ public class UserController {
     @PostMapping(value = "update_password")
     @ResponseBody
     @LoginRequired
-    public ResultVO<String> updatePassword(@RequestParam(value = "oldPassword") @ApiParam(value = "原先密码") String oldPassword,
+    public ResultVo<String> updatePassword(@RequestParam(value = "oldPassword") @ApiParam(value = "原先密码") String oldPassword,
                                            @RequestParam(value = "newPassword") @ApiParam(value = "新密码") String newPassword,
                                            HttpSession session) {
 

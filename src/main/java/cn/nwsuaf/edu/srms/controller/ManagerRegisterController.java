@@ -1,6 +1,6 @@
 package cn.nwsuaf.edu.srms.controller;
 
-import cn.nwsuaf.edu.srms.vo.ResultVO;
+import cn.nwsuaf.edu.srms.vo.ResultVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,28 +22,28 @@ public class ManagerRegisterController {
     @ApiOperation(value = "保存")
     @PostMapping(value = "save")
     @ResponseBody
-    public ResultVO saveRecord() {
+    public ResultVo saveRecord() {
         return null;
     }
 
     @ApiOperation(value = "更新")
     @PostMapping(value = "update")
     @ResponseBody
-    public ResultVO updateRecord() {
+    public ResultVo updateRecord() {
         return null;
     }
 
     @ApiOperation(value = "提交")
     @PostMapping(value = "commit")
     @ResponseBody
-    public ResultVO commitRecord() {
+    public ResultVo commitRecord() {
         return null;
     }
 
     @ApiOperation(value = "删除")
     @PostMapping(value = "delete")
     @ResponseBody
-    public ResultVO deleteRecord() {
+    public ResultVo deleteRecord() {
         return null;
     }
 }

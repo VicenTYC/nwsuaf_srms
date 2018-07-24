@@ -4,9 +4,7 @@ import cn.nwsuaf.edu.srms.entity.ComMaintainer;
 import cn.nwsuaf.edu.srms.entity.ComProducer;
 import cn.nwsuaf.edu.srms.entity.ComSupplier;
 import cn.nwsuaf.edu.srms.service.ManagerFirmService;
-import cn.nwsuaf.edu.srms.service.ManagerPlatService;
-import cn.nwsuaf.edu.srms.util.ResultUtil;
-import cn.nwsuaf.edu.srms.vo.ResultVO;
+import cn.nwsuaf.edu.srms.vo.ResultVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,42 +30,42 @@ public class ManagerFirmController {
     @ApiOperation(value = "查询维修商")
     @PostMapping(value = "maintainer/list")
     @ResponseBody
-    public ResultVO<List<ComMaintainer>> getAllMaintainer() {
+    public ResultVo<List<ComMaintainer>> getAllMaintainer() {
         return managerFirmService.getAllMaintainer();
     }
 
     @ApiOperation(value = "添加维修商")
     @PostMapping(value = "maintainer/add")
     @ResponseBody
-    public ResultVO<String> addMaintainer(@RequestBody ComMaintainer comMaintain) {
+    public ResultVo<String> addMaintainer(@RequestBody ComMaintainer comMaintain) {
         return managerFirmService.addMaintainer(comMaintain);
     }
 
     @ApiOperation(value = "查询生产商")
     @PostMapping(value = "producer/list")
     @ResponseBody
-    public ResultVO<List<ComProducer>> getAllProducer() {
+    public ResultVo<List<ComProducer>> getAllProducer() {
         return managerFirmService.getAllProducer();
     }
 
     @ApiOperation(value = "添加生产商")
     @PostMapping(value = "producer/add")
     @ResponseBody
-    public ResultVO addProducer(@RequestBody ComProducer comProducer) {
+    public ResultVo addProducer(@RequestBody ComProducer comProducer) {
         return managerFirmService.addProducer(comProducer);
     }
 
     @ApiOperation(value = "查询供应商")
     @PostMapping(value = "supplier/list")
     @ResponseBody
-    public ResultVO<List<ComSupplier>> getAllSupplier() {
+    public ResultVo<List<ComSupplier>> getAllSupplier() {
         return managerFirmService.getAllSupplier();
     }
 
     @ApiOperation(value = "添加供应商")
     @PostMapping(value = "supplier/add")
     @ResponseBody
-    public ResultVO<String> addSupplier(@RequestBody ComSupplier comSupplier) {
+    public ResultVo<String> addSupplier(@RequestBody ComSupplier comSupplier) {
         return managerFirmService.addSupplier(comSupplier);
     }
 

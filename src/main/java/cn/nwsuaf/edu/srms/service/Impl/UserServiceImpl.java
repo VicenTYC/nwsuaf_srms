@@ -7,7 +7,7 @@ import cn.nwsuaf.edu.srms.service.UserService;
 import cn.nwsuaf.edu.srms.util.MD5Util;
 import cn.nwsuaf.edu.srms.util.ResultUtil;
 import cn.nwsuaf.edu.srms.util.UserVoUtil;
-import cn.nwsuaf.edu.srms.vo.ResultVO;
+import cn.nwsuaf.edu.srms.vo.ResultVo;
 import cn.nwsuaf.edu.srms.vo.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Override
-    public ResultVO<User> login(String username, String password) {
+    public ResultVo<User> login(String username, String password) {
 
         String md5Password = MD5Util.MD5EncodeUtf8(username,password);
         User user = userMapper.selectByPassword(username,md5Password);
@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ResultVO<UserVo> getUserInfo(String userId) {
+    public ResultVo<UserVo> getUserInfo(String userId) {
 
         User user = userMapper.selectByPrimaryKey(Integer.parseInt(userId));
         UserVo userVo = UserVoUtil.UserToUserVo(user);
@@ -46,7 +46,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ResultVO<UserVo> updateUserInfo(String userId, UserVo userVo) {
+    public ResultVo<UserVo> updateUserInfo(String userId, UserVo userVo) {
 
         User user = userMapper.selectByPrimaryKey(Integer.valueOf(userId));
         UserVoUtil.UserVoToUser(user,userVo);
@@ -63,7 +63,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ResultVO<String> updatePassword(String userId, String oldPassword, String newPassword) {
+    public ResultVo<String> updatePassword(String userId, String oldPassword, String newPassword) {
 
         User user = userMapper.selectByPrimaryKey(Integer.parseInt(userId));
         String md5oldPassword = MD5Util.MD5EncodeUtf8(user.getUsername(),oldPassword);

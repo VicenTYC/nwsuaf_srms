@@ -11,13 +11,19 @@
   <sql id="Base_Column_List" >
     id, number, name, user_id, plat_id
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+	<select id="getInstrumentByPlat" resultType="cn.nwsuaf.edu.srms.vo.InstrumentVo">
+		SELECT id,number,name
+		from pro_instrument
+    	where plat_id= #{platId}
+	</select>
+
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from pro_instrument
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from pro_instrument
     where id = #{id,jdbcType=INTEGER}
   </delete>

@@ -1,10 +1,9 @@
 package cn.nwsuaf.edu.srms.controller;
 
-import cn.nwsuaf.edu.srms.annotation.LoginRequired;
 import cn.nwsuaf.edu.srms.common.Const;
 import cn.nwsuaf.edu.srms.entity.Platform;
 import cn.nwsuaf.edu.srms.service.ManagerPlatService;
-import cn.nwsuaf.edu.srms.vo.ResultVO;
+import cn.nwsuaf.edu.srms.vo.ResultVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +32,7 @@ public class ManagerPlatController {
     @ApiOperation(value = "得到负责人所负责的平台")
     @PostMapping("list")
     @ResponseBody
-    public ResultVO<List<Platform>> getPlatByManager(HttpSession session) {
+    public ResultVo<List<Platform>> getPlatByManager(HttpSession session) {
 
         String userId = (String) session.getAttribute(Const.CURRENT_USER);
 

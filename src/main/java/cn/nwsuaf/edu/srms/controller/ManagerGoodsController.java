@@ -1,7 +1,6 @@
 package cn.nwsuaf.edu.srms.controller;
 
-import cn.nwsuaf.edu.srms.annotation.LoginRequired;
-import cn.nwsuaf.edu.srms.vo.ResultVO;
+import cn.nwsuaf.edu.srms.vo.ResultVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
@@ -20,56 +19,56 @@ public class ManagerGoodsController {
     @ApiOperation(value = "耗材类商品查询")
     @PostMapping(value = "material/list")
     @ResponseBody
-    public ResultVO getMaterial() {
+    public ResultVo getMaterial() {
         return null;
     }
 
     @ApiOperation(value = "耗材类商品添加")
     @PostMapping(value = "material/add")
     @ResponseBody
-    public ResultVO addMaterial() {
+    public ResultVo addMaterial() {
         return null;
     }
 
     @ApiOperation(value = "维修类商品查询")
     @PostMapping(value = "maintain/list")
     @ResponseBody
-    public ResultVO getMaintain() {
+    public ResultVo getMaintain() {
         return null;
     }
 
     @ApiOperation(value = "维修类商品添加")
     @PostMapping(value = "maintain/add")
     @ResponseBody
-    public ResultVO addMaintain() {
+    public ResultVo addMaintain() {
         return null;
     }
 
     @ApiOperation(value = "配件类商品查询")
     @PostMapping(value = "parts/list")
     @ResponseBody
-    public ResultVO getParts() {
+    public ResultVo getParts() {
         return null;
     }
 
     @ApiOperation(value = "配件类商品添加")
     @PostMapping(value = "parts/add")
     @ResponseBody
-    public ResultVO addParts() {
+    public ResultVo addParts() {
         return null;
     }
 
     @ApiOperation(value = "试剂类商品查询")
     @PostMapping(value = "reagent/list")
     @ResponseBody
-    public ResultVO getReagent() {
+    public ResultVo getReagent() {
         return null;
     }
 
     @ApiOperation(value = "试剂类商品添加")
     @PostMapping(value = "reagent/add")
     @ResponseBody
-    public ResultVO addReagent() {
+    public ResultVo addReagent() {
         return null;
     }
 

@@ -14,27 +14,27 @@ import java.io.Serializable;
  */
 
 //保证序列化json的时候,如果是null的对象,key也会消失
-public class ResultVO<T> implements Serializable {
+public class ResultVo<T> implements Serializable {
 
     private int status;
     private String msg;
     private T data;
 
-    public ResultVO(int status){
+    public ResultVo(int status){
         this.status = status;
     }
-    public ResultVO(int status,T data){
+    public ResultVo(int status, T data){
         this.status = status;
         this.data = data;
     }
 
-    public ResultVO(int status,String msg,T data){
+    public ResultVo(int status, String msg, T data){
         this.status = status;
         this.msg = msg;
         this.data = data;
     }
 
-    public ResultVO(int status,String msg){
+    public ResultVo(int status, String msg){
         this.status = status;
         this.msg = msg;
     }

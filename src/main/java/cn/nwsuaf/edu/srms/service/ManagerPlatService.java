@@ -1,7 +1,7 @@
 package cn.nwsuaf.edu.srms.service;
 
 import cn.nwsuaf.edu.srms.entity.Platform;
-import cn.nwsuaf.edu.srms.vo.ResultVO;
+import cn.nwsuaf.edu.srms.vo.ResultVo;
 
 import java.util.List;
 
@@ -13,5 +13,5 @@ import java.util.List;
  */
 public interface ManagerPlatService {
 
-    ResultVO<List<Platform>> getPlatByManager(String userId);
+    ResultVo<List<Platform>> getPlatByManager(String userId);
 }

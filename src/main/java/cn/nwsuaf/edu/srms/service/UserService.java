@@ -1,7 +1,7 @@
 package cn.nwsuaf.edu.srms.service;
 
 import cn.nwsuaf.edu.srms.entity.User;
-import cn.nwsuaf.edu.srms.vo.ResultVO;
+import cn.nwsuaf.edu.srms.vo.ResultVo;
 import cn.nwsuaf.edu.srms.vo.UserVo;
 
 /**
@@ -11,11 +11,11 @@ import cn.nwsuaf.edu.srms.vo.UserVo;
  * Time: 17:36
  */
 public interface UserService {
-    ResultVO<User> login(String username, String password);
+    ResultVo<User> login(String username, String password);
 
-    ResultVO<UserVo> getUserInfo(String userId);
+    ResultVo<UserVo> getUserInfo(String userId);
 
-    ResultVO<UserVo> updateUserInfo(String userId, UserVo userVo);
+    ResultVo<UserVo> updateUserInfo(String userId, UserVo userVo);
 
-    ResultVO<String> updatePassword(String userId, String oldPassword, String newPassword);
+    ResultVo<String> updatePassword(String userId, String oldPassword, String newPassword);
 }

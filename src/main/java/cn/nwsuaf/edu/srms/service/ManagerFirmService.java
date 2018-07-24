@@ -3,7 +3,7 @@ package cn.nwsuaf.edu.srms.service;
 import cn.nwsuaf.edu.srms.entity.ComMaintainer;
 import cn.nwsuaf.edu.srms.entity.ComProducer;
 import cn.nwsuaf.edu.srms.entity.ComSupplier;
-import cn.nwsuaf.edu.srms.vo.ResultVO;
+import cn.nwsuaf.edu.srms.vo.ResultVo;
 
 import java.util.List;
 
@@ -14,15 +14,15 @@ import java.util.List;
  * Time: 16:48
  */
 public interface ManagerFirmService {
-    ResultVO<List<ComMaintainer>> getAllMaintainer();
+    ResultVo<List<ComMaintainer>> getAllMaintainer();
 
-    ResultVO<String> addMaintainer(ComMaintainer comMaintain);
+    ResultVo<String> addMaintainer(ComMaintainer comMaintain);
 
-    ResultVO<List<ComProducer>> getAllProducer();
+    ResultVo<List<ComProducer>> getAllProducer();
 
-    ResultVO addProducer(ComProducer comProducer);
+    ResultVo addProducer(ComProducer comProducer);
 
-    ResultVO<List<ComSupplier>> getAllSupplier();
+    ResultVo<List<ComSupplier>> getAllSupplier();
 
-    ResultVO<String> addSupplier(ComSupplier comSupplier);
+    ResultVo<String> addSupplier(ComSupplier comSupplier);
 }
