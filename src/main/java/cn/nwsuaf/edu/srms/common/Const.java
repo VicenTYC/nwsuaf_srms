@@ -24,4 +24,10 @@ public class Const {
         String SUCCESS = "登出成功";
     }
 
+    public interface REGTSTER{
+        Integer SAVE = 0;
+        Integer COMMIT = 1;
+        Integer PASS = 2;
+    }
+
 }

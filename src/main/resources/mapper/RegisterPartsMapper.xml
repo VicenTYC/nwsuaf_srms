@@ -14,17 +14,71 @@
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="status" property="status" jdbcType="INTEGER" />
   </resultMap>
+	<resultMap id="RegisterMap" type="cn.nwsuaf.edu.srms.vo.RegisterVo" >
+		<id column="id" property="id" jdbcType="INTEGER" />
+
+		<result column="parts_id" property="goodsId" jdbcType="INTEGER" />
+		<result column="parts_name" property="goodsName" jdbcType="VARCHAR" />
+
+		<result column="producer_id" property="producerId" jdbcType="INTEGER" />
+		<result column="producer_name" property="producerName" jdbcType="VARCHAR" />
+
+		<result column="supplier_id" property="supplierId" jdbcType="INTEGER" />
+		<result column="supplier_name" property="supplierName" jdbcType="VARCHAR" />
+
+		<result column="user_id" property="userId" jdbcType="INTEGER" />
+		<result column="user_name" property="userName" jdbcType="VARCHAR" />
+
+		<result column="price" property="price" jdbcType="DECIMAL" />
+		<result column="count" property="count" jdbcType="INTEGER" />
+		<result column="total_price" property="totalPrice" jdbcType="DECIMAL" />
+		<result column="remark" property="remark" jdbcType="VARCHAR" />
+
+		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+	</resultMap>
   <sql id="Base_Column_List" >
     id, parts_id, producer_id, supplier_id, price, count, total_price, remark, user_id, 
     create_time, status
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+
+	<select id="getIds" resultType="java.lang.Integer">
+		SELECT id
+		FROM register_parts
+		WHERE parts_id in
+		<foreach item="item" index="index" open="(" separator="," close=")" collection="maintainIdList">
+			#{item}
+		</foreach>
+		order by create_time DESC
+	</select>
+	<select id="getRegister" resultType="cn.nwsuaf.edu.srms.vo.RegisterVo">
+		SELECT register_parts.id as id,
+		pro_parts.id as maintain_id,pro_parts.name as maintain_name,
+		com_producer.id as maintainer_id,com_producer.name as maintainer_name,
+		com_supplier.id as supplier_id,com_supplier.name as supplier_name,
+		user.id as user_id,user.name as user_name,
+		register_parts.price,register_parts.count,
+		register_parts.total_price,register_parts.remark,
+		register_parts.create_time,register_parts.status
+		FROM register_parts,user,pro_parts,com_producer,com_supplier
+		WHERE register_parts.id in
+		<foreach item="item" index="index" open="(" separator="," close=")" collection="idList">
+			#{item}
+		</foreach>
+		AND register_parts.parts_id = pro_parts.id
+		AND register_parts.producer_id = com_producer.id
+		AND register_parts.supplier_id = com_supplier.id
+		AND register_parts.user_id = user.id
+	</select>
+
+
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from register_parts
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from register_parts
     where id = #{id,jdbcType=INTEGER}
   </delete>

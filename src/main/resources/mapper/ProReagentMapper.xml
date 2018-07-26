@@ -11,6 +11,13 @@
     id, name, specification, plat_id
   </sql>
 
+	<select id="getIdsByPlat" resultType="java.lang.Integer">
+		SELECT id
+		FROM pro_reagent
+		WHERE plat_id =#{platId}
+	</select>
+
+
 	<select id="getByPlat" resultType="cn.nwsuaf.edu.srms.entity.ProReagent">
 		SELECT id,name,specification
 		FROM pro_reagent

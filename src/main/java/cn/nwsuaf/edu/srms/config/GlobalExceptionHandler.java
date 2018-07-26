@@ -27,6 +27,8 @@ public class GlobalExceptionHandler {
             msg = "服务器出错";
         }
 
+        System.out.println(msg);
+
         return ResultUtil.createByErrorMessage(msg);
     }
 }

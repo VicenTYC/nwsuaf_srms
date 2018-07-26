@@ -16,6 +16,13 @@
 		WHERE plat_id = #{platId}
 	</select>
 
+	<select id="getIdsByPlat" resultType="java.lang.Integer">
+		SELECT id
+		FROM pro_maintain
+		WHERE plat_id = #{platId}
+	</select>
+
+
 
 	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -23,6 +30,7 @@
     from pro_maintain
     where id = #{id,jdbcType=INTEGER}
   </select>
+
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from pro_maintain
     where id = #{id,jdbcType=INTEGER}

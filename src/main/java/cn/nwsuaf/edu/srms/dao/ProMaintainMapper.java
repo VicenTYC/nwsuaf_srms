@@ -22,4 +22,6 @@ public interface ProMaintainMapper {
     int updateByPrimaryKey(ProMaintain record);
 
     List<ProMaintain> getByPlat(String platId);
+
+    List<Integer> getIdsByPlat(String platId);
 }

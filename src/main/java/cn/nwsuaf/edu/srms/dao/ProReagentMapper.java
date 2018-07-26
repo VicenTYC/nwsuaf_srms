@@ -22,4 +22,6 @@ public interface ProReagentMapper {
     int updateByPrimaryKey(ProReagent record);
 
     List<ProReagent> getByPlat(String platId);
+
+    List<Integer> getIdsByPlat(String platId);
 }

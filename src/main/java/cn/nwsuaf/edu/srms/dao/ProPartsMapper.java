@@ -22,4 +22,6 @@ public interface ProPartsMapper {
     int updateByPrimaryKey(ProParts record);
 
     List<ProParts> getByPlat(String platId);
+
+    List<Integer> getIdsByPlat(String platId);
 }

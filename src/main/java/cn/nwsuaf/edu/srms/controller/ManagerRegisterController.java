@@ -1,12 +1,19 @@
 package cn.nwsuaf.edu.srms.controller;
 
+import cn.nwsuaf.edu.srms.common.Const;
+import cn.nwsuaf.edu.srms.entity.RegisterMaintain;
+import cn.nwsuaf.edu.srms.entity.RegisterMaterial;
+import cn.nwsuaf.edu.srms.entity.RegisterParts;
+import cn.nwsuaf.edu.srms.entity.RegisterReagent;
+import cn.nwsuaf.edu.srms.service.ManagerRegisterService;
 import cn.nwsuaf.edu.srms.vo.ResultVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.apache.catalina.Server;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpSession;
 
 /**
  * Created by IntelliJ IDEA.
@@ -19,31 +26,134 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(value = "manager/register",description = "负责人进行入库操作")
 public class ManagerRegisterController {
 
-    @ApiOperation(value = "保存")
-    @PostMapping(value = "save")
+    @Autowired
+    private ManagerRegisterService managerRegisterService;
+
+    @ApiOperation(value = "维修保存")
+    @PostMapping(value = "/maintain/save")
     @ResponseBody
-    public ResultVo saveRecord() {
-        return null;
+    public ResultVo saveMaintainRecord(@RequestBody RegisterMaintain registerMaintain, HttpSession session) {
+        int userId = (int) session.getAttribute(Const.CURRENT_USER);
+        return managerRegisterService.saveMaintainRecord(registerMaintain,userId);
     }
 
-    @ApiOperation(value = "更新")
-    @PostMapping(value = "update")
+    @ApiOperation(value = "维修提交")
+    @PostMapping(value = "/maintain/commit")
     @ResponseBody
-    public ResultVo updateRecord() {
-        return null;
+    public ResultVo commitMaintainRecord(@RequestBody RegisterMaintain registerMaintain, HttpSession session) {
+        int userId = (int) session.getAttribute(Const.CURRENT_USER);
+        return managerRegisterService.commitMaintainRecord(registerMaintain,userId);
     }
 
-    @ApiOperation(value = "提交")
-    @PostMapping(value = "commit")
+    @ApiOperation(value = "维修删除")
+    @PostMapping(value = "/maintain/delete")
     @ResponseBody
-    public ResultVo commitRecord() {
-        return null;
+    public ResultVo deleteMaintainRecord(@RequestParam(value = "recordId") String recordId) {
+        return managerRegisterService.deleteMaintainRecord(recordId);
     }
 
-    @ApiOperation(value = "删除")
-    @PostMapping(value = "delete")
+    @ApiOperation(value = "维修查找")
+    @PostMapping(value = "/maintain/get")
     @ResponseBody
-    public ResultVo deleteRecord() {
-        return null;
+    public ResultVo getMaintainRecord(@RequestParam(value = "platId") String platId,
+                                      @RequestParam(value = "pageNum",defaultValue = "1") Integer pageNum,
+                                      @RequestParam(value = "pageSize",defaultValue = "10") Integer pageSize) {
+        return managerRegisterService.getMaintainRecord(platId,pageNum,pageSize);
+    }
+
+    @ApiOperation(value = "耗材保存")
+    @PostMapping(value = "/material/save")
+    @ResponseBody
+    public ResultVo saveMaterialRecord(@RequestBody RegisterMaterial registerMaterial, HttpSession session) {
+        int userId = (int) session.getAttribute(Const.CURRENT_USER);
+        return managerRegisterService.saveMaterialRecord(registerMaterial,userId);
+    }
+
+    @ApiOperation(value = "耗材提交")
+    @PostMapping(value = "/material/commit")
+    @ResponseBody
+    public ResultVo commitMaterialRecord(@RequestBody RegisterMaterial registerMaterial, HttpSession session) {
+        int userId = (int) session.getAttribute(Const.CURRENT_USER);
+        return managerRegisterService.commitMaterialRecord(registerMaterial,userId);
+    }
+
+    @ApiOperation(value = "耗材删除")
+    @PostMapping(value = "/material/delete")
+    @ResponseBody
+    public ResultVo deleteMaterialRecord(@RequestParam(value = "recordId") String recordId) {
+        return managerRegisterService.deleteMaterialRecord(recordId);
+    }
+
+    @ApiOperation(value = "耗材查找")
+    @PostMapping(value = "/material/get")
+    @ResponseBody
+    public ResultVo getMaterialRecord(@RequestParam(value = "platId") String platId,
+                                      @RequestParam(value = "pageNum",defaultValue = "1") Integer pageNum,
+                                      @RequestParam(value = "pageSize",defaultValue = "10") Integer pageSize) {
+        return managerRegisterService.getMaterialRecord(platId,pageNum,pageSize);
+    }
+
+    @ApiOperation(value = "试剂保存")
+    @PostMapping(value = "/reagent/save")
+    @ResponseBody
+    public ResultVo saveReagentRecord(@RequestBody RegisterReagent registerReagent, HttpSession session) {
+        int userId = (int) session.getAttribute(Const.CURRENT_USER);
+        return managerRegisterService.saveReagentRecord(registerReagent,userId);
+    }
+
+    @ApiOperation(value = "试剂提交")
+    @PostMapping(value = "/reagent/commit")
+    @ResponseBody
+    public ResultVo commitReagentRecord(@RequestBody RegisterReagent registerReagent, HttpSession session) {
+        int userId = (int) session.getAttribute(Const.CURRENT_USER);
+        return managerRegisterService.commitReagentRecord(registerReagent,userId);
+    }
+
+    @ApiOperation(value = "试剂删除")
+    @PostMapping(value = "/reagent/delete")
+    @ResponseBody
+    public ResultVo deleteReagentRecord(@RequestParam(value = "recordId") String recordId) {
+        return managerRegisterService.deleteReagentRecord(recordId);
+    }
+
+    @ApiOperation(value = "试剂查找")
+    @PostMapping(value = "/reagent/get")
+    @ResponseBody
+    public ResultVo getReagentRecord(@RequestParam(value = "platId") String platId,
+                                      @RequestParam(value = "pageNum",defaultValue = "1") Integer pageNum,
+                                      @RequestParam(value = "pageSize",defaultValue = "10") Integer pageSize) {
+        return managerRegisterService.getReagentRecord(platId, pageNum, pageSize);
+    }
+
+    @ApiOperation(value = "配件保存")
+    @PostMapping(value = "/reagent/save")
+    @ResponseBody
+    public ResultVo savePartsRecord(@RequestBody RegisterParts registerParts, HttpSession session) {
+        int userId = (int) session.getAttribute(Const.CURRENT_USER);
+        return managerRegisterService.savePartsRecord(registerParts,userId);
+    }
+
+    @ApiOperation(value = "配件提交")
+    @PostMapping(value = "/reagent/commit")
+    @ResponseBody
+    public ResultVo commitPartsRecord(@RequestBody RegisterParts registerParts, HttpSession session) {
+        int userId = (int) session.getAttribute(Const.CURRENT_USER);
+        return managerRegisterService.commitPartsRecord(registerParts,userId);
+    }
+
+    @ApiOperation(value = "配件删除")
+    @PostMapping(value = "/reagent/delete")
+    @ResponseBody
+    public ResultVo deletePartsRecord(@RequestParam(value = "recordId") String recordId) {
+        return managerRegisterService.deletePartsRecord(recordId);
+    }
+
+    @ApiOperation(value = "配件查找")
+    @PostMapping(value = "/reagent/get")
+    @ResponseBody
+    public ResultVo getPartsRecord(@RequestParam(value = "platId") String platId,
+                                     @RequestParam(value = "pageNum",defaultValue = "1") Integer pageNum,
+                                     @RequestParam(value = "pageSize",defaultValue = "10") Integer pageSize) {
+        return managerRegisterService.getPartsRecord(platId, pageNum, pageSize);
     }
 }
