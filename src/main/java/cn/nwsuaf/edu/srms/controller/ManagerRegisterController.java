@@ -57,8 +57,11 @@ public class ManagerRegisterController {
     @ResponseBody
     public ResultVo getMaintainRecord(@RequestParam(value = "platId") String platId,
                                       @RequestParam(value = "pageNum",defaultValue = "1") Integer pageNum,
-                                      @RequestParam(value = "pageSize",defaultValue = "10") Integer pageSize) {
-        return managerRegisterService.getMaintainRecord(platId,pageNum,pageSize);
+                                      @RequestParam(value = "pageSize",defaultValue = "10") Integer pageSize,
+                                      @RequestParam(value = "name",defaultValue = "%") String name,
+                                      @RequestParam(value = "year",defaultValue = "%") String year,
+                                      @RequestParam(value = "month",defaultValue = "%") String month) {
+        return managerRegisterService.getMaintainRecord(platId,pageNum,pageSize,name,year,month);
     }
 
     @ApiOperation(value = "耗材保存")
@@ -89,8 +92,11 @@ public class ManagerRegisterController {
     @ResponseBody
     public ResultVo getMaterialRecord(@RequestParam(value = "platId") String platId,
                                       @RequestParam(value = "pageNum",defaultValue = "1") Integer pageNum,
-                                      @RequestParam(value = "pageSize",defaultValue = "10") Integer pageSize) {
-        return managerRegisterService.getMaterialRecord(platId,pageNum,pageSize);
+                                      @RequestParam(value = "pageSize",defaultValue = "10") Integer pageSize,
+                                      @RequestParam(value = "name",defaultValue = "%") String name,
+                                      @RequestParam(value = "year",defaultValue = "%") String year,
+                                      @RequestParam(value = "month",defaultValue = "%") String month) {
+        return managerRegisterService.getMaterialRecord(platId,pageNum,pageSize,name,year,month);
     }
 
     @ApiOperation(value = "试剂保存")
@@ -121,12 +127,15 @@ public class ManagerRegisterController {
     @ResponseBody
     public ResultVo getReagentRecord(@RequestParam(value = "platId") String platId,
                                       @RequestParam(value = "pageNum",defaultValue = "1") Integer pageNum,
-                                      @RequestParam(value = "pageSize",defaultValue = "10") Integer pageSize) {
-        return managerRegisterService.getReagentRecord(platId, pageNum, pageSize);
+                                      @RequestParam(value = "pageSize",defaultValue = "10") Integer pageSize,
+                                     @RequestParam(value = "name",defaultValue = "%") String name,
+                                     @RequestParam(value = "year",defaultValue = "%") String year,
+                                     @RequestParam(value = "month",defaultValue = "%") String month) {
+        return managerRegisterService.getReagentRecord(platId, pageNum, pageSize,name,year,month);
     }
 
     @ApiOperation(value = "配件保存")
-    @PostMapping(value = "/reagent/save")
+    @PostMapping(value = "/parts/save")
     @ResponseBody
     public ResultVo savePartsRecord(@RequestBody RegisterParts registerParts, HttpSession session) {
         int userId = (int) session.getAttribute(Const.CURRENT_USER);
@@ -134,7 +143,7 @@ public class ManagerRegisterController {
     }
 
     @ApiOperation(value = "配件提交")
-    @PostMapping(value = "/reagent/commit")
+    @PostMapping(value = "/parts/commit")
     @ResponseBody
     public ResultVo commitPartsRecord(@RequestBody RegisterParts registerParts, HttpSession session) {
         int userId = (int) session.getAttribute(Const.CURRENT_USER);
@@ -142,18 +151,21 @@ public class ManagerRegisterController {
     }
 
     @ApiOperation(value = "配件删除")
-    @PostMapping(value = "/reagent/delete")
+    @PostMapping(value = "/parts/delete")
     @ResponseBody
     public ResultVo deletePartsRecord(@RequestParam(value = "recordId") String recordId) {
         return managerRegisterService.deletePartsRecord(recordId);
     }
 
     @ApiOperation(value = "配件查找")
-    @PostMapping(value = "/reagent/get")
+    @PostMapping(value = "/parts/get")
     @ResponseBody
     public ResultVo getPartsRecord(@RequestParam(value = "platId") String platId,
-                                     @RequestParam(value = "pageNum",defaultValue = "1") Integer pageNum,
-                                     @RequestParam(value = "pageSize",defaultValue = "10") Integer pageSize) {
-        return managerRegisterService.getPartsRecord(platId, pageNum, pageSize);
+                                   @RequestParam(value = "pageNum",defaultValue = "1") Integer pageNum,
+                                   @RequestParam(value = "pageSize",defaultValue = "10") Integer pageSize,
+                                   @RequestParam(value = "name",defaultValue = "%") String name,
+                                   @RequestParam(value = "year",defaultValue = "%") String year,
+                                   @RequestParam(value = "month",defaultValue = "%") String month) {
+        return managerRegisterService.getPartsRecord(platId, pageNum, pageSize ,name, year ,month);
     }
 }

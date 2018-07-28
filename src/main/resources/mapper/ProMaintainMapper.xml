@@ -20,9 +20,10 @@
 		SELECT id
 		FROM pro_maintain
 		WHERE plat_id = #{platId}
+        <if test="name != null">
+          AND name LIKE '%${name}%'
+        </if>
 	</select>
-
-
 
 	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 

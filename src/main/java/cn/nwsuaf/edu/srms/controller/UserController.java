@@ -10,6 +10,7 @@ import cn.nwsuaf.edu.srms.vo.UserVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,6 +38,8 @@ public class UserController {
                                   HttpSession session) {
 
         ResultVo<User> userResultVo = userService.login(username,password);
+
+        System.out.println(ToStringBuilder.reflectionToString(userResultVo));
 
         if(userResultVo.isSuccess()) {
             session.setAttribute(Const.CURRENT_USER,String.valueOf(userResultVo.getData().getId()));

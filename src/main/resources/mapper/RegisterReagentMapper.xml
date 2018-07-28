@@ -50,6 +50,12 @@
 		<foreach item="item" index="index" open="(" separator="," close=")" collection="maintainIdList">
 			#{item}
 		</foreach>
+		<if test="year != null" >
+			AND year(create_time) = #{year}
+		</if>
+		<if test="month != null" >
+			AND month(create_time) = #{month}
+		</if>
 		order by create_time DESC
 	</select>
 	<select id="getRegister" resultType="cn.nwsuaf.edu.srms.vo.RegisterVo">
@@ -70,6 +76,41 @@
 		AND register_reagent.producer_id = com_producer.id
 		AND register_reagent.supplier_id = com_supplier.id
 		AND register_reagent.user_id = user.id
+	</select>
+
+	<select id="getCountByPlatAndYearAndMonth" resultType="java.math.BigDecimal">
+		SELECT sum(total_price)
+		FROM register_reagent,pro_reagent
+		WHERE plat_id = #{platId}
+		AND pro_reagent.id = register_reagent.id
+		<if test="year != null" >
+			AND year(create_time) = #{year}
+		</if>
+		<if test="month != null" >
+			AND month(create_time) = #{month}
+		</if>
+	</select>
+	<select id="getCountByPlatAndTypeAndDate" resultType="java.util.Map">
+		SELECT
+		sum(case month(create_time) when '1' then total_price else 0 end) as 一月份,
+		sum(case month(create_time) when '2' then total_price else 0 end) as 二月份,
+		sum(case month(create_time) when '3' then total_price else 0 end) as 三月份,
+		sum(case month(create_time) when '4' then total_price else 0 end) as 四月份,
+		sum(case month(create_time) when '5' then total_price else 0 end) as 五月份,
+		sum(case month(create_time) when '6' then total_price else 0 end) as 六月份,
+		sum(case month(create_time) when '7' then total_price else 0 end) as 七月份,
+		sum(case month(create_time) when '8' then total_price else 0 end) as 八月份,
+		sum(case month(create_time) when '9' then total_price else 0 end) as 九月份,
+		sum(case month(create_time) when '10' then total_price else 0 end) as 十月份,
+		sum(case month(create_time) when '11' then total_price else 0 end) as 十一月份,
+		sum(case month(create_time) when '12' then total_price else 0 end) as 十二月份,
+		year(create_time) as 年份
+		FROM register_reagent,pro_reagent
+		WHERE plat_id = #{platId}
+		AND pro_reagent.id = register_reagent.id
+		<if test="year != null" >
+			AND year(create_time) = #{year}
+		</if>
 	</select>
 
 

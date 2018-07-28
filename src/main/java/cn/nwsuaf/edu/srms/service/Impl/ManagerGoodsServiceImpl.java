@@ -11,6 +11,8 @@ import cn.nwsuaf.edu.srms.entity.ProReagent;
 import cn.nwsuaf.edu.srms.service.ManagerGoodsService;
 import cn.nwsuaf.edu.srms.util.ResultUtil;
 import cn.nwsuaf.edu.srms.vo.ResultVo;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,6 +44,16 @@ public class ManagerGoodsServiceImpl implements ManagerGoodsService {
     }
 
     @Override
+    public ResultVo<PageInfo<ProMaterial>> getMaterialPageByPlat(String platId, Integer pageNum, Integer pageSize) {
+
+        PageHelper.startPage(pageNum,pageSize);
+        List<ProMaterial> proMaterialList = proMaterialMapper.getByPlat(platId);
+        PageInfo<ProMaterial> pageInfo = new PageInfo<>(proMaterialList);
+
+        return ResultUtil.createBySuccess(pageInfo);
+    }
+
+    @Override
     public ResultVo addMaterial(ProMaterial proMaterial) {
 
         int result = proMaterialMapper.insert(proMaterial);
@@ -60,6 +72,16 @@ public class ManagerGoodsServiceImpl implements ManagerGoodsService {
     }
 
     @Override
+    public ResultVo getMaintainPageByPlat(String platId, Integer pageNum, Integer pageSize) {
+
+        PageHelper.startPage(pageNum,pageSize);
+        List<ProMaintain> proMaintainList = proMaintainMapper.getByPlat(platId);
+        PageInfo<ProMaintain> pageInfo = new PageInfo<>(proMaintainList);
+
+        return ResultUtil.createBySuccess(pageInfo);
+    }
+
+    @Override
     public ResultVo addMaintain(ProMaintain proMaintain) {
         int result = proMaintainMapper.insert(proMaintain);
         if(result == 1){
@@ -72,6 +94,17 @@ public class ManagerGoodsServiceImpl implements ManagerGoodsService {
     public ResultVo<List<ProParts>> getPartsByPlat(String platId) {
         List<ProParts> proPartsList = proPartsMapper.getByPlat(platId);
         return ResultUtil.createBySuccess(proPartsList);
+    }
+
+    @Override
+    public ResultVo getPartsPageByPlat(String platId, Integer pageNum, Integer pageSize) {
+
+        PageHelper.startPage(pageNum,pageSize);
+        List<ProParts> proPartsList = proPartsMapper.getByPlat(platId);
+        PageInfo<ProParts> pageInfo = new PageInfo<>(proPartsList);
+
+        return ResultUtil.createBySuccess(pageInfo);
+
     }
 
     @Override
@@ -90,6 +123,16 @@ public class ManagerGoodsServiceImpl implements ManagerGoodsService {
     }
 
     @Override
+    public ResultVo getReagentPageByPlat(String platId, Integer pageNum, Integer pageSize) {
+
+        PageHelper.startPage(pageNum,pageSize);
+        List<ProReagent> proReagentList = proReagentMapper.getByPlat(platId);
+        PageInfo<ProReagent> pageInfo = new PageInfo<>(proReagentList);
+        return ResultUtil.createBySuccess(pageInfo);
+
+    }
+
+    @Override
     public ResultVo addReagent(ProReagent proReagent) {
         int result = proReagentMapper.insert(proReagent);
         if(result == 1){
@@ -97,4 +140,6 @@ public class ManagerGoodsServiceImpl implements ManagerGoodsService {
         }
         return ResultUtil.createBySuccessMessage("添加试剂失败");
     }
+
+
 }

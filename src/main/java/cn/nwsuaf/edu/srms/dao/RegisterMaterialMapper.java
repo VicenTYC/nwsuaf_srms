@@ -3,9 +3,12 @@ package cn.nwsuaf.edu.srms.dao;
 import cn.nwsuaf.edu.srms.entity.RegisterMaterial;
 import cn.nwsuaf.edu.srms.vo.RegisterVo;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 @Component
@@ -22,7 +25,11 @@ public interface RegisterMaterialMapper {
 
     int updateByPrimaryKey(RegisterMaterial record);
 
-    List<Integer> getIds(List<Integer> maintainIdList);
+    List<Integer> getIds(@Param("maintainIdList") List<Integer> maintainIdList, @Param("year") String year, @Param("month") String month);
 
     List<RegisterVo> getRegister(List<Integer> idList);
+
+    BigDecimal getCountByPlatAndYearAndMonth(@Param("platId") String platId, @Param("year") String year, @Param("month") String month);
+
+    Map<String,BigDecimal> getCountByPlatAndTypeAndDate(@Param("platId") String platId, @Param("year") String year);
 }

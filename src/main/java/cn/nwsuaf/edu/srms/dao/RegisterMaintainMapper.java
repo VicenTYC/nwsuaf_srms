@@ -6,7 +6,9 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 @Component
@@ -25,5 +27,9 @@ public interface RegisterMaintainMapper {
 
     List<RegisterVo> getRegister(@Param("idList")List<Integer> maintainIdList);
 
-    List<Integer> getIds(@Param("maintainIdList") List<Integer> maintainIdList);
+    List<Integer> getIds(@Param("maintainIdList") List<Integer> maintainIdList, @Param("year") String year, @Param("month") String month);
+
+    BigDecimal getCountByPlatAndYearAndMonth(@Param("platId") String platId, @Param("year") String year, @Param("month") String month);
+
+    Map<String,BigDecimal> getCountByPlatAndTypeAndDate(@Param("platId") String platId, @Param("year") String year);
 }

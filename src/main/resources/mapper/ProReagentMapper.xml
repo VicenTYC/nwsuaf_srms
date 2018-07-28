@@ -15,6 +15,9 @@
 		SELECT id
 		FROM pro_reagent
 		WHERE plat_id =#{platId}
+      <if test="name != null">
+        AND name LIKE "%"#{name}"%"
+      </if>
 	</select>
 
 

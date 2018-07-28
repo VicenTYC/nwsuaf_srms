@@ -27,7 +27,17 @@ public class Const {
     public interface REGTSTER{
         Integer SAVE = 0;
         Integer COMMIT = 1;
-        Integer PASS = 2;
+        Integer UNPASS = 2;
+        Integer PASS = 3;
+    }
+
+    public interface TYPE{
+
+        String PARTS = "配件";
+        String REAGENT = "试剂";
+        String MATERIAL = "耗材";
+        String MAINTAIN = "维修";
+
     }
 
 }

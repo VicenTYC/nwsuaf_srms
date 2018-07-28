@@ -4,6 +4,7 @@ import cn.nwsuaf.edu.srms.common.Const;
 import cn.nwsuaf.edu.srms.dao.*;
 import cn.nwsuaf.edu.srms.entity.*;
 import cn.nwsuaf.edu.srms.service.ManagerRegisterService;
+import cn.nwsuaf.edu.srms.util.RegisterVoUtil;
 import cn.nwsuaf.edu.srms.util.ResultUtil;
 import cn.nwsuaf.edu.srms.vo.RegisterVo;
 import cn.nwsuaf.edu.srms.vo.ResultVo;
@@ -25,25 +26,21 @@ public class ManagerRegisterServiceImpl implements ManagerRegisterService {
 
     @Autowired
     private ProMaintainMapper proMaintainMapper;
-
     @Autowired
     private RegisterMaintainMapper registerMaintainMapper;
 
     @Autowired
     private ProMaterialMapper proMaterialMapper;
-
     @Autowired
     private RegisterMaterialMapper registerMaterialMapper;
 
     @Autowired
     private ProReagentMapper proReagentMapper;
-
     @Autowired
     private RegisterReagentMapper registerReagentMapper;
 
     @Autowired
     private ProPartsMapper proPartsMapper;
-
     @Autowired
     private RegisterPartsMapper registerPartsMapper;
 
@@ -82,19 +79,32 @@ public class ManagerRegisterServiceImpl implements ManagerRegisterService {
     }
 
     @Override
-    public ResultVo getMaintainRecord(String platId, Integer pageNum, Integer pageSize) {
+    public ResultVo getMaintainRecord(String platId, Integer pageNum, Integer pageSize, String name, String year, String month) {
 
-        List<Integer> maintainIdList = proMaintainMapper.getIdsByPlat(platId);
+        if(name!=null && name.equals("%"))
+            name = null;
+        if(year.equals("%"))
+            year = null;
+        if(month.equals("%"))
+            month = null;
 
-        PageHelper.startPage(pageNum,pageSize);
-        List<Integer> idList = registerMaintainMapper.getIds(maintainIdList);
+        List<Integer> maintainIdList = proMaintainMapper.getIdsByPlat(platId,name);
 
-        List<RegisterVo> registerVoList = registerMaintainMapper.getRegister(idList);
+        if(maintainIdList.size() != 0 ){
+            PageHelper.startPage(pageNum,pageSize);
+            List<Integer> idList = registerMaintainMapper.getIds(maintainIdList,year,month);
 
-        PageInfo pageInfo = new PageInfo(idList);
-        pageInfo.setList(registerVoList);
+            if(idList.size() != 0) {
+                List<RegisterVo> registerVoList = registerMaintainMapper.getRegister(idList);
+                RegisterVoUtil.setString(registerVoList);
 
-        return ResultUtil.createBySuccess(pageInfo);
+                PageInfo pageInfo = new PageInfo(idList);
+                pageInfo.setList(registerVoList);
+                return ResultUtil.createBySuccess(pageInfo);
+            }
+        }
+        return ResultUtil.createByErrorMessage("无记录");
+
     }
 
     @Override
@@ -130,18 +140,32 @@ public class ManagerRegisterServiceImpl implements ManagerRegisterService {
     }
 
     @Override
-    public ResultVo getMaterialRecord(String platId, Integer pageNum, Integer pageSize) {
-        List<Integer> materialIdList = proMaterialMapper.getIdsByPlat(platId);
+    public ResultVo getMaterialRecord(String platId, Integer pageNum, Integer pageSize, String name, String year, String month) {
 
-        PageHelper.startPage(pageNum,pageSize);
-        List<Integer> idList = registerMaterialMapper.getIds(materialIdList);
+        if(name!=null && name.equals("%"))
+            name = null;
+        if(year.equals("%"))
+            year = null;
+        if(month.equals("%"))
+            month = null;
 
-        List<RegisterVo> registerVoList = registerMaterialMapper.getRegister(idList);
+        List<Integer> materialIdList = proMaterialMapper.getIdsByPlat(platId,name);
 
-        PageInfo pageInfo = new PageInfo(idList);
-        pageInfo.setList(registerVoList);
+        if(materialIdList.size() != 0) {
+            PageHelper.startPage(pageNum,pageSize);
+            List<Integer> idList = registerMaterialMapper.getIds(materialIdList,year,month);
 
-        return ResultUtil.createBySuccess(pageInfo);
+            if(idList.size() != 0) {
+                List<RegisterVo> registerVoList;
+                registerVoList = registerMaterialMapper.getRegister(idList);
+                RegisterVoUtil.setString(registerVoList);
+
+                PageInfo pageInfo = new PageInfo(idList);
+                pageInfo.setList(registerVoList);
+                return ResultUtil.createBySuccess(pageInfo);
+            }
+        }
+        return ResultUtil.createByErrorMessage("无登记记录");
     }
 
     @Override
@@ -177,18 +201,33 @@ public class ManagerRegisterServiceImpl implements ManagerRegisterService {
     }
 
     @Override
-    public ResultVo getPartsRecord(String platId, Integer pageNum, Integer pageSize) {
-        List<Integer> materialIdList = proPartsMapper.getIdsByPlat(platId);
+    public ResultVo getPartsRecord(String platId, Integer pageNum, Integer pageSize, String name, String year, String month) {
 
-        PageHelper.startPage(pageNum,pageSize);
-        List<Integer> idList = registerPartsMapper.getIds(materialIdList);
+        if(name!=null && name.equals("%"))
+            name = null;
+        if(year.equals("%"))
+            year = null;
+        if(month.equals("%"))
+            month = null;
 
-        List<RegisterVo> registerVoList = registerPartsMapper.getRegister(idList);
+        List<Integer> materialIdList = proPartsMapper.getIdsByPlat(platId,name);
 
-        PageInfo pageInfo = new PageInfo(idList);
-        pageInfo.setList(registerVoList);
+        if(materialIdList.size() != 0 ){
+            PageHelper.startPage(pageNum,pageSize);
+            List<Integer> idList = registerPartsMapper.getIds(materialIdList,year,month);
 
-        return ResultUtil.createBySuccess(pageInfo);
+            if(idList.size() != 0){
+                List<RegisterVo> registerVoList = registerPartsMapper.getRegister(idList);
+
+                RegisterVoUtil.setString(registerVoList);
+
+                PageInfo pageInfo = new PageInfo(idList);
+                pageInfo.setList(registerVoList);
+
+                return ResultUtil.createBySuccess("查询配件成功",pageInfo);
+            }
+        }
+        return ResultUtil.createByErrorMessage("无登记记录");
     }
 
     @Override
@@ -224,18 +263,31 @@ public class ManagerRegisterServiceImpl implements ManagerRegisterService {
     }
 
     @Override
-    public ResultVo getReagentRecord(String platId, Integer pageNum, Integer pageSize) {
-        List<Integer> materialIdList = proReagentMapper.getIdsByPlat(platId);
+    public ResultVo getReagentRecord(String platId, Integer pageNum, Integer pageSize, String name, String year, String month) {
 
-        PageHelper.startPage(pageNum,pageSize);
-        List<Integer> idList = registerReagentMapper.getIds(materialIdList);
+        if(name!=null && name.equals("%"))
+            name = null;
+        if(year.equals("%"))
+            year = null;
+        if(month.equals("%"))
+            month = null;
 
-        List<RegisterVo> registerVoList = registerReagentMapper.getRegister(idList);
+        List<Integer> materialIdList = proReagentMapper.getIdsByPlat(platId,name);
+        if(materialIdList.size() != 0 ){
+            PageHelper.startPage(pageNum,pageSize);
+            List<Integer> idList =  registerReagentMapper.getIds(materialIdList,year,month);
 
-        PageInfo pageInfo = new PageInfo(idList);
-        pageInfo.setList(registerVoList);
+            if(idList.size() != 0) {
+                List<RegisterVo> registerVoList = registerReagentMapper.getRegister(idList);
+                RegisterVoUtil.setString(registerVoList);
+                PageInfo pageInfo = new PageInfo(idList);
+                pageInfo.setList(registerVoList);
 
-        return ResultUtil.createBySuccess(pageInfo);
+                return ResultUtil.createBySuccess("查询成功",pageInfo);
+            }
+        }
+
+        return ResultUtil.createByErrorMessage("无记录");
     }
 
 }

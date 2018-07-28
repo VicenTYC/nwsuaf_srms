@@ -20,7 +20,7 @@ public interface ManagerRegisterService {
 
     ResultVo deleteMaintainRecord(String recordId);
 
-    ResultVo getMaintainRecord(String platId, Integer pageNum, Integer pageSize);
+    ResultVo getMaintainRecord(String platId, Integer pageNum, Integer pageSize, String name, String year, String month);
 
     ResultVo saveMaterialRecord(RegisterMaterial registerMaterial, int userId);
 
@@ -28,7 +28,7 @@ public interface ManagerRegisterService {
 
     ResultVo deleteMaterialRecord(String recordId);
 
-    ResultVo getMaterialRecord(String platId, Integer pageNum, Integer pageSize);
+    ResultVo getMaterialRecord(String platId, Integer pageNum, Integer pageSize, String name, String year, String month);
 
     ResultVo saveReagentRecord(RegisterReagent registerReagent, int userId);
 
@@ -36,7 +36,7 @@ public interface ManagerRegisterService {
 
     ResultVo deleteReagentRecord(String recordId);
 
-    ResultVo getReagentRecord(String platId, Integer pageNum, Integer pageSize);
+    ResultVo getReagentRecord(String platId, Integer pageNum, Integer pageSize, String name, String year, String month);
 
     ResultVo savePartsRecord(RegisterParts registerParts, int userId);
 
@@ -44,5 +44,5 @@ public interface ManagerRegisterService {
 
     ResultVo deletePartsRecord(String recordId);
 
-    ResultVo getPartsRecord(String platId, Integer pageNum, Integer pageSize);
+    ResultVo getPartsRecord(String platId, Integer pageNum, Integer pageSize, String name, String year, String month);
 }

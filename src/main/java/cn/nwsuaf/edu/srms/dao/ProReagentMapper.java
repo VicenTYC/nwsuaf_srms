@@ -2,6 +2,7 @@ package cn.nwsuaf.edu.srms.dao;
 
 import cn.nwsuaf.edu.srms.entity.ProReagent;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -23,5 +24,5 @@ public interface ProReagentMapper {
 
     List<ProReagent> getByPlat(String platId);
 
-    List<Integer> getIdsByPlat(String platId);
+    List<Integer> getIdsByPlat(@Param("platId") String platId, @Param("name") String name);
 }

@@ -63,7 +63,7 @@ public class MD5Util {
             "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
 
     public static void main(String[] args) {
-        String str =   MD5Util.MD5EncodeUtf8("manager","123456");
+        String str =   MD5Util.MD5EncodeUtf8("test6","123456");
         System.out.println(str);
     }
 }

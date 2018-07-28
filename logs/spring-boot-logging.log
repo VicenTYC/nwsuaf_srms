@@ -1,0 +1,594 @@
+2018/07/28-17:00 [restartedMain] INFO  cn.nwsuaf.edu.srms.SrmsApplication- Starting SrmsApplication on Kekeer with PID 17052 (D:\workspace\idea_workspace\project\NWSUAF_SRMS\target\classes started by ke li in D:\workspace\idea_workspace\project\NWSUAF_SRMS)
+2018/07/28-17:00 [restartedMain] INFO  cn.nwsuaf.edu.srms.SrmsApplication- No active profile set, falling back to default profiles: default
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext- Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@63dace45: startup date [Sat Jul 28 17:00:47 CST 2018]; root of context hierarchy
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$ffc85709] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat initialized with port(s): 8090 (http)
+2018/07/28-17:00 [restartedMain] INFO  org.apache.catalina.core.StandardService- Starting service [Tomcat]
+2018/07/28-17:00 [restartedMain] INFO  org.apache.catalina.core.StandardEngine- Starting Servlet Engine: Apache Tomcat/8.5.31
+2018/07/28-17:00 [localhost-startStop-1] INFO  org.apache.catalina.core.AprLifecycleListener- Loaded APR based Apache Tomcat Native library [1.2.14] using APR version [1.6.2].
+2018/07/28-17:00 [localhost-startStop-1] INFO  org.apache.catalina.core.AprLifecycleListener- APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2018/07/28-17:00 [localhost-startStop-1] INFO  org.apache.catalina.core.AprLifecycleListener- APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2018/07/28-17:00 [localhost-startStop-1] INFO  org.apache.catalina.core.AprLifecycleListener- OpenSSL successfully initialized [OpenSSL 1.0.2l  25 May 2017]
+2018/07/28-17:00 [localhost-startStop-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring embedded WebApplicationContext
+2018/07/28-17:00 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader- Root WebApplicationContext: initialization completed in 424 ms
+2018/07/28-17:00 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.ServletRegistrationBean- Servlet dispatcherServlet mapped to [/]
+2018/07/28-17:00 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.ServletRegistrationBean- Servlet statViewServlet mapped to [/druid/*]
+2018/07/28-17:00 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean- Mapping filter: 'characterEncodingFilter' to: [/*]
+2018/07/28-17:00 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean- Mapping filter: 'webStatFilter' to urls: [/*]
+2018/07/28-17:00 [restartedMain] INFO  com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure- Init DruidDataSource
+2018/07/28-17:00 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource- {dataSource-13} inited
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/firm/maintainer/add],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo<java.lang.String> cn.nwsuaf.edu.srms.controller.ManagerFirmController.addMaintainer(cn.nwsuaf.edu.srms.entity.ComMaintainer)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/firm/maintainer/list],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo<java.util.List<cn.nwsuaf.edu.srms.entity.ComMaintainer>> cn.nwsuaf.edu.srms.controller.ManagerFirmController.getAllMaintainer()
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/firm/supplier/add],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo<java.lang.String> cn.nwsuaf.edu.srms.controller.ManagerFirmController.addSupplier(cn.nwsuaf.edu.srms.entity.ComSupplier)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/firm/producer/add],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo cn.nwsuaf.edu.srms.controller.ManagerFirmController.addProducer(cn.nwsuaf.edu.srms.entity.ComProducer)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/firm/producer/list],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo<java.util.List<cn.nwsuaf.edu.srms.entity.ComProducer>> cn.nwsuaf.edu.srms.controller.ManagerFirmController.getAllProducer()
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/firm/supplier/list],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo<java.util.List<cn.nwsuaf.edu.srms.entity.ComSupplier>> cn.nwsuaf.edu.srms.controller.ManagerFirmController.getAllSupplier()
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/manager/goods/parts/list],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo cn.nwsuaf.edu.srms.controller.ManagerGoodsController.getParts(java.lang.String)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/manager/goods/material/list],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo<java.util.List<cn.nwsuaf.edu.srms.entity.ProMaterial>> cn.nwsuaf.edu.srms.controller.ManagerGoodsController.getMaterial(java.lang.String)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/manager/goods/material/add],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo cn.nwsuaf.edu.srms.controller.ManagerGoodsController.addMaterial(cn.nwsuaf.edu.srms.entity.ProMaterial)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/manager/goods/maintain/list],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo cn.nwsuaf.edu.srms.controller.ManagerGoodsController.getMaintain(java.lang.String)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/manager/goods/maintain/add],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo cn.nwsuaf.edu.srms.controller.ManagerGoodsController.addMaintain(cn.nwsuaf.edu.srms.entity.ProMaintain)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/manager/goods/reagent/list_page],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo cn.nwsuaf.edu.srms.controller.ManagerGoodsController.getReagentByPage(java.lang.String,java.lang.Integer,java.lang.Integer)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/manager/goods/parts/list_page],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo cn.nwsuaf.edu.srms.controller.ManagerGoodsController.getPartsByPage(java.lang.String,java.lang.Integer,java.lang.Integer)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/manager/goods/parts/add],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo cn.nwsuaf.edu.srms.controller.ManagerGoodsController.addParts(cn.nwsuaf.edu.srms.entity.ProParts)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/manager/goods/reagent/list],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo cn.nwsuaf.edu.srms.controller.ManagerGoodsController.getReagent(java.lang.String)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/manager/goods/reagent/add],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo cn.nwsuaf.edu.srms.controller.ManagerGoodsController.addReagent(cn.nwsuaf.edu.srms.entity.ProReagent)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/manager/goods/material/list_page],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo<com.github.pagehelper.PageInfo<cn.nwsuaf.edu.srms.entity.ProMaterial>> cn.nwsuaf.edu.srms.controller.ManagerGoodsController.getMaterialByPage(java.lang.String,java.lang.Integer,java.lang.Integer)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/manager/goods/maintain/list_page],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo cn.nwsuaf.edu.srms.controller.ManagerGoodsController.getMaintainByPage(java.lang.String,java.lang.Integer,java.lang.Integer)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/manager/instrument/add],methods=[GET]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo<java.lang.String> cn.nwsuaf.edu.srms.controller.ManagerInstrumentController.addInstrument(cn.nwsuaf.edu.srms.entity.ProInstrument)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/manager/instrument/list],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo<java.util.List<cn.nwsuaf.edu.srms.vo.InstrumentVo>> cn.nwsuaf.edu.srms.controller.ManagerInstrumentController.getAllInstrument(java.lang.Integer)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/manager/plat/list],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo<java.util.List<cn.nwsuaf.edu.srms.entity.Platform>> cn.nwsuaf.edu.srms.controller.ManagerPlatController.getPlatByManager(javax.servlet.http.HttpSession)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/manager/register/parts/get],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo cn.nwsuaf.edu.srms.controller.ManagerRegisterController.getPartsRecord(java.lang.String,java.lang.Integer,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/manager/register/parts/save],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo cn.nwsuaf.edu.srms.controller.ManagerRegisterController.savePartsRecord(cn.nwsuaf.edu.srms.entity.RegisterParts,javax.servlet.http.HttpSession)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/manager/register/reagent/get],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo cn.nwsuaf.edu.srms.controller.ManagerRegisterController.getReagentRecord(java.lang.String,java.lang.Integer,java.lang.Integer)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/manager/register/maintain/delete],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo cn.nwsuaf.edu.srms.controller.ManagerRegisterController.deleteMaintainRecord(java.lang.String)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/manager/register/reagent/save],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo cn.nwsuaf.edu.srms.controller.ManagerRegisterController.saveReagentRecord(cn.nwsuaf.edu.srms.entity.RegisterReagent,javax.servlet.http.HttpSession)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/manager/register/maintain/save],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo cn.nwsuaf.edu.srms.controller.ManagerRegisterController.saveMaintainRecord(cn.nwsuaf.edu.srms.entity.RegisterMaintain,javax.servlet.http.HttpSession)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/manager/register/parts/delete],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo cn.nwsuaf.edu.srms.controller.ManagerRegisterController.deletePartsRecord(java.lang.String)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/manager/register/maintain/commit],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo cn.nwsuaf.edu.srms.controller.ManagerRegisterController.commitMaintainRecord(cn.nwsuaf.edu.srms.entity.RegisterMaintain,javax.servlet.http.HttpSession)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/manager/register/material/get],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo cn.nwsuaf.edu.srms.controller.ManagerRegisterController.getMaterialRecord(java.lang.String,java.lang.Integer,java.lang.Integer)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/manager/register/reagent/delete],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo cn.nwsuaf.edu.srms.controller.ManagerRegisterController.deleteReagentRecord(java.lang.String)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/manager/register/material/commit],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo cn.nwsuaf.edu.srms.controller.ManagerRegisterController.commitMaterialRecord(cn.nwsuaf.edu.srms.entity.RegisterMaterial,javax.servlet.http.HttpSession)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/manager/register/reagent/commit],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo cn.nwsuaf.edu.srms.controller.ManagerRegisterController.commitReagentRecord(cn.nwsuaf.edu.srms.entity.RegisterReagent,javax.servlet.http.HttpSession)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/manager/register/parts/commit],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo cn.nwsuaf.edu.srms.controller.ManagerRegisterController.commitPartsRecord(cn.nwsuaf.edu.srms.entity.RegisterParts,javax.servlet.http.HttpSession)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/manager/register/maintain/get],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo cn.nwsuaf.edu.srms.controller.ManagerRegisterController.getMaintainRecord(java.lang.String,java.lang.Integer,java.lang.Integer,java.lang.String,java.lang.String,java.lang.String)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/manager/register/material/save],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo cn.nwsuaf.edu.srms.controller.ManagerRegisterController.saveMaterialRecord(cn.nwsuaf.edu.srms.entity.RegisterMaterial,javax.servlet.http.HttpSession)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/manager/register/material/delete],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo cn.nwsuaf.edu.srms.controller.ManagerRegisterController.deleteMaterialRecord(java.lang.String)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/statistics/get_count_year_month],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo cn.nwsuaf.edu.srms.controller.StatisticsController.getGoodsTypeCountByPlatAndYearAndMonth(java.lang.String,java.lang.String,java.lang.String)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/statistics/get_count_type_year],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo cn.nwsuaf.edu.srms.controller.StatisticsController.getGoodsTypeCountByPlatAndTypeAndDate(java.lang.String,java.lang.Integer,java.lang.String)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/statistics/get_count_lab_type_year],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo cn.nwsuaf.edu.srms.controller.StatisticsController.getGoodsTypePlatCountByTypeAndDate(java.lang.Integer,java.lang.String,java.lang.String)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/statistics/get_year_month],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo cn.nwsuaf.edu.srms.controller.StatisticsController.getGoodsByPlatAndYearAndMonth(java.lang.String,java.lang.String,java.lang.String)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/user/get_info],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo<cn.nwsuaf.edu.srms.vo.UserVo> cn.nwsuaf.edu.srms.controller.UserController.getInfo(javax.servlet.http.HttpSession)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/user/login],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo<java.lang.String> cn.nwsuaf.edu.srms.controller.UserController.login(java.lang.String,java.lang.String,javax.servlet.http.HttpSession)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/user/update_password],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo<java.lang.String> cn.nwsuaf.edu.srms.controller.UserController.updatePassword(java.lang.String,java.lang.String,javax.servlet.http.HttpSession)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/user/update_info],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo<cn.nwsuaf.edu.srms.vo.UserVo> cn.nwsuaf.edu.srms.controller.UserController.updateInfo(cn.nwsuaf.edu.srms.vo.UserVo,javax.servlet.http.HttpSession)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/user/logout],methods=[POST]}" onto public cn.nwsuaf.edu.srms.vo.ResultVo<java.lang.String> cn.nwsuaf.edu.srms.controller.UserController.logout(javax.servlet.http.HttpSession)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/v2/api-docs],methods=[GET],produces=[application/json || application/hal+json]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/swagger-resources/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/swagger-resources/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping- Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping- Mapped URL path [/swagger-ui.html] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping- Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter- Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@63dace45: startup date [Sat Jul 28 17:00:47 CST 2018]; root of context hierarchy
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver- Detected @ExceptionHandler methods in globalExceptionHandler
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer- LiveReload server is running on port 35729
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter- Registering beans for JMX exposure on startup
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter- Bean with name 'statFilter' has been autodetected for JMX exposure
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter- Bean with name 'dataSource' has been autodetected for JMX exposure
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter- Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.spring.boot.autoconfigure:name=dataSource,type=DruidDataSourceWrapper]
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter- Located MBean 'statFilter': registering with JMX server as MBean [com.alibaba.druid.filter.stat:name=statFilter,type=StatFilter]
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.context.support.DefaultLifecycleProcessor- Starting beans in phase 2147483647
+2018/07/28-17:00 [restartedMain] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper- Context refreshed
+2018/07/28-17:00 [restartedMain] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper- Found 1 custom documentation plugin(s)
+2018/07/28-17:00 [restartedMain] INFO  springfox.documentation.spring.web.scanners.ApiListingReferenceScanner- Scanning for api listing references
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- Tomcat started on port(s): 8090 (http) with context path ''
+2018/07/28-17:00 [restartedMain] INFO  cn.nwsuaf.edu.srms.SrmsApplication- Started SrmsApplication in 1.117 seconds (JVM running for 887.067)
+2018/07/28-17:00 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener- Condition evaluation unchanged
+2018/07/28-17:00 [http-nio-8090-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018/07/28-17:00 [http-nio-8090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet- FrameworkServlet 'dispatcherServlet': initialization started
+2018/07/28-17:00 [http-nio-8090-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet- FrameworkServlet 'dispatcherServlet': initialization completed in 3 ms
+2018/07/28-17:01 [Thread-89] INFO  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext- Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@63dace45: startup date [Sat Jul 28 17:00:47 CST 2018]; root of context hierarchy
+2018/07/28-17:01 [Thread-89] INFO  org.springframework.context.support.DefaultLifecycleProcessor- Stopping beans in phase 2147483647
+2018/07/28-17:01 [Thread-89] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter- Unregistering JMX-exposed beans on shutdown
+2018/07/28-17:01 [Thread-89] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter- Unregistering JMX-exposed beans
+2018/07/28-17:01 [Thread-89] INFO  com.alibaba.druid.pool.DruidDataSource- {dataSource-13} closed
+2018-07-28 17:05:36.712  INFO 15688 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : Starting SrmsApplication on Kekeer with PID 15688 (D:\workspace\idea_workspace\project\NWSUAF_SRMS\target\classes started by ke li in D:\workspace\idea_workspace\project\NWSUAF_SRMS)
+2018-07-28 17:05:36.713  INFO 15688 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : No active profile set, falling back to default profiles: default
+2018-07-28 17:05:37.121  INFO 15688 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-07-28 17:05:37.122  INFO 15688 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-07-28 17:05:37.123  INFO 15688 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.14] using APR version [1.6.2].
+2018-07-28 17:05:37.123  INFO 15688 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2018-07-28 17:05:37.123  INFO 15688 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2018-07-28 17:05:37.124  INFO 15688 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2l  25 May 2017]
+2018-07-28 17:05:37.141  INFO 15688 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-07-28 17:05:37.191  INFO 15688 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2018-07-28 17:05:37.265  INFO 15688 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-2} inited
+2018-07-28 17:05:37.595  INFO 15688 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-07-28 17:05:37.596  INFO 15688 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-07-28 17:05:37.598  INFO 15688 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-07-28 17:05:37.807  INFO 15688 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : Started SrmsApplication in 1.122 seconds (JVM running for 55.844)
+2018-07-28 17:05:46.886  INFO 15688 --- [http-nio-8090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-07-28 17:06:48.641  INFO 15688 --- [Thread-23] com.alibaba.druid.pool.DruidDataSource   : {dataSource-2} closed
+2018-07-28 17:06:49.104  INFO 15688 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : Starting SrmsApplication on Kekeer with PID 15688 (D:\workspace\idea_workspace\project\NWSUAF_SRMS\target\classes started by ke li in D:\workspace\idea_workspace\project\NWSUAF_SRMS)
+2018-07-28 17:06:49.105  INFO 15688 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : No active profile set, falling back to default profiles: default
+2018-07-28 17:06:49.519  INFO 15688 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-07-28 17:06:49.520  INFO 15688 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-07-28 17:06:49.521  INFO 15688 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.14] using APR version [1.6.2].
+2018-07-28 17:06:49.521  INFO 15688 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2018-07-28 17:06:49.521  INFO 15688 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2018-07-28 17:06:49.522  INFO 15688 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2l  25 May 2017]
+2018-07-28 17:06:49.539  INFO 15688 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-07-28 17:06:49.585  INFO 15688 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2018-07-28 17:06:49.641  INFO 15688 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-3} inited
+2018-07-28 17:06:49.937  INFO 15688 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-07-28 17:06:49.937  INFO 15688 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-07-28 17:06:49.939  INFO 15688 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-07-28 17:06:50.135  INFO 15688 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : Started SrmsApplication in 1.056 seconds (JVM running for 128.172)
+2018-07-28 17:06:53.079  INFO 15688 --- [http-nio-8090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-07-28 17:06:53.086 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.d.P.getIdsByPlat                 : ==>  Preparing: SELECT id FROM pro_maintain WHERE plat_id = ? AND name LIKE '%H%' 
+2018-07-28 17:06:53.091 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.d.P.getIdsByPlat                 : ==> Parameters: 1(String)
+2018-07-28 17:06:53.144 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.d.P.getIdsByPlat                 : <==      Total: 1
+2018-07-28 17:06:53.146 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.d.R.getIds_COUNT                 : ==>  Preparing: SELECT count(0) FROM register_maintain WHERE maintain_id IN (?) 
+2018-07-28 17:06:53.147 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.d.R.getIds_COUNT                 : ==> Parameters: 1(Integer)
+2018-07-28 17:06:53.148 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.d.R.getIds_COUNT                 : <==      Total: 1
+2018-07-28 17:06:53.148 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.d.RegisterMaintainMapper.getIds  : ==>  Preparing: SELECT id FROM register_maintain WHERE maintain_id in ( ? ) order by create_time DESC LIMIT ?, ? 
+2018-07-28 17:06:53.149 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.d.RegisterMaintainMapper.getIds  : ==> Parameters: 1(Integer), 10(Integer), 10(Integer)
+2018-07-28 17:06:53.149 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.d.RegisterMaintainMapper.getIds  : <==      Total: 0
+2018-07-28 17:08:54.553 DEBUG 15688 --- [http-nio-8090-exec-6] c.n.e.s.dao.UserMapper.selectByPassword  : ==>  Preparing: select id, username, password, name, sex, phone, telephone, email, type from user where username=? AND password=? 
+2018-07-28 17:08:54.555 DEBUG 15688 --- [http-nio-8090-exec-6] c.n.e.s.dao.UserMapper.selectByPassword  : ==> Parameters: manager(String), 78AE9A36AD80C5D88220578EF91F9E56(String)
+2018-07-28 17:08:54.559 DEBUG 15688 --- [http-nio-8090-exec-6] c.n.e.s.dao.UserMapper.selectByPassword  : <==      Total: 1
+2018-07-28 17:08:57.736 DEBUG 15688 --- [http-nio-8090-exec-7] c.n.e.s.d.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, username, password, name, sex, phone, telephone, email, type from user where id = ? 
+2018-07-28 17:08:57.736 DEBUG 15688 --- [http-nio-8090-exec-7] c.n.e.s.d.UserMapper.selectByPrimaryKey  : ==> Parameters: 1(Integer)
+2018-07-28 17:08:57.738 DEBUG 15688 --- [http-nio-8090-exec-7] c.n.e.s.d.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2018-07-28 17:09:10.883 DEBUG 15688 --- [http-nio-8090-exec-9] c.n.e.s.d.P.selectByManager              : ==>  Preparing: SELECT platform.id,platform.name FROM platform,user_plat WHERE user_plat.user_id = ? AND user_plat.plat_id = platform.id 
+2018-07-28 17:09:10.887 DEBUG 15688 --- [http-nio-8090-exec-9] c.n.e.s.d.P.selectByManager              : ==> Parameters: 1(String)
+2018-07-28 17:09:10.890 DEBUG 15688 --- [http-nio-8090-exec-9] c.n.e.s.d.P.selectByManager              : <==      Total: 2
+2018-07-28 17:09:10.893 DEBUG 15688 --- [http-nio-8090-exec-10] c.n.e.s.dao.ProMaterialMapper.getByPlat  : ==>  Preparing: SELECT id,name,specification FROM pro_material WHERE plat_id = ? 
+2018-07-28 17:09:10.895 DEBUG 15688 --- [http-nio-8090-exec-10] c.n.e.s.dao.ProMaterialMapper.getByPlat  : ==> Parameters: 1(String)
+2018-07-28 17:09:10.907 DEBUG 15688 --- [http-nio-8090-exec-10] c.n.e.s.dao.ProMaterialMapper.getByPlat  : <==      Total: 46
+2018-07-28 17:09:49.694 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.d.P.getIdsByPlat                 : ==>  Preparing: SELECT id FROM pro_maintain WHERE plat_id = ? AND name LIKE '%H%' 
+2018-07-28 17:09:49.695 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.d.P.getIdsByPlat                 : ==> Parameters: 1(String)
+2018-07-28 17:09:49.696 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.d.P.getIdsByPlat                 : <==      Total: 1
+2018-07-28 17:09:49.697 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.d.R.getIds_COUNT                 : ==>  Preparing: SELECT count(0) FROM register_maintain WHERE maintain_id IN (?) 
+2018-07-28 17:09:49.697 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.d.R.getIds_COUNT                 : ==> Parameters: 1(Integer)
+2018-07-28 17:09:49.698 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.d.R.getIds_COUNT                 : <==      Total: 1
+2018-07-28 17:09:49.698 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.d.RegisterMaintainMapper.getIds  : ==>  Preparing: SELECT id FROM register_maintain WHERE maintain_id in ( ? ) order by create_time DESC LIMIT ? 
+2018-07-28 17:09:49.699 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.d.RegisterMaintainMapper.getIds  : ==> Parameters: 1(Integer), 10(Integer)
+2018-07-28 17:09:49.699 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.d.RegisterMaintainMapper.getIds  : <==      Total: 1
+2018-07-28 17:09:49.700 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.d.R.getRegister                  : ==>  Preparing: SELECT register_maintain.id as id, pro_maintain.id as maintain_id,pro_maintain.name as maintain_name, com_maintainer.id as maintainer_id,com_maintainer.name as maintainer_name, com_supplier.id as supplier_id,com_supplier.name as supplier_name, user.id as user_id,user.name as user_name, register_maintain.price,register_maintain.count, register_maintain.total_price,register_maintain.remark, register_maintain.create_time,register_maintain.status FROM register_maintain,user,pro_maintain,com_maintainer,com_supplier WHERE register_maintain.id in ( ? ) AND register_maintain.maintain_id = pro_maintain.id AND register_maintain.maintainer_id = com_maintainer.id AND register_maintain.supplier_id = com_supplier.id AND register_maintain.user_id = user.id 
+2018-07-28 17:09:49.702 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.d.R.getRegister                  : ==> Parameters: 1(Integer)
+2018-07-28 17:09:49.703 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.d.R.getRegister                  : <==      Total: 1
+2018-07-28 17:10:45.368 DEBUG 15688 --- [http-nio-8090-exec-4] c.n.e.s.d.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, username, password, name, sex, phone, telephone, email, type from user where id = ? 
+2018-07-28 17:10:45.368 DEBUG 15688 --- [http-nio-8090-exec-4] c.n.e.s.d.UserMapper.selectByPrimaryKey  : ==> Parameters: 1(Integer)
+2018-07-28 17:10:45.369 DEBUG 15688 --- [http-nio-8090-exec-4] c.n.e.s.d.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2018-07-28 17:10:47.168 DEBUG 15688 --- [http-nio-8090-exec-5] c.n.e.s.d.P.selectByManager              : ==>  Preparing: SELECT platform.id,platform.name FROM platform,user_plat WHERE user_plat.user_id = ? AND user_plat.plat_id = platform.id 
+2018-07-28 17:10:47.169 DEBUG 15688 --- [http-nio-8090-exec-6] c.n.e.s.dao.ProMaterialMapper.getByPlat  : ==>  Preparing: SELECT id,name,specification FROM pro_material WHERE plat_id = ? 
+2018-07-28 17:10:47.169 DEBUG 15688 --- [http-nio-8090-exec-5] c.n.e.s.d.P.selectByManager              : ==> Parameters: 1(String)
+2018-07-28 17:10:47.170 DEBUG 15688 --- [http-nio-8090-exec-6] c.n.e.s.dao.ProMaterialMapper.getByPlat  : ==> Parameters: 1(String)
+2018-07-28 17:10:47.170 DEBUG 15688 --- [http-nio-8090-exec-5] c.n.e.s.d.P.selectByManager              : <==      Total: 2
+2018-07-28 17:10:47.172 DEBUG 15688 --- [http-nio-8090-exec-6] c.n.e.s.dao.ProMaterialMapper.getByPlat  : <==      Total: 46
+2018-07-28 17:10:48.741 DEBUG 15688 --- [http-nio-8090-exec-7] c.n.e.s.dao.ProMaterialMapper.getByPlat  : ==>  Preparing: SELECT id,name,specification FROM pro_material WHERE plat_id = ? 
+2018-07-28 17:10:48.742 DEBUG 15688 --- [http-nio-8090-exec-7] c.n.e.s.dao.ProMaterialMapper.getByPlat  : ==> Parameters: 2(String)
+2018-07-28 17:10:48.743 DEBUG 15688 --- [http-nio-8090-exec-7] c.n.e.s.dao.ProMaterialMapper.getByPlat  : <==      Total: 7
+2018-07-28 17:10:59.369 DEBUG 15688 --- [http-nio-8090-exec-9] c.n.e.s.dao.ProMaterialMapper.getByPlat  : ==>  Preparing: SELECT id,name,specification FROM pro_material WHERE plat_id = ? 
+2018-07-28 17:10:59.371 DEBUG 15688 --- [http-nio-8090-exec-9] c.n.e.s.dao.ProMaterialMapper.getByPlat  : ==> Parameters: 1(String)
+2018-07-28 17:10:59.383 DEBUG 15688 --- [http-nio-8090-exec-9] c.n.e.s.dao.ProMaterialMapper.getByPlat  : <==      Total: 46
+2018-07-28 17:11:00.236 DEBUG 15688 --- [http-nio-8090-exec-10] c.n.e.s.dao.ProMaterialMapper.getByPlat  : ==>  Preparing: SELECT id,name,specification FROM pro_material WHERE plat_id = ? 
+2018-07-28 17:11:00.237 DEBUG 15688 --- [http-nio-8090-exec-10] c.n.e.s.dao.ProMaterialMapper.getByPlat  : ==> Parameters: 2(String)
+2018-07-28 17:11:00.238 DEBUG 15688 --- [http-nio-8090-exec-10] c.n.e.s.dao.ProMaterialMapper.getByPlat  : <==      Total: 7
+2018-07-28 17:11:36.023 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.d.P.getIdsByPlat                 : ==>  Preparing: SELECT id FROM pro_maintain WHERE plat_id = ? AND name LIKE '%H%' 
+2018-07-28 17:11:36.024 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.d.P.getIdsByPlat                 : ==> Parameters: 1(String)
+2018-07-28 17:11:36.025 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.d.P.getIdsByPlat                 : <==      Total: 1
+2018-07-28 17:11:36.071 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.d.R.getIds_COUNT                 : ==>  Preparing: SELECT count(0) FROM register_maintain WHERE maintain_id IN (?) AND year(create_time) = ? 
+2018-07-28 17:11:36.073 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.d.R.getIds_COUNT                 : ==> Parameters: 1(Integer), 2017(String)
+2018-07-28 17:11:36.074 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.d.R.getIds_COUNT                 : <==      Total: 1
+2018-07-28 17:11:36.074 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.d.RegisterMaintainMapper.getIds  : ==>  Preparing: SELECT id FROM register_maintain WHERE maintain_id in ( ? ) AND year(create_time) = ? order by create_time DESC LIMIT ? 
+2018-07-28 17:11:36.074 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.d.RegisterMaintainMapper.getIds  : ==> Parameters: 1(Integer), 2017(String), 10(Integer)
+2018-07-28 17:11:36.075 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.d.RegisterMaintainMapper.getIds  : <==      Total: 1
+2018-07-28 17:11:36.075 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.d.R.getRegister                  : ==>  Preparing: SELECT register_maintain.id as id, pro_maintain.id as maintain_id,pro_maintain.name as maintain_name, com_maintainer.id as maintainer_id,com_maintainer.name as maintainer_name, com_supplier.id as supplier_id,com_supplier.name as supplier_name, user.id as user_id,user.name as user_name, register_maintain.price,register_maintain.count, register_maintain.total_price,register_maintain.remark, register_maintain.create_time,register_maintain.status FROM register_maintain,user,pro_maintain,com_maintainer,com_supplier WHERE register_maintain.id in ( ? ) AND register_maintain.maintain_id = pro_maintain.id AND register_maintain.maintainer_id = com_maintainer.id AND register_maintain.supplier_id = com_supplier.id AND register_maintain.user_id = user.id 
+2018-07-28 17:11:36.076 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.d.R.getRegister                  : ==> Parameters: 2(Integer)
+2018-07-28 17:11:36.103 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.d.R.getRegister                  : <==      Total: 1
+2018-07-28 17:12:09.674 DEBUG 15688 --- [http-nio-8090-exec-4] c.n.e.s.d.P.getIdsByPlat                 : ==>  Preparing: SELECT id FROM pro_maintain WHERE plat_id = ? AND name LIKE '%H%' 
+2018-07-28 17:12:09.675 DEBUG 15688 --- [http-nio-8090-exec-4] c.n.e.s.d.P.getIdsByPlat                 : ==> Parameters: 1(String)
+2018-07-28 17:12:09.676 DEBUG 15688 --- [http-nio-8090-exec-4] c.n.e.s.d.P.getIdsByPlat                 : <==      Total: 1
+2018-07-28 17:12:09.676 DEBUG 15688 --- [http-nio-8090-exec-4] c.n.e.s.d.R.getIds_COUNT                 : ==>  Preparing: SELECT count(0) FROM register_maintain WHERE maintain_id IN (?) 
+2018-07-28 17:12:09.677 DEBUG 15688 --- [http-nio-8090-exec-4] c.n.e.s.d.R.getIds_COUNT                 : ==> Parameters: 1(Integer)
+2018-07-28 17:12:09.677 DEBUG 15688 --- [http-nio-8090-exec-4] c.n.e.s.d.R.getIds_COUNT                 : <==      Total: 1
+2018-07-28 17:12:09.678 DEBUG 15688 --- [http-nio-8090-exec-4] c.n.e.s.d.RegisterMaintainMapper.getIds  : ==>  Preparing: SELECT id FROM register_maintain WHERE maintain_id in ( ? ) order by create_time DESC LIMIT ? 
+2018-07-28 17:12:09.679 DEBUG 15688 --- [http-nio-8090-exec-4] c.n.e.s.d.RegisterMaintainMapper.getIds  : ==> Parameters: 1(Integer), 10(Integer)
+2018-07-28 17:12:09.679 DEBUG 15688 --- [http-nio-8090-exec-4] c.n.e.s.d.RegisterMaintainMapper.getIds  : <==      Total: 2
+2018-07-28 17:12:09.682 DEBUG 15688 --- [http-nio-8090-exec-4] c.n.e.s.d.R.getRegister                  : ==>  Preparing: SELECT register_maintain.id as id, pro_maintain.id as maintain_id,pro_maintain.name as maintain_name, com_maintainer.id as maintainer_id,com_maintainer.name as maintainer_name, com_supplier.id as supplier_id,com_supplier.name as supplier_name, user.id as user_id,user.name as user_name, register_maintain.price,register_maintain.count, register_maintain.total_price,register_maintain.remark, register_maintain.create_time,register_maintain.status FROM register_maintain,user,pro_maintain,com_maintainer,com_supplier WHERE register_maintain.id in ( ? , ? ) AND register_maintain.maintain_id = pro_maintain.id AND register_maintain.maintainer_id = com_maintainer.id AND register_maintain.supplier_id = com_supplier.id AND register_maintain.user_id = user.id 
+2018-07-28 17:12:09.683 DEBUG 15688 --- [http-nio-8090-exec-4] c.n.e.s.d.R.getRegister                  : ==> Parameters: 1(Integer), 2(Integer)
+2018-07-28 17:12:09.684 DEBUG 15688 --- [http-nio-8090-exec-4] c.n.e.s.d.R.getRegister                  : <==      Total: 2
+2018-07-28 17:12:21.846 DEBUG 15688 --- [http-nio-8090-exec-5] c.n.e.s.d.P.getIdsByPlat                 : ==>  Preparing: SELECT id FROM pro_maintain WHERE plat_id = ? AND name LIKE '%H%' 
+2018-07-28 17:12:21.847 DEBUG 15688 --- [http-nio-8090-exec-5] c.n.e.s.d.P.getIdsByPlat                 : ==> Parameters: 1(String)
+2018-07-28 17:12:21.847 DEBUG 15688 --- [http-nio-8090-exec-5] c.n.e.s.d.P.getIdsByPlat                 : <==      Total: 1
+2018-07-28 17:12:21.849 DEBUG 15688 --- [http-nio-8090-exec-5] c.n.e.s.d.R.getIds_COUNT                 : ==>  Preparing: SELECT count(0) FROM register_maintain WHERE maintain_id IN (?) 
+2018-07-28 17:12:21.849 DEBUG 15688 --- [http-nio-8090-exec-5] c.n.e.s.d.R.getIds_COUNT                 : ==> Parameters: 1(Integer)
+2018-07-28 17:12:21.850 DEBUG 15688 --- [http-nio-8090-exec-5] c.n.e.s.d.R.getIds_COUNT                 : <==      Total: 1
+2018-07-28 17:12:21.850 DEBUG 15688 --- [http-nio-8090-exec-5] c.n.e.s.d.RegisterMaintainMapper.getIds  : ==>  Preparing: SELECT id FROM register_maintain WHERE maintain_id in ( ? ) order by create_time DESC LIMIT ? 
+2018-07-28 17:12:21.851 DEBUG 15688 --- [http-nio-8090-exec-5] c.n.e.s.d.RegisterMaintainMapper.getIds  : ==> Parameters: 1(Integer), 1(Integer)
+2018-07-28 17:12:21.851 DEBUG 15688 --- [http-nio-8090-exec-5] c.n.e.s.d.RegisterMaintainMapper.getIds  : <==      Total: 1
+2018-07-28 17:12:21.852 DEBUG 15688 --- [http-nio-8090-exec-5] c.n.e.s.d.R.getRegister                  : ==>  Preparing: SELECT register_maintain.id as id, pro_maintain.id as maintain_id,pro_maintain.name as maintain_name, com_maintainer.id as maintainer_id,com_maintainer.name as maintainer_name, com_supplier.id as supplier_id,com_supplier.name as supplier_name, user.id as user_id,user.name as user_name, register_maintain.price,register_maintain.count, register_maintain.total_price,register_maintain.remark, register_maintain.create_time,register_maintain.status FROM register_maintain,user,pro_maintain,com_maintainer,com_supplier WHERE register_maintain.id in ( ? ) AND register_maintain.maintain_id = pro_maintain.id AND register_maintain.maintainer_id = com_maintainer.id AND register_maintain.supplier_id = com_supplier.id AND register_maintain.user_id = user.id 
+2018-07-28 17:12:21.852 DEBUG 15688 --- [http-nio-8090-exec-5] c.n.e.s.d.R.getRegister                  : ==> Parameters: 1(Integer)
+2018-07-28 17:12:21.853 DEBUG 15688 --- [http-nio-8090-exec-5] c.n.e.s.d.R.getRegister                  : <==      Total: 1
+2018-07-28 17:13:21.358 DEBUG 15688 --- [http-nio-8090-exec-6] c.n.e.s.d.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, username, password, name, sex, phone, telephone, email, type from user where id = ? 
+2018-07-28 17:13:21.359 DEBUG 15688 --- [http-nio-8090-exec-6] c.n.e.s.d.UserMapper.selectByPrimaryKey  : ==> Parameters: 1(Integer)
+2018-07-28 17:13:21.360 DEBUG 15688 --- [http-nio-8090-exec-6] c.n.e.s.d.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2018-07-28 17:15:47.053 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.d.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, username, password, name, sex, phone, telephone, email, type from user where id = ? 
+2018-07-28 17:15:47.053 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.d.UserMapper.selectByPrimaryKey  : ==> Parameters: 1(Integer)
+2018-07-28 17:15:47.054 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.d.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2018-07-28 17:15:54.335 DEBUG 15688 --- [http-nio-8090-exec-2] c.n.e.s.d.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, username, password, name, sex, phone, telephone, email, type from user where id = ? 
+2018-07-28 17:15:54.336 DEBUG 15688 --- [http-nio-8090-exec-2] c.n.e.s.d.UserMapper.selectByPrimaryKey  : ==> Parameters: 1(Integer)
+2018-07-28 17:15:54.337 DEBUG 15688 --- [http-nio-8090-exec-2] c.n.e.s.d.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2018-07-28 17:19:09.251 DEBUG 15688 --- [http-nio-8090-exec-5] c.n.e.s.d.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, username, password, name, sex, phone, telephone, email, type from user where id = ? 
+2018-07-28 17:19:09.252 DEBUG 15688 --- [http-nio-8090-exec-5] c.n.e.s.d.UserMapper.selectByPrimaryKey  : ==> Parameters: 1(Integer)
+2018-07-28 17:19:09.256 DEBUG 15688 --- [http-nio-8090-exec-5] c.n.e.s.d.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2018-07-28 17:20:12.122 DEBUG 15688 --- [http-nio-8090-exec-9] c.n.e.s.d.UserMapper.selectByPrimaryKey  : ==>  Preparing: select id, username, password, name, sex, phone, telephone, email, type from user where id = ? 
+2018-07-28 17:20:12.123 DEBUG 15688 --- [http-nio-8090-exec-9] c.n.e.s.d.UserMapper.selectByPrimaryKey  : ==> Parameters: 1(Integer)
+2018-07-28 17:20:12.124 DEBUG 15688 --- [http-nio-8090-exec-9] c.n.e.s.d.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2018-07-28 17:20:24.984 DEBUG 15688 --- [http-nio-8090-exec-10] c.n.e.s.d.P.selectByManager              : ==>  Preparing: SELECT platform.id,platform.name FROM platform,user_plat WHERE user_plat.user_id = ? AND user_plat.plat_id = platform.id 
+2018-07-28 17:20:24.984 DEBUG 15688 --- [http-nio-8090-exec-10] c.n.e.s.d.P.selectByManager              : ==> Parameters: 1(String)
+2018-07-28 17:20:24.985 DEBUG 15688 --- [http-nio-8090-exec-10] c.n.e.s.d.P.selectByManager              : <==      Total: 2
+2018-07-28 17:20:24.991 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.dao.ProMaterialMapper.getByPlat  : ==>  Preparing: SELECT id,name,specification FROM pro_material WHERE plat_id = ? 
+2018-07-28 17:20:24.991 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.dao.ProMaterialMapper.getByPlat  : ==> Parameters: 1(String)
+2018-07-28 17:20:24.993 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.dao.ProMaterialMapper.getByPlat  : <==      Total: 46
+2018-07-28 17:20:29.603 DEBUG 15688 --- [http-nio-8090-exec-2] c.n.e.s.d.P.selectByManager              : ==>  Preparing: SELECT platform.id,platform.name FROM platform,user_plat WHERE user_plat.user_id = ? AND user_plat.plat_id = platform.id 
+2018-07-28 17:20:29.604 DEBUG 15688 --- [http-nio-8090-exec-3] c.n.e.s.dao.ProMaterialMapper.getByPlat  : ==>  Preparing: SELECT id,name,specification FROM pro_material WHERE plat_id = ? 
+2018-07-28 17:20:29.604 DEBUG 15688 --- [http-nio-8090-exec-2] c.n.e.s.d.P.selectByManager              : ==> Parameters: 1(String)
+2018-07-28 17:20:29.604 DEBUG 15688 --- [http-nio-8090-exec-3] c.n.e.s.dao.ProMaterialMapper.getByPlat  : ==> Parameters: 1(String)
+2018-07-28 17:20:29.605 DEBUG 15688 --- [http-nio-8090-exec-2] c.n.e.s.d.P.selectByManager              : <==      Total: 2
+2018-07-28 17:20:29.608 DEBUG 15688 --- [http-nio-8090-exec-3] c.n.e.s.dao.ProMaterialMapper.getByPlat  : <==      Total: 46
+2018-07-28 17:20:33.147 DEBUG 15688 --- [http-nio-8090-exec-4] c.n.e.s.d.P.selectByManager              : ==>  Preparing: SELECT platform.id,platform.name FROM platform,user_plat WHERE user_plat.user_id = ? AND user_plat.plat_id = platform.id 
+2018-07-28 17:20:33.147 DEBUG 15688 --- [http-nio-8090-exec-4] c.n.e.s.d.P.selectByManager              : ==> Parameters: 1(String)
+2018-07-28 17:20:33.147 DEBUG 15688 --- [http-nio-8090-exec-5] c.n.e.s.dao.ProMaterialMapper.getByPlat  : ==>  Preparing: SELECT id,name,specification FROM pro_material WHERE plat_id = ? 
+2018-07-28 17:20:33.147 DEBUG 15688 --- [http-nio-8090-exec-5] c.n.e.s.dao.ProMaterialMapper.getByPlat  : ==> Parameters: 1(String)
+2018-07-28 17:20:33.147 DEBUG 15688 --- [http-nio-8090-exec-4] c.n.e.s.d.P.selectByManager              : <==      Total: 2
+2018-07-28 17:20:33.149 DEBUG 15688 --- [http-nio-8090-exec-5] c.n.e.s.dao.ProMaterialMapper.getByPlat  : <==      Total: 46
+2018-07-28 17:20:38.586 DEBUG 15688 --- [http-nio-8090-exec-6] c.n.e.s.dao.ProMaterialMapper.getByPlat  : ==>  Preparing: SELECT id,name,specification FROM pro_material WHERE plat_id = ? 
+2018-07-28 17:20:38.586 DEBUG 15688 --- [http-nio-8090-exec-6] c.n.e.s.dao.ProMaterialMapper.getByPlat  : ==> Parameters: 2(String)
+2018-07-28 17:20:38.588 DEBUG 15688 --- [http-nio-8090-exec-6] c.n.e.s.dao.ProMaterialMapper.getByPlat  : <==      Total: 7
+2018-07-28 17:20:40.768 DEBUG 15688 --- [http-nio-8090-exec-7] c.n.e.s.dao.ProMaterialMapper.getByPlat  : ==>  Preparing: SELECT id,name,specification FROM pro_material WHERE plat_id = ? 
+2018-07-28 17:20:40.768 DEBUG 15688 --- [http-nio-8090-exec-7] c.n.e.s.dao.ProMaterialMapper.getByPlat  : ==> Parameters: 1(String)
+2018-07-28 17:20:40.770 DEBUG 15688 --- [http-nio-8090-exec-7] c.n.e.s.dao.ProMaterialMapper.getByPlat  : <==      Total: 46
+2018-07-28 17:20:42.168 DEBUG 15688 --- [http-nio-8090-exec-9] c.n.e.s.dao.ProMaterialMapper.getByPlat  : ==>  Preparing: SELECT id,name,specification FROM pro_material WHERE plat_id = ? 
+2018-07-28 17:20:42.168 DEBUG 15688 --- [http-nio-8090-exec-9] c.n.e.s.dao.ProMaterialMapper.getByPlat  : ==> Parameters: 2(String)
+2018-07-28 17:20:42.169 DEBUG 15688 --- [http-nio-8090-exec-9] c.n.e.s.dao.ProMaterialMapper.getByPlat  : <==      Total: 7
+2018-07-28 17:21:07.099 DEBUG 15688 --- [http-nio-8090-exec-8] c.n.e.s.dao.ComMaintainerMapper.getAll   : ==>  Preparing: select id, name, phone, address from com_maintainer 
+2018-07-28 17:21:07.100 DEBUG 15688 --- [http-nio-8090-exec-8] c.n.e.s.dao.ComMaintainerMapper.getAll   : ==> Parameters: 
+2018-07-28 17:21:07.103 DEBUG 15688 --- [http-nio-8090-exec-8] c.n.e.s.dao.ComMaintainerMapper.getAll   : <==      Total: 12
+2018-07-28 17:21:07.806 DEBUG 15688 --- [http-nio-8090-exec-10] c.n.e.srms.dao.ComProducerMapper.getAll  : ==>  Preparing: select id, name, phone, address from com_producer 
+2018-07-28 17:21:07.806 DEBUG 15688 --- [http-nio-8090-exec-10] c.n.e.srms.dao.ComProducerMapper.getAll  : ==> Parameters: 
+2018-07-28 17:21:07.808 DEBUG 15688 --- [http-nio-8090-exec-10] c.n.e.srms.dao.ComProducerMapper.getAll  : <==      Total: 20
+2018-07-28 17:21:08.995 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.srms.dao.ComSupplierMapper.getAll  : ==>  Preparing: select id, name, phone, address from com_supplier 
+2018-07-28 17:21:08.996 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.srms.dao.ComSupplierMapper.getAll  : ==> Parameters: 
+2018-07-28 17:21:08.997 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.srms.dao.ComSupplierMapper.getAll  : <==      Total: 5
+2018-07-28 17:21:12.321 DEBUG 15688 --- [http-nio-8090-exec-2] c.n.e.s.d.P.selectByManager              : ==>  Preparing: SELECT platform.id,platform.name FROM platform,user_plat WHERE user_plat.user_id = ? AND user_plat.plat_id = platform.id 
+2018-07-28 17:21:12.321 DEBUG 15688 --- [http-nio-8090-exec-2] c.n.e.s.d.P.selectByManager              : ==> Parameters: 1(String)
+2018-07-28 17:21:12.322 DEBUG 15688 --- [http-nio-8090-exec-2] c.n.e.s.d.P.selectByManager              : <==      Total: 2
+2018-07-28 17:21:12.322 DEBUG 15688 --- [http-nio-8090-exec-3] c.n.e.s.dao.ProMaterialMapper.getByPlat  : ==>  Preparing: SELECT id,name,specification FROM pro_material WHERE plat_id = ? 
+2018-07-28 17:21:12.323 DEBUG 15688 --- [http-nio-8090-exec-3] c.n.e.s.dao.ProMaterialMapper.getByPlat  : ==> Parameters: 1(String)
+2018-07-28 17:21:12.324 DEBUG 15688 --- [http-nio-8090-exec-3] c.n.e.s.dao.ProMaterialMapper.getByPlat  : <==      Total: 46
+2018-07-28 17:21:16.481 DEBUG 15688 --- [http-nio-8090-exec-5] c.n.e.s.dao.ProMaterialMapper.getByPlat  : ==>  Preparing: SELECT id,name,specification FROM pro_material WHERE plat_id = ? 
+2018-07-28 17:21:16.481 DEBUG 15688 --- [http-nio-8090-exec-4] c.n.e.s.d.P.selectByManager              : ==>  Preparing: SELECT platform.id,platform.name FROM platform,user_plat WHERE user_plat.user_id = ? AND user_plat.plat_id = platform.id 
+2018-07-28 17:21:16.482 DEBUG 15688 --- [http-nio-8090-exec-5] c.n.e.s.dao.ProMaterialMapper.getByPlat  : ==> Parameters: 1(String)
+2018-07-28 17:21:16.482 DEBUG 15688 --- [http-nio-8090-exec-4] c.n.e.s.d.P.selectByManager              : ==> Parameters: 1(String)
+2018-07-28 17:21:16.483 DEBUG 15688 --- [http-nio-8090-exec-5] c.n.e.s.dao.ProMaterialMapper.getByPlat  : <==      Total: 46
+2018-07-28 17:21:16.594 DEBUG 15688 --- [http-nio-8090-exec-4] c.n.e.s.d.P.selectByManager              : <==      Total: 2
+2018-07-28 17:21:44.358  INFO 15688 --- [Thread-29] com.alibaba.druid.pool.DruidDataSource   : {dataSource-3} closed
+2018-07-28 17:21:44.916  INFO 15688 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : Starting SrmsApplication on Kekeer with PID 15688 (D:\workspace\idea_workspace\project\NWSUAF_SRMS\target\classes started by ke li in D:\workspace\idea_workspace\project\NWSUAF_SRMS)
+2018-07-28 17:21:44.916  INFO 15688 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : No active profile set, falling back to default profiles: default
+2018-07-28 17:21:45.327  INFO 15688 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-07-28 17:21:45.327  INFO 15688 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-07-28 17:21:45.328  INFO 15688 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.14] using APR version [1.6.2].
+2018-07-28 17:21:45.328  INFO 15688 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2018-07-28 17:21:45.328  INFO 15688 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2018-07-28 17:21:45.328  INFO 15688 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2l  25 May 2017]
+2018-07-28 17:21:45.344  INFO 15688 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-07-28 17:21:45.393  INFO 15688 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2018-07-28 17:21:45.521  INFO 15688 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-4} inited
+2018-07-28 17:21:45.825  INFO 15688 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-07-28 17:21:45.826  INFO 15688 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-07-28 17:21:45.827  INFO 15688 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-07-28 17:21:46.027  INFO 15688 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : Started SrmsApplication in 1.129 seconds (JVM running for 1024.064)
+2018-07-28 17:21:48.970  INFO 15688 --- [http-nio-8090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-07-28 17:21:48.976 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.d.P.getIdsByPlat                 : ==>  Preparing: SELECT id FROM pro_maintain WHERE plat_id = ? AND name LIKE '%dfasfdsa%' 
+2018-07-28 17:21:48.977 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.d.P.getIdsByPlat                 : ==> Parameters: 1(String)
+2018-07-28 17:21:48.978 DEBUG 15688 --- [http-nio-8090-exec-1] c.n.e.s.d.P.getIdsByPlat                 : <==      Total: 0
+2018-07-28 17:31:14.596  INFO 15688 --- [Thread-35] com.alibaba.druid.pool.DruidDataSource   : {dataSource-4} closed
+2018-07-28 17:31:15.003  INFO 15688 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : Starting SrmsApplication on Kekeer with PID 15688 (D:\workspace\idea_workspace\project\NWSUAF_SRMS\target\classes started by ke li in D:\workspace\idea_workspace\project\NWSUAF_SRMS)
+2018-07-28 17:31:15.004  INFO 15688 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : No active profile set, falling back to default profiles: default
+2018-07-28 17:31:15.448  INFO 15688 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-07-28 17:31:15.448  INFO 15688 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-07-28 17:31:15.449  INFO 15688 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.14] using APR version [1.6.2].
+2018-07-28 17:31:15.450  INFO 15688 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2018-07-28 17:31:15.450  INFO 15688 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2018-07-28 17:31:15.450  INFO 15688 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2l  25 May 2017]
+2018-07-28 17:31:15.487  INFO 15688 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-07-28 17:31:15.532  INFO 15688 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2018-07-28 17:31:15.583  INFO 15688 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-5} inited
+2018-07-28 17:31:15.674  WARN 15688 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'managerRegisterController': Unsatisfied dependency expressed through field 'managerRegisterService'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'cn.nwsuaf.edu.srms.service.ManagerRegisterService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2018-07-28 17:31:15.675  INFO 15688 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-5} closed
+2018-07-28 17:31:15.675  INFO 15688 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2018-07-28 17:31:15.773 ERROR 15688 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field managerRegisterService in cn.nwsuaf.edu.srms.controller.ManagerRegisterController required a bean of type 'cn.nwsuaf.edu.srms.service.ManagerRegisterService' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'cn.nwsuaf.edu.srms.service.ManagerRegisterService' in your configuration.
+
+2018-07-28 20:57:18.158  INFO 14372 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : Starting SrmsApplication on Kekeer with PID 14372 (D:\workspace\idea_workspace\project\NWSUAF_SRMS\target\classes started by ke li in D:\workspace\idea_workspace\project\NWSUAF_SRMS)
+2018-07-28 20:57:18.159  INFO 14372 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : No active profile set, falling back to default profiles: default
+2018-07-28 20:57:20.369  INFO 14372 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-07-28 20:57:20.369  INFO 14372 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-07-28 20:57:20.380  INFO 14372 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.14] using APR version [1.6.2].
+2018-07-28 20:57:20.380  INFO 14372 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2018-07-28 20:57:20.380  INFO 14372 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2018-07-28 20:57:21.443  INFO 14372 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2l  25 May 2017]
+2018-07-28 20:57:21.598  INFO 14372 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-07-28 20:57:21.801  INFO 14372 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2018-07-28 20:57:22.330  INFO 14372 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2018-07-28 20:57:23.556  INFO 14372 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-07-28 20:57:23.572  INFO 14372 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-07-28 20:57:23.585  INFO 14372 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-07-28 20:57:24.113  INFO 14372 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : Started SrmsApplication in 6.453 seconds (JVM running for 8.375)
+2018-07-28 20:57:54.580  INFO 14372 --- [http-nio-8090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-07-28 20:57:54.823 DEBUG 14372 --- [http-nio-8090-exec-1] .n.e.s.d.R.getCountByPlatAndYearAndMonth : ==>  Preparing: SELECT sum(total_price) FROM register_maintain,pro_maintain WHERE plat_id = ? AND pro_maintain.id = register_maintain.id AND year(create_time) = ? AND month(create_time) = ? 
+2018-07-28 20:57:54.943 DEBUG 14372 --- [http-nio-8090-exec-1] .n.e.s.d.R.getCountByPlatAndYearAndMonth : ==> Parameters: 1(String), 2018(String), 1(String)
+2018-07-28 20:57:54.990 DEBUG 14372 --- [http-nio-8090-exec-1] .n.e.s.d.R.getCountByPlatAndYearAndMonth : <==      Total: 1
+2018-07-28 20:57:54.992 DEBUG 14372 --- [http-nio-8090-exec-1] .n.e.s.d.R.getCountByPlatAndYearAndMonth : ==>  Preparing: SELECT sum(total_price) FROM register_material,pro_material WHERE plat_id = ? AND pro_material.id = register_material.id AND year(create_time) = ? AND month(create_time) = ? 
+2018-07-28 20:57:54.993 DEBUG 14372 --- [http-nio-8090-exec-1] .n.e.s.d.R.getCountByPlatAndYearAndMonth : ==> Parameters: 1(String), 2018(String), 1(String)
+2018-07-28 20:57:54.994 DEBUG 14372 --- [http-nio-8090-exec-1] .n.e.s.d.R.getCountByPlatAndYearAndMonth : <==      Total: 1
+2018-07-28 20:57:54.994 DEBUG 14372 --- [http-nio-8090-exec-1] .n.e.s.d.R.getCountByPlatAndYearAndMonth : ==>  Preparing: SELECT sum(total_price) FROM register_parts,pro_parts WHERE plat_id = ? AND pro_parts.id = register_parts.id AND year(create_time) = ? AND month(create_time) = ? 
+2018-07-28 20:57:54.995 DEBUG 14372 --- [http-nio-8090-exec-1] .n.e.s.d.R.getCountByPlatAndYearAndMonth : ==> Parameters: 1(String), 2018(String), 1(String)
+2018-07-28 20:57:55.023 DEBUG 14372 --- [http-nio-8090-exec-1] .n.e.s.d.R.getCountByPlatAndYearAndMonth : <==      Total: 1
+2018-07-28 20:57:55.024 DEBUG 14372 --- [http-nio-8090-exec-1] .n.e.s.d.R.getCountByPlatAndYearAndMonth : ==>  Preparing: SELECT sum(total_price) FROM register_reagent,pro_reagent WHERE plat_id = ? AND pro_reagent.id = register_reagent.id AND year(create_time) = ? AND month(create_time) = ? 
+2018-07-28 20:57:55.025 DEBUG 14372 --- [http-nio-8090-exec-1] .n.e.s.d.R.getCountByPlatAndYearAndMonth : ==> Parameters: 1(String), 2018(String), 1(String)
+2018-07-28 20:57:55.045 DEBUG 14372 --- [http-nio-8090-exec-1] .n.e.s.d.R.getCountByPlatAndYearAndMonth : <==      Total: 1
+2018-07-28 20:58:01.690  INFO 14372 --- [http-nio-8090-exec-2] org.apache.tomcat.util.http.Parameters   : Character decoding failed. Parameter [year] with value [%] has been ignored. Note that the name and value quoted here may be corrupted due to the failed decoding. Use debug level logging to see the original, non-corrupted values.
+ Note: further occurrences of Parameter errors will be logged at DEBUG level.
+2018-07-28 20:58:01.690 DEBUG 14372 --- [http-nio-8090-exec-2] .n.e.s.d.R.getCountByPlatAndYearAndMonth : ==>  Preparing: SELECT sum(total_price) FROM register_maintain,pro_maintain WHERE plat_id = ? AND pro_maintain.id = register_maintain.id 
+2018-07-28 20:58:01.691 DEBUG 14372 --- [http-nio-8090-exec-2] .n.e.s.d.R.getCountByPlatAndYearAndMonth : ==> Parameters: 1(String)
+2018-07-28 20:58:01.692 DEBUG 14372 --- [http-nio-8090-exec-2] .n.e.s.d.R.getCountByPlatAndYearAndMonth : <==      Total: 1
+2018-07-28 20:58:01.693 DEBUG 14372 --- [http-nio-8090-exec-2] .n.e.s.d.R.getCountByPlatAndYearAndMonth : ==>  Preparing: SELECT sum(total_price) FROM register_material,pro_material WHERE plat_id = ? AND pro_material.id = register_material.id 
+2018-07-28 20:58:01.694 DEBUG 14372 --- [http-nio-8090-exec-2] .n.e.s.d.R.getCountByPlatAndYearAndMonth : ==> Parameters: 1(String)
+2018-07-28 20:58:01.695 DEBUG 14372 --- [http-nio-8090-exec-2] .n.e.s.d.R.getCountByPlatAndYearAndMonth : <==      Total: 1
+2018-07-28 20:58:01.695 DEBUG 14372 --- [http-nio-8090-exec-2] .n.e.s.d.R.getCountByPlatAndYearAndMonth : ==>  Preparing: SELECT sum(total_price) FROM register_parts,pro_parts WHERE plat_id = ? AND pro_parts.id = register_parts.id 
+2018-07-28 20:58:01.696 DEBUG 14372 --- [http-nio-8090-exec-2] .n.e.s.d.R.getCountByPlatAndYearAndMonth : ==> Parameters: 1(String)
+2018-07-28 20:58:01.696 DEBUG 14372 --- [http-nio-8090-exec-2] .n.e.s.d.R.getCountByPlatAndYearAndMonth : <==      Total: 1
+2018-07-28 20:58:01.697 DEBUG 14372 --- [http-nio-8090-exec-2] .n.e.s.d.R.getCountByPlatAndYearAndMonth : ==>  Preparing: SELECT sum(total_price) FROM register_reagent,pro_reagent WHERE plat_id = ? AND pro_reagent.id = register_reagent.id 
+2018-07-28 20:58:01.698 DEBUG 14372 --- [http-nio-8090-exec-2] .n.e.s.d.R.getCountByPlatAndYearAndMonth : ==> Parameters: 1(String)
+2018-07-28 20:58:01.698 DEBUG 14372 --- [http-nio-8090-exec-2] .n.e.s.d.R.getCountByPlatAndYearAndMonth : <==      Total: 1
+2018-07-28 20:58:06.559 DEBUG 14372 --- [http-nio-8090-exec-3] .n.e.s.d.R.getCountByPlatAndYearAndMonth : ==>  Preparing: SELECT sum(total_price) FROM register_maintain,pro_maintain WHERE plat_id = ? AND pro_maintain.id = register_maintain.id 
+2018-07-28 20:58:06.560 DEBUG 14372 --- [http-nio-8090-exec-3] .n.e.s.d.R.getCountByPlatAndYearAndMonth : ==> Parameters: 1(String)
+2018-07-28 20:58:06.560 DEBUG 14372 --- [http-nio-8090-exec-3] .n.e.s.d.R.getCountByPlatAndYearAndMonth : <==      Total: 1
+2018-07-28 20:58:06.561 DEBUG 14372 --- [http-nio-8090-exec-3] .n.e.s.d.R.getCountByPlatAndYearAndMonth : ==>  Preparing: SELECT sum(total_price) FROM register_material,pro_material WHERE plat_id = ? AND pro_material.id = register_material.id 
+2018-07-28 20:58:06.561 DEBUG 14372 --- [http-nio-8090-exec-3] .n.e.s.d.R.getCountByPlatAndYearAndMonth : ==> Parameters: 1(String)
+2018-07-28 20:58:06.562 DEBUG 14372 --- [http-nio-8090-exec-3] .n.e.s.d.R.getCountByPlatAndYearAndMonth : <==      Total: 1
+2018-07-28 20:58:06.562 DEBUG 14372 --- [http-nio-8090-exec-3] .n.e.s.d.R.getCountByPlatAndYearAndMonth : ==>  Preparing: SELECT sum(total_price) FROM register_parts,pro_parts WHERE plat_id = ? AND pro_parts.id = register_parts.id 
+2018-07-28 20:58:06.562 DEBUG 14372 --- [http-nio-8090-exec-3] .n.e.s.d.R.getCountByPlatAndYearAndMonth : ==> Parameters: 1(String)
+2018-07-28 20:58:06.563 DEBUG 14372 --- [http-nio-8090-exec-3] .n.e.s.d.R.getCountByPlatAndYearAndMonth : <==      Total: 1
+2018-07-28 20:58:06.563 DEBUG 14372 --- [http-nio-8090-exec-3] .n.e.s.d.R.getCountByPlatAndYearAndMonth : ==>  Preparing: SELECT sum(total_price) FROM register_reagent,pro_reagent WHERE plat_id = ? AND pro_reagent.id = register_reagent.id 
+2018-07-28 20:58:06.563 DEBUG 14372 --- [http-nio-8090-exec-3] .n.e.s.d.R.getCountByPlatAndYearAndMonth : ==> Parameters: 1(String)
+2018-07-28 20:58:06.564 DEBUG 14372 --- [http-nio-8090-exec-3] .n.e.s.d.R.getCountByPlatAndYearAndMonth : <==      Total: 1
+2018-07-28 21:16:28.989  INFO 14372 --- [Thread-18] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2018-07-28 21:16:29.439  INFO 14372 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : Starting SrmsApplication on Kekeer with PID 14372 (D:\workspace\idea_workspace\project\NWSUAF_SRMS\target\classes started by ke li in D:\workspace\idea_workspace\project\NWSUAF_SRMS)
+2018-07-28 21:16:29.440  INFO 14372 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : No active profile set, falling back to default profiles: default
+2018-07-28 21:16:29.968  INFO 14372 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-07-28 21:16:29.968  INFO 14372 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-07-28 21:16:29.969  INFO 14372 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.14] using APR version [1.6.2].
+2018-07-28 21:16:29.970  INFO 14372 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2018-07-28 21:16:29.970  INFO 14372 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2018-07-28 21:16:29.970  INFO 14372 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2l  25 May 2017]
+2018-07-28 21:16:30.010  INFO 14372 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-07-28 21:16:30.068  INFO 14372 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2018-07-28 21:16:30.262  INFO 14372 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-2} inited
+2018-07-28 21:16:30.384  WARN 14372 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'statisticsController': Unsatisfied dependency expressed through field 'statisticsService'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'cn.nwsuaf.edu.srms.service.StatisticsService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2018-07-28 21:16:30.385  INFO 14372 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-2} closed
+2018-07-28 21:16:30.385  INFO 14372 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2018-07-28 21:16:30.489 ERROR 14372 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field statisticsService in cn.nwsuaf.edu.srms.controller.StatisticsController required a bean of type 'cn.nwsuaf.edu.srms.service.StatisticsService' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'cn.nwsuaf.edu.srms.service.StatisticsService' in your configuration.
+
+2018-07-28 21:16:37.509  INFO 9628 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : Starting SrmsApplication on Kekeer with PID 9628 (D:\workspace\idea_workspace\project\NWSUAF_SRMS\target\classes started by ke li in D:\workspace\idea_workspace\project\NWSUAF_SRMS)
+2018-07-28 21:16:37.510  INFO 9628 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : No active profile set, falling back to default profiles: default
+2018-07-28 21:16:38.891  INFO 9628 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-07-28 21:16:38.891  INFO 9628 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-07-28 21:16:38.893  INFO 9628 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.14] using APR version [1.6.2].
+2018-07-28 21:16:38.894  INFO 9628 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2018-07-28 21:16:38.894  INFO 9628 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2018-07-28 21:16:39.922  INFO 9628 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2l  25 May 2017]
+2018-07-28 21:16:39.999  INFO 9628 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-07-28 21:16:40.150  INFO 9628 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2018-07-28 21:16:40.470  INFO 9628 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2018-07-28 21:16:41.391  INFO 9628 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-07-28 21:16:41.401  INFO 9628 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-07-28 21:16:41.412  INFO 9628 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-07-28 21:16:41.749  INFO 9628 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : Started SrmsApplication in 4.528 seconds (JVM running for 5.263)
+2018-07-28 21:17:04.098  INFO 9628 --- [http-nio-8090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-07-28 21:17:28.842  INFO 9628 --- [Thread-14] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2018-07-28 21:17:29.211  INFO 9628 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : Starting SrmsApplication on Kekeer with PID 9628 (D:\workspace\idea_workspace\project\NWSUAF_SRMS\target\classes started by ke li in D:\workspace\idea_workspace\project\NWSUAF_SRMS)
+2018-07-28 21:17:29.212  INFO 9628 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : No active profile set, falling back to default profiles: default
+2018-07-28 21:17:29.663  INFO 9628 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-07-28 21:17:29.663  INFO 9628 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-07-28 21:17:29.664  INFO 9628 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.14] using APR version [1.6.2].
+2018-07-28 21:17:29.665  INFO 9628 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2018-07-28 21:17:29.665  INFO 9628 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2018-07-28 21:17:29.666  INFO 9628 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2l  25 May 2017]
+2018-07-28 21:17:29.695  INFO 9628 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-07-28 21:17:29.757  INFO 9628 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2018-07-28 21:17:29.833  INFO 9628 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-2} inited
+2018-07-28 21:17:30.250  INFO 9628 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-07-28 21:17:30.251  INFO 9628 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-07-28 21:17:30.253  INFO 9628 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-07-28 21:17:30.469  INFO 9628 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : Started SrmsApplication in 1.279 seconds (JVM running for 53.983)
+2018-07-28 21:17:33.196  INFO 9628 --- [http-nio-8090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-07-28 21:17:50.395  INFO 9628 --- [Thread-23] com.alibaba.druid.pool.DruidDataSource   : {dataSource-2} closed
+2018-07-28 21:17:50.801  INFO 9628 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : Starting SrmsApplication on Kekeer with PID 9628 (D:\workspace\idea_workspace\project\NWSUAF_SRMS\target\classes started by ke li in D:\workspace\idea_workspace\project\NWSUAF_SRMS)
+2018-07-28 21:17:50.802  INFO 9628 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : No active profile set, falling back to default profiles: default
+2018-07-28 21:17:51.246  INFO 9628 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-07-28 21:17:51.246  INFO 9628 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-07-28 21:17:51.247  INFO 9628 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.14] using APR version [1.6.2].
+2018-07-28 21:17:51.248  INFO 9628 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2018-07-28 21:17:51.248  INFO 9628 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2018-07-28 21:17:51.248  INFO 9628 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2l  25 May 2017]
+2018-07-28 21:17:51.279  INFO 9628 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-07-28 21:17:51.322  INFO 9628 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2018-07-28 21:17:51.378  INFO 9628 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-3} inited
+2018-07-28 21:17:51.652  INFO 9628 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-07-28 21:17:51.653  INFO 9628 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-07-28 21:17:51.654  INFO 9628 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-07-28 21:17:51.838  INFO 9628 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : Started SrmsApplication in 1.058 seconds (JVM running for 75.352)
+2018-07-28 21:17:54.665  INFO 9628 --- [http-nio-8090-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-07-28 21:18:21.632  INFO 9628 --- [Thread-29] com.alibaba.druid.pool.DruidDataSource   : {dataSource-3} closed
+2018-07-28 21:18:22.069  INFO 9628 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : Starting SrmsApplication on Kekeer with PID 9628 (D:\workspace\idea_workspace\project\NWSUAF_SRMS\target\classes started by ke li in D:\workspace\idea_workspace\project\NWSUAF_SRMS)
+2018-07-28 21:18:22.070  INFO 9628 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : No active profile set, falling back to default profiles: default
+2018-07-28 21:18:22.536  INFO 9628 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-07-28 21:18:22.536  INFO 9628 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-07-28 21:18:22.538  INFO 9628 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.14] using APR version [1.6.2].
+2018-07-28 21:18:22.538  INFO 9628 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2018-07-28 21:18:22.539  INFO 9628 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2018-07-28 21:18:22.539  INFO 9628 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2l  25 May 2017]
+2018-07-28 21:18:22.559  INFO 9628 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-07-28 21:18:22.615  INFO 9628 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2018-07-28 21:18:22.700  INFO 9628 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-4} inited
+2018-07-28 21:18:23.029  INFO 9628 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-07-28 21:18:23.030  INFO 9628 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-07-28 21:18:23.033  INFO 9628 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-07-28 21:18:23.296  INFO 9628 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : Started SrmsApplication in 1.249 seconds (JVM running for 106.81)
+2018-07-28 21:18:27.620  INFO 9628 --- [http-nio-8090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-07-28 21:18:53.158  INFO 9628 --- [Thread-35] com.alibaba.druid.pool.DruidDataSource   : {dataSource-4} closed
+2018-07-28 21:18:53.578  INFO 9628 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : Starting SrmsApplication on Kekeer with PID 9628 (D:\workspace\idea_workspace\project\NWSUAF_SRMS\target\classes started by ke li in D:\workspace\idea_workspace\project\NWSUAF_SRMS)
+2018-07-28 21:18:53.579  INFO 9628 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : No active profile set, falling back to default profiles: default
+2018-07-28 21:18:53.980  INFO 9628 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-07-28 21:18:53.980  INFO 9628 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-07-28 21:18:53.981  INFO 9628 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.14] using APR version [1.6.2].
+2018-07-28 21:18:53.982  INFO 9628 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2018-07-28 21:18:53.982  INFO 9628 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2018-07-28 21:18:53.982  INFO 9628 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2l  25 May 2017]
+2018-07-28 21:18:54.005  INFO 9628 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-07-28 21:18:54.074  INFO 9628 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2018-07-28 21:18:54.151  INFO 9628 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-5} inited
+2018-07-28 21:18:54.412  INFO 9628 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-07-28 21:18:54.413  INFO 9628 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-07-28 21:18:54.415  INFO 9628 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-07-28 21:18:54.591  INFO 9628 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : Started SrmsApplication in 1.039 seconds (JVM running for 138.105)
+2018-07-28 21:18:57.376  INFO 9628 --- [http-nio-8090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-07-28 21:19:41.933  INFO 9628 --- [Thread-41] com.alibaba.druid.pool.DruidDataSource   : {dataSource-5} closed
+2018-07-28 21:19:42.287  INFO 9628 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : Starting SrmsApplication on Kekeer with PID 9628 (D:\workspace\idea_workspace\project\NWSUAF_SRMS\target\classes started by ke li in D:\workspace\idea_workspace\project\NWSUAF_SRMS)
+2018-07-28 21:19:42.287  INFO 9628 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : No active profile set, falling back to default profiles: default
+2018-07-28 21:19:42.762  INFO 9628 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-07-28 21:19:42.762  INFO 9628 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-07-28 21:19:42.763  INFO 9628 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.14] using APR version [1.6.2].
+2018-07-28 21:19:42.764  INFO 9628 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2018-07-28 21:19:42.764  INFO 9628 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2018-07-28 21:19:42.764  INFO 9628 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2l  25 May 2017]
+2018-07-28 21:19:42.814  INFO 9628 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-07-28 21:19:42.856  INFO 9628 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2018-07-28 21:19:42.956  INFO 9628 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-6} inited
+2018-07-28 21:19:43.230  INFO 9628 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-07-28 21:19:43.232  INFO 9628 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-07-28 21:19:43.234  INFO 9628 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-07-28 21:19:43.406  INFO 9628 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : Started SrmsApplication in 1.139 seconds (JVM running for 186.92)
+2018-07-28 21:19:46.437  INFO 9628 --- [http-nio-8090-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-07-28 21:19:46.463 DEBUG 9628 --- [http-nio-8090-exec-2] c.n.e.s.d.P.getIdsByPlat                 : ==>  Preparing: SELECT id FROM pro_maintain WHERE plat_id = ? 
+2018-07-28 21:19:46.544 DEBUG 9628 --- [http-nio-8090-exec-2] c.n.e.s.d.P.getIdsByPlat                 : ==> Parameters: 1(String)
+2018-07-28 21:19:46.646 DEBUG 9628 --- [http-nio-8090-exec-2] c.n.e.s.d.P.getIdsByPlat                 : <==      Total: 5
+2018-07-28 21:19:46.668 DEBUG 9628 --- [http-nio-8090-exec-2] c.n.e.s.d.R.getIds_COUNT                 : ==>  Preparing: SELECT count(0) FROM register_maintain WHERE maintain_id IN (?, ?, ?, ?, ?) 
+2018-07-28 21:19:46.670 DEBUG 9628 --- [http-nio-8090-exec-2] c.n.e.s.d.R.getIds_COUNT                 : ==> Parameters: 1(Integer), 2(Integer), 3(Integer), 7(Integer), 8(Integer)
+2018-07-28 21:19:46.680 DEBUG 9628 --- [http-nio-8090-exec-2] c.n.e.s.d.R.getIds_COUNT                 : <==      Total: 1
+2018-07-28 21:19:46.684 DEBUG 9628 --- [http-nio-8090-exec-2] c.n.e.s.d.RegisterMaintainMapper.getIds  : ==>  Preparing: SELECT id FROM register_maintain WHERE maintain_id in ( ? , ? , ? , ? , ? ) order by create_time DESC LIMIT ? 
+2018-07-28 21:19:46.686 DEBUG 9628 --- [http-nio-8090-exec-2] c.n.e.s.d.RegisterMaintainMapper.getIds  : ==> Parameters: 1(Integer), 2(Integer), 3(Integer), 7(Integer), 8(Integer), 10(Integer)
+2018-07-28 21:19:46.686 DEBUG 9628 --- [http-nio-8090-exec-2] c.n.e.s.d.RegisterMaintainMapper.getIds  : <==      Total: 3
+2018-07-28 21:19:46.688 DEBUG 9628 --- [http-nio-8090-exec-2] c.n.e.s.d.R.getRegister                  : ==>  Preparing: SELECT register_maintain.id as id, pro_maintain.id as maintain_id,pro_maintain.name as maintain_name, com_maintainer.id as maintainer_id,com_maintainer.name as maintainer_name, com_supplier.id as supplier_id,com_supplier.name as supplier_name, user.id as user_id,user.name as user_name, register_maintain.price,register_maintain.count, register_maintain.total_price,register_maintain.remark, register_maintain.create_time,register_maintain.status FROM register_maintain,user,pro_maintain,com_maintainer,com_supplier WHERE register_maintain.id in ( ? , ? , ? ) AND register_maintain.maintain_id = pro_maintain.id AND register_maintain.maintainer_id = com_maintainer.id AND register_maintain.supplier_id = com_supplier.id AND register_maintain.user_id = user.id 
+2018-07-28 21:19:46.690 DEBUG 9628 --- [http-nio-8090-exec-2] c.n.e.s.d.R.getRegister                  : ==> Parameters: 1(Integer), 3(Integer), 2(Integer)
+2018-07-28 21:19:46.752 DEBUG 9628 --- [http-nio-8090-exec-2] c.n.e.s.d.R.getRegister                  : <==      Total: 3
+2018-07-28 21:20:23.595 DEBUG 9628 --- [http-nio-8090-exec-1] c.n.e.s.d.P.getIdsByPlat                 : ==>  Preparing: SELECT id FROM pro_maintain WHERE plat_id = ? 
+2018-07-28 21:20:23.595 DEBUG 9628 --- [http-nio-8090-exec-1] c.n.e.s.d.P.getIdsByPlat                 : ==> Parameters: 1(String)
+2018-07-28 21:20:23.596 DEBUG 9628 --- [http-nio-8090-exec-1] c.n.e.s.d.P.getIdsByPlat                 : <==      Total: 5
+2018-07-28 21:20:23.599 DEBUG 9628 --- [http-nio-8090-exec-1] c.n.e.s.d.R.getIds_COUNT                 : ==>  Preparing: SELECT count(0) FROM register_maintain WHERE maintain_id IN (?, ?, ?, ?, ?) AND year(create_time) = ? 
+2018-07-28 21:20:23.601 DEBUG 9628 --- [http-nio-8090-exec-1] c.n.e.s.d.R.getIds_COUNT                 : ==> Parameters: 1(Integer), 2(Integer), 3(Integer), 7(Integer), 8(Integer), 2017(String)
+2018-07-28 21:20:23.602 DEBUG 9628 --- [http-nio-8090-exec-1] c.n.e.s.d.R.getIds_COUNT                 : <==      Total: 1
+2018-07-28 21:20:23.602 DEBUG 9628 --- [http-nio-8090-exec-1] c.n.e.s.d.RegisterMaintainMapper.getIds  : ==>  Preparing: SELECT id FROM register_maintain WHERE maintain_id in ( ? , ? , ? , ? , ? ) AND year(create_time) = ? order by create_time DESC LIMIT ? 
+2018-07-28 21:20:23.603 DEBUG 9628 --- [http-nio-8090-exec-1] c.n.e.s.d.RegisterMaintainMapper.getIds  : ==> Parameters: 1(Integer), 2(Integer), 3(Integer), 7(Integer), 8(Integer), 2017(String), 10(Integer)
+2018-07-28 21:20:23.603 DEBUG 9628 --- [http-nio-8090-exec-1] c.n.e.s.d.RegisterMaintainMapper.getIds  : <==      Total: 1
+2018-07-28 21:20:23.604 DEBUG 9628 --- [http-nio-8090-exec-1] c.n.e.s.d.R.getRegister                  : ==>  Preparing: SELECT register_maintain.id as id, pro_maintain.id as maintain_id,pro_maintain.name as maintain_name, com_maintainer.id as maintainer_id,com_maintainer.name as maintainer_name, com_supplier.id as supplier_id,com_supplier.name as supplier_name, user.id as user_id,user.name as user_name, register_maintain.price,register_maintain.count, register_maintain.total_price,register_maintain.remark, register_maintain.create_time,register_maintain.status FROM register_maintain,user,pro_maintain,com_maintainer,com_supplier WHERE register_maintain.id in ( ? ) AND register_maintain.maintain_id = pro_maintain.id AND register_maintain.maintainer_id = com_maintainer.id AND register_maintain.supplier_id = com_supplier.id AND register_maintain.user_id = user.id 
+2018-07-28 21:20:23.605 DEBUG 9628 --- [http-nio-8090-exec-1] c.n.e.s.d.R.getRegister                  : ==> Parameters: 2(Integer)
+2018-07-28 21:20:23.607 DEBUG 9628 --- [http-nio-8090-exec-1] c.n.e.s.d.R.getRegister                  : <==      Total: 1
+2018-07-28 21:21:17.223  INFO 9628 --- [Thread-47] com.alibaba.druid.pool.DruidDataSource   : {dataSource-6} closed
+2018-07-28 21:21:17.726  INFO 9628 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : Starting SrmsApplication on Kekeer with PID 9628 (D:\workspace\idea_workspace\project\NWSUAF_SRMS\target\classes started by ke li in D:\workspace\idea_workspace\project\NWSUAF_SRMS)
+2018-07-28 21:21:17.726  INFO 9628 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : No active profile set, falling back to default profiles: default
+2018-07-28 21:21:18.163  INFO 9628 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-07-28 21:21:18.163  INFO 9628 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-07-28 21:21:18.164  INFO 9628 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.14] using APR version [1.6.2].
+2018-07-28 21:21:18.164  INFO 9628 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2018-07-28 21:21:18.165  INFO 9628 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2018-07-28 21:21:18.165  INFO 9628 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2l  25 May 2017]
+2018-07-28 21:21:18.181  INFO 9628 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-07-28 21:21:18.224  INFO 9628 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2018-07-28 21:21:18.302  INFO 9628 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-7} inited
+2018-07-28 21:21:18.693  INFO 9628 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-07-28 21:21:18.694  INFO 9628 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-07-28 21:21:18.696  INFO 9628 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-07-28 21:21:18.891  INFO 9628 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : Started SrmsApplication in 1.208 seconds (JVM running for 282.405)
+2018-07-28 21:51:31.438  INFO 9628 --- [Thread-53] com.alibaba.druid.pool.DruidDataSource   : {dataSource-7} closed
+2018-07-28 21:51:31.859  INFO 9628 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : Starting SrmsApplication on Kekeer with PID 9628 (D:\workspace\idea_workspace\project\NWSUAF_SRMS\target\classes started by ke li in D:\workspace\idea_workspace\project\NWSUAF_SRMS)
+2018-07-28 21:51:31.859  INFO 9628 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : No active profile set, falling back to default profiles: default
+2018-07-28 21:51:32.264  INFO 9628 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-07-28 21:51:32.264  INFO 9628 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-07-28 21:51:32.265  INFO 9628 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.14] using APR version [1.6.2].
+2018-07-28 21:51:32.266  INFO 9628 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2018-07-28 21:51:32.266  INFO 9628 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2018-07-28 21:51:32.266  INFO 9628 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2l  25 May 2017]
+2018-07-28 21:51:32.282  INFO 9628 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-07-28 21:51:32.329  INFO 9628 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2018-07-28 21:51:32.420  INFO 9628 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-8} inited
+2018-07-28 21:51:32.717  INFO 9628 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-07-28 21:51:32.718  INFO 9628 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-07-28 21:51:32.720  INFO 9628 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-07-28 21:51:32.899  INFO 9628 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : Started SrmsApplication in 1.057 seconds (JVM running for 2096.412)
+2018-07-28 21:51:51.349  INFO 9628 --- [http-nio-8090-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-07-28 21:52:32.467  INFO 9628 --- [Thread-59] com.alibaba.druid.pool.DruidDataSource   : {dataSource-8} closed
+2018-07-28 21:52:32.912  INFO 9628 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : Starting SrmsApplication on Kekeer with PID 9628 (D:\workspace\idea_workspace\project\NWSUAF_SRMS\target\classes started by ke li in D:\workspace\idea_workspace\project\NWSUAF_SRMS)
+2018-07-28 21:52:32.913  INFO 9628 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : No active profile set, falling back to default profiles: default
+2018-07-28 21:52:33.334  INFO 9628 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-07-28 21:52:33.334  INFO 9628 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-07-28 21:52:33.334  INFO 9628 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.14] using APR version [1.6.2].
+2018-07-28 21:52:33.335  INFO 9628 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2018-07-28 21:52:33.335  INFO 9628 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2018-07-28 21:52:33.335  INFO 9628 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2l  25 May 2017]
+2018-07-28 21:52:33.350  INFO 9628 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-07-28 21:52:33.390  INFO 9628 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2018-07-28 21:52:33.438  INFO 9628 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-9} inited
+2018-07-28 21:52:33.696  INFO 9628 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-07-28 21:52:33.697  INFO 9628 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-07-28 21:52:33.698  INFO 9628 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-07-28 21:52:33.870  INFO 9628 --- [restartedMain] cn.nwsuaf.edu.srms.SrmsApplication       : Started SrmsApplication in 0.979 seconds (JVM running for 2157.384)
+2018-07-28 21:52:38.117  INFO 9628 --- [http-nio-8090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-07-28 21:52:38.121 DEBUG 9628 --- [http-nio-8090-exec-1] c.n.e.s.d.R.getCountByPlatAndTypeAndDate : ==>  Preparing: SELECT sum(case month(create_time) when '1' then total_price else 0 end) as 一月份, sum(case month(create_time) when '2' then total_price else 0 end) as 二月份, sum(case month(create_time) when '3' then total_price else 0 end) as 三月份, sum(case month(create_time) when '4' then total_price else 0 end) as 四月份, sum(case month(create_time) when '5' then total_price else 0 end) as 五月份, sum(case month(create_time) when '6' then total_price else 0 end) as 六月份, sum(case month(create_time) when '7' then total_price else 0 end) as 七月份, sum(case month(create_time) when '8' then total_price else 0 end) as 八月份, sum(case month(create_time) when '9' then total_price else 0 end) as 九月份, sum(case month(create_time) when '10' then total_price else 0 end) as 十月份, sum(case month(create_time) when '11' then total_price else 0 end) as 十一月份, sum(case month(create_time) when '12' then total_price else 0 end) as 十二月份, year(create_time) as 年份 FROM register_maintain,pro_maintain WHERE plat_id = ? AND pro_maintain.id = register_maintain.id AND year(create_time) = ? 
+2018-07-28 21:52:38.124 DEBUG 9628 --- [http-nio-8090-exec-1] c.n.e.s.d.R.getCountByPlatAndTypeAndDate : ==> Parameters: 1(String), 2018(String)
+2018-07-28 21:52:38.331 DEBUG 9628 --- [http-nio-8090-exec-1] c.n.e.s.d.R.getCountByPlatAndTypeAndDate : <==      Total: 1
+2018-07-28 21:53:04.940 DEBUG 9628 --- [http-nio-8090-exec-2] c.n.e.s.d.R.getCountByPlatAndTypeAndDate : ==>  Preparing: SELECT sum(case month(create_time) when '1' then total_price else 0 end) as 一月份, sum(case month(create_time) when '2' then total_price else 0 end) as 二月份, sum(case month(create_time) when '3' then total_price else 0 end) as 三月份, sum(case month(create_time) when '4' then total_price else 0 end) as 四月份, sum(case month(create_time) when '5' then total_price else 0 end) as 五月份, sum(case month(create_time) when '6' then total_price else 0 end) as 六月份, sum(case month(create_time) when '7' then total_price else 0 end) as 七月份, sum(case month(create_time) when '8' then total_price else 0 end) as 八月份, sum(case month(create_time) when '9' then total_price else 0 end) as 九月份, sum(case month(create_time) when '10' then total_price else 0 end) as 十月份, sum(case month(create_time) when '11' then total_price else 0 end) as 十一月份, sum(case month(create_time) when '12' then total_price else 0 end) as 十二月份, year(create_time) as 年份 FROM register_maintain,pro_maintain WHERE plat_id = ? AND pro_maintain.id = register_maintain.id AND year(create_time) = ? 
+2018-07-28 21:53:04.940 DEBUG 9628 --- [http-nio-8090-exec-2] c.n.e.s.d.R.getCountByPlatAndTypeAndDate : ==> Parameters: 1(String), 2018(String)
+2018-07-28 21:53:04.942 DEBUG 9628 --- [http-nio-8090-exec-2] c.n.e.s.d.R.getCountByPlatAndTypeAndDate : <==      Total: 1

@@ -16,6 +16,9 @@
 		SELECT id
 		FROM pro_parts
 		WHERE plat_id = #{platId}
+		<if test="name != null">
+          AND name LIKE "%"#{name}"%"
+        </if>
 	</select>
 
 	<select id="getByPlat" resultType="cn.nwsuaf.edu.srms.entity.ProParts">

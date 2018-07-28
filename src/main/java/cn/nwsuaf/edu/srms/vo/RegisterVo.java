@@ -39,4 +39,5 @@ public class RegisterVo {
 
     private Date createTime;
     private Integer status;
+    private String statusString;
 }
