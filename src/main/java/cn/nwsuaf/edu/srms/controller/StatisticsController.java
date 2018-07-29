@@ -1,5 +1,6 @@
 package cn.nwsuaf.edu.srms.controller;
 
+import cn.nwsuaf.edu.srms.annotation.LoginRequired;
 import cn.nwsuaf.edu.srms.common.Const;
 import cn.nwsuaf.edu.srms.service.ManagerRegisterService;
 import cn.nwsuaf.edu.srms.service.StatisticsService;
@@ -21,7 +22,7 @@ import javax.servlet.http.HttpSession;
  */
 @RestController
 @RequestMapping("statistics")
-@Api(value = "statistics",description = "负责人查看统计结果")
+@Api(value = "statistics",description = "负责人查看统计结果,其中接收的参数是type时，0：全部；1：耗材；2：配件；3：试剂；4：维修")
 public class StatisticsController {
 
     @Autowired
@@ -29,26 +30,16 @@ public class StatisticsController {
     @Autowired
     private ManagerRegisterService managerRegisterService;
 
-    @ApiOperation(value = "根据平台和时间得到 配件、时间、耗材、维修 四类在具体时间内的花费,饼状图+表格")
-    @PostMapping("get_count_year_month")
-    @ResponseBody
-    public ResultVo getGoodsTypeCountByPlatAndYearAndMonth(@RequestParam(value = "platId") String platId,
-                                                           @RequestParam(value = "year",defaultValue = "%") String year,
-                                                           @RequestParam(value = "month",defaultValue = "%") String month){
-
-        return statisticsService.getCountsByPlatAndYearAndMonth(platId,year,month);
-    }
-
     @ApiOperation(value = "根据类别(配件、时间、耗材、维修 四类)在具体时间内的花费,表格")
-    @PostMapping("get_year_month")
+    @PostMapping("get_record")
     @ResponseBody
+    @LoginRequired
     public ResultVo getGoodsByPlatAndYearAndMonth(@RequestParam(value = "platId") String platId,
-                                                  @RequestParam(value = "type") String type,
+                                                  @RequestParam(value = "type",defaultValue = "0") String type,
                                                   @RequestParam(value = "pageNum",defaultValue = "1") Integer pageNum,
                                                   @RequestParam(value = "pageSize",defaultValue = "10") Integer pageSize,
                                                   @RequestParam(value = "year",defaultValue = "%") String year,
                                                   @RequestParam(value = "month",defaultValue = "%") String month){
-
         switch (type) {
             case Const.TYPE.MAINTAIN:
                 return managerRegisterService.getMaintainRecord(platId, pageNum, pageSize, null, year, month);
@@ -63,9 +54,21 @@ public class StatisticsController {
         }
     }
 
+    @ApiOperation(value = "根据平台和时间得到 配件、时间、耗材、维修 四类在具体时间内的花费,饼状图+表格")
+    @PostMapping("get_count_year_month")
+    @ResponseBody
+    @LoginRequired
+    public ResultVo getGoodsTypeCountByPlatAndYearAndMonth(@RequestParam(value = "platId") String platId,
+                                                           @RequestParam(value = "year",defaultValue = "%") String year,
+                                                           @RequestParam(value = "month",defaultValue = "%") String month){
+
+        return statisticsService.getCountsByPlatAndYearAndMonth(platId,year,month);
+    }
+
     @ApiOperation(value = "根据平台和时间得到 具体分类的分类 时间-花费柱状图+表格")
     @PostMapping("get_count_type_year")
     @ResponseBody
+    @LoginRequired
     public ResultVo getGoodsTypeCountByPlatAndTypeAndDate(@RequestParam(value = "platId") String platId,
                                                           @RequestParam(value = "type") Integer type,
                                                           @RequestParam(value = "year") String year){
@@ -75,6 +78,7 @@ public class StatisticsController {
     @ApiOperation(value = "根据时间和类型得到 每个实验室 具体分类的花费，饼状图+表格")
     @PostMapping("get_count_lab_type_year")
     @ResponseBody
+    @LoginRequired
     public ResultVo getGoodsTypePlatCountByTypeAndDate(@RequestParam(value = "type",defaultValue = "0") Integer type,
                                                        @RequestParam(value = "year",defaultValue = "%") String year,
                                                        @RequestParam(value = "month",defaultValue = "%") String month,

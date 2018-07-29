@@ -1,10 +1,6 @@
 package cn.nwsuaf.edu.srms.config;
 
 import cn.nwsuaf.edu.srms.util.ResultUtil;
-import com.alibaba.fastjson.JSONObject;
-import org.apache.commons.lang3.exception.ExceptionUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;

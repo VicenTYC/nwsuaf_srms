@@ -49,20 +49,6 @@ public class UserController {
         return ResultUtil.createByErrorMessage(Const.LOGIN.ERROR);
     }
 
-//    @ApiOperation(value = "负责人登录")
-//    @PostMapping(value = "manager_login")
-//    @ResponseBody
-//    public ResultVo<String> managerLogin(@RequestParam(name = "username") String username, @RequestParam(name = "password") String password) {
-//        return null;
-//    }
-//
-//    @ApiOperation(value = "超级负责人登录")
-//    @PostMapping(value = "admin_login")
-//    @ResponseBody
-//    public ResultVo<String> adminLogin(@RequestParam(name = "username") String username, @RequestParam(name = "password") String password) {
-//        return null;
-//    }
-
     @ApiOperation(value = "退出登录")
     @PostMapping(value = "logout")
     @ResponseBody

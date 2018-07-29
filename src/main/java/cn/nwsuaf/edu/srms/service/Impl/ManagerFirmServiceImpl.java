@@ -9,6 +9,9 @@ import cn.nwsuaf.edu.srms.entity.ComSupplier;
 import cn.nwsuaf.edu.srms.service.ManagerFirmService;
 import cn.nwsuaf.edu.srms.util.ResultUtil;
 import cn.nwsuaf.edu.srms.vo.ResultVo;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,12 +33,22 @@ public class ManagerFirmServiceImpl implements ManagerFirmService {
     @Autowired
     private ComSupplierMapper comSupplierMapper;
 
-
     @Override
     public ResultVo<List<ComMaintainer>> getAllMaintainer() {
 
         List<ComMaintainer> comMaintainerList = comMaintainerMapper.getAll();
         return ResultUtil.createBySuccess(comMaintainerList);
+    }
+
+    @Override
+    public ResultVo<PageInfo<ComMaintainer>> getPageMaintainer(Integer pageNum, Integer pageSize) {
+
+        PageHelper.startPage(pageNum,pageSize);
+        List<ComMaintainer> comMaintainerList = comMaintainerMapper.getAll();
+
+        PageInfo<ComMaintainer> pageInfo = new PageInfo<>(comMaintainerList);
+
+        return ResultUtil.createBySuccess(pageInfo);
     }
 
     @Override
@@ -52,6 +65,16 @@ public class ManagerFirmServiceImpl implements ManagerFirmService {
     public ResultVo<List<ComProducer>> getAllProducer() {
         List<ComProducer> comProducerList = comProducerMapper.getAll();
         return ResultUtil.createBySuccess(comProducerList);
+    }
+
+    @Override
+    public ResultVo<PageInfo<ComProducer>> getPageProducer(Integer pageNum, Integer pageSize) {
+        PageHelper.startPage(pageNum,pageSize);
+        List<ComProducer> comProducerList = comProducerMapper.getAll();
+
+        PageInfo<ComProducer> pageInfo = new PageInfo<>(comProducerList);
+
+        return ResultUtil.createBySuccess(pageInfo);
     }
 
     @Override
@@ -79,4 +102,15 @@ public class ManagerFirmServiceImpl implements ManagerFirmService {
         }
         return ResultUtil.createBySuccessMessage("添加供应商失败");
     }
+
+    @Override
+    public ResultVo<PageInfo<ComSupplier>> getPageSupplier(Integer pageNum, Integer pageSize) {
+        PageHelper.startPage(pageNum,pageSize);
+        List<ComSupplier> comSupplierList = comSupplierMapper.getAll();
+
+        PageInfo<ComSupplier> pageInfo = new PageInfo<>(comSupplierList);
+
+        return ResultUtil.createBySuccess(pageInfo);
+    }
+
 }

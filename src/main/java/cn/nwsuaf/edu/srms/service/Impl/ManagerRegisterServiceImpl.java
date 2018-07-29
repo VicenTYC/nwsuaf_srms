@@ -50,12 +50,14 @@ public class ManagerRegisterServiceImpl implements ManagerRegisterService {
         registerMaintain.setUserId(userId);
         registerMaintain.setStatus(Const.REGTSTER.SAVE);
 
-        if(registerMaintain.getId() == null)
+        if(registerMaintain.getId() == null) {
             registerMaintainMapper.insert(registerMaintain);
-        else
+        } else {
             registerMaintainMapper.updateByPrimaryKey(registerMaintain);
+        }
 
-        return null;
+        return ResultUtil.createBySuccessMessage(Const.CURD.SAVESUCCESS);
+
     }
 
     @Override
@@ -69,13 +71,13 @@ public class ManagerRegisterServiceImpl implements ManagerRegisterService {
         else
             registerMaintainMapper.updateByPrimaryKey(registerMaintain);
 
-        return null;
+        return ResultUtil.createBySuccessMessage(Const.CURD.COMMITSUCCESS);
     }
 
     @Override
     public ResultVo deleteMaintainRecord(String recordId) {
          registerMaintainMapper.deleteByPrimaryKey(Integer.valueOf(recordId));
-         return null;
+         return ResultUtil.createBySuccessMessage(Const.CURD.DELETESUCCESS);
     }
 
     @Override
@@ -100,10 +102,10 @@ public class ManagerRegisterServiceImpl implements ManagerRegisterService {
 
                 PageInfo pageInfo = new PageInfo(idList);
                 pageInfo.setList(registerVoList);
-                return ResultUtil.createBySuccess(pageInfo);
+                return ResultUtil.createBySuccess("查询成功",pageInfo);
             }
         }
-        return ResultUtil.createByErrorMessage("无记录");
+        return ResultUtil.createByErrorMessage("无登记记录");
 
     }
 
@@ -117,7 +119,7 @@ public class ManagerRegisterServiceImpl implements ManagerRegisterService {
         else
             registerMaterialMapper.updateByPrimaryKey(registerMaterial);
 
-        return null;
+        return ResultUtil.createBySuccessMessage(Const.CURD.SAVESUCCESS);
     }
 
     @Override
@@ -130,13 +132,13 @@ public class ManagerRegisterServiceImpl implements ManagerRegisterService {
         else
             registerMaterialMapper.updateByPrimaryKey(registerMaterial);
 
-        return null;
+        return ResultUtil.createBySuccessMessage(Const.CURD.COMMITSUCCESS);
     }
 
     @Override
     public ResultVo deleteMaterialRecord(String recordId) {
         registerMaterialMapper.deleteByPrimaryKey(Integer.valueOf(recordId));
-        return null;
+        return ResultUtil.createBySuccessMessage(Const.CURD.DELETESUCCESS);
     }
 
     @Override
@@ -162,7 +164,7 @@ public class ManagerRegisterServiceImpl implements ManagerRegisterService {
 
                 PageInfo pageInfo = new PageInfo(idList);
                 pageInfo.setList(registerVoList);
-                return ResultUtil.createBySuccess(pageInfo);
+                return ResultUtil.createBySuccess(Const.CURD.GETSUCCESS,pageInfo);
             }
         }
         return ResultUtil.createByErrorMessage("无登记记录");
@@ -178,7 +180,7 @@ public class ManagerRegisterServiceImpl implements ManagerRegisterService {
         else
             registerPartsMapper.updateByPrimaryKey(registerParts);
 
-        return null;
+        return ResultUtil.createBySuccessMessage(Const.CURD.SAVESUCCESS);
     }
 
     @Override
@@ -191,13 +193,13 @@ public class ManagerRegisterServiceImpl implements ManagerRegisterService {
         else
             registerPartsMapper.updateByPrimaryKey(registerParts);
 
-        return null;
+        return ResultUtil.createBySuccessMessage(Const.CURD.COMMITSUCCESS);
     }
 
     @Override
     public ResultVo deletePartsRecord(String recordId) {
         registerPartsMapper.deleteByPrimaryKey(Integer.valueOf(recordId));
-        return null;
+        return ResultUtil.createBySuccessMessage(Const.CURD.DELETESUCCESS);
     }
 
     @Override
@@ -240,7 +242,7 @@ public class ManagerRegisterServiceImpl implements ManagerRegisterService {
         else
             registerReagentMapper.updateByPrimaryKey(registerReagent);
 
-        return null;
+        return ResultUtil.createBySuccessMessage(Const.CURD.SAVESUCCESS);
     }
 
     @Override
@@ -253,13 +255,13 @@ public class ManagerRegisterServiceImpl implements ManagerRegisterService {
         else
             registerReagentMapper.updateByPrimaryKey(registerReagent);
 
-        return null;
+        return ResultUtil.createBySuccessMessage(Const.CURD.COMMITSUCCESS);
     }
 
     @Override
     public ResultVo deleteReagentRecord(String recordId) {
         registerReagentMapper.deleteByPrimaryKey(Integer.valueOf(recordId));
-        return null;
+        return ResultUtil.createBySuccessMessage(Const.CURD.DELETESUCCESS);
     }
 
     @Override
@@ -283,11 +285,11 @@ public class ManagerRegisterServiceImpl implements ManagerRegisterService {
                 PageInfo pageInfo = new PageInfo(idList);
                 pageInfo.setList(registerVoList);
 
-                return ResultUtil.createBySuccess("查询成功",pageInfo);
+                return ResultUtil.createBySuccess(Const.CURD.GETSUCCESS,pageInfo);
             }
         }
 
-        return ResultUtil.createByErrorMessage("无记录");
+        return ResultUtil.createByErrorMessage("无登记记录");
     }
 
 }

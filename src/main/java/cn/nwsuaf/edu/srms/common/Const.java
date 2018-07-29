@@ -40,4 +40,21 @@ public class Const {
 
     }
 
+    public interface CURD{
+        String GETSUCCESS = "查询成功";
+        String GETERROR = "查询失败";
+
+        String CREATESUCCESS = "增加成功";
+        String CREATEERROR = "增加失败";
+        String DELETESUCCESS = "删除成功";
+        String DELETEERROR = "删除失败";
+        String UPDATESUCCESS = "修改成功";
+        String UPDATEERROR = "修改失败";
+
+        String COMMITSUCCESS = "提交成功";
+        String COMMITEERROR = "提交失败";
+
+        String SAVESUCCESS = "保存成功";
+    }
+
 }

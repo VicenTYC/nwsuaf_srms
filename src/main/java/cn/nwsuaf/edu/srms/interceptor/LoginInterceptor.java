@@ -1,6 +1,7 @@
 package cn.nwsuaf.edu.srms.interceptor;
 
 import cn.nwsuaf.edu.srms.annotation.LoginRequired;
+import cn.nwsuaf.edu.srms.common.Const;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 
@@ -30,7 +31,7 @@ public class LoginInterceptor implements HandlerInterceptor{
 
         if(loginRequired != null) {
             HttpSession session = request.getSession();
-            String managerId = (String)session.getAttribute("currentUser");
+            String managerId = (String)session.getAttribute(Const.CURRENT_USER);
 
             if(managerId == null){
                 throw new RuntimeException("用户未登录");

@@ -3,6 +3,7 @@ package cn.nwsuaf.edu.srms.service;
 import cn.nwsuaf.edu.srms.entity.ProInstrument;
 import cn.nwsuaf.edu.srms.vo.InstrumentVo;
 import cn.nwsuaf.edu.srms.vo.ResultVo;
+import com.github.pagehelper.PageInfo;
 
 import java.util.List;
 
@@ -15,5 +16,7 @@ import java.util.List;
 public interface ManagerInstrumentService {
     ResultVo<List<InstrumentVo>> getInstrumentByPlat(Integer platId);
 
-    ResultVo<String> addInstrument(ProInstrument proInstrument);
+    ResultVo<String> addInstrument(ProInstrument proInstrument, Integer userId);
+
+    ResultVo<PageInfo<InstrumentVo>> getPageInstrumentByPlat(Integer platId, Integer pageNum, Integer pageSize);
 }
