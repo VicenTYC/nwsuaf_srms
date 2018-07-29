@@ -1,16 +1,12 @@
 package cn.nwsuaf.edu.srms.service.Impl;
 
 import cn.nwsuaf.edu.srms.common.Const;
-import cn.nwsuaf.edu.srms.dao.RegisterMaintainMapper;
-import cn.nwsuaf.edu.srms.dao.RegisterMaterialMapper;
-import cn.nwsuaf.edu.srms.dao.RegisterPartsMapper;
-import cn.nwsuaf.edu.srms.dao.RegisterReagentMapper;
+import cn.nwsuaf.edu.srms.dao.*;
 import cn.nwsuaf.edu.srms.service.StatisticsService;
+import cn.nwsuaf.edu.srms.util.MapUtil;
 import cn.nwsuaf.edu.srms.util.ResultUtil;
 import cn.nwsuaf.edu.srms.vo.CountVo;
 import cn.nwsuaf.edu.srms.vo.ResultVo;
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.logging.log4j.message.ReusableMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,6 +25,8 @@ import java.util.Map;
 @Service
 public class StatisticsServiceImpl implements StatisticsService {
 
+    @Autowired
+    private UserPlatMapper userPlatMapper;
     @Autowired
     private RegisterMaterialMapper registerMaterialMapper;
     @Autowired
@@ -84,7 +82,12 @@ public class StatisticsServiceImpl implements StatisticsService {
                 map = registerMaintainMapper.getCountByPlatAndTypeAndDate(platId,year);
                 break;
             case 0:
-
+                {
+                    map = registerMaterialMapper.getCountByPlatAndTypeAndDate(platId,year);
+                    MapUtil.merge(map,registerPartsMapper.getCountByPlatAndTypeAndDate(platId,year));
+                    MapUtil.merge(map,registerReagentMapper.getCountByPlatAndTypeAndDate(platId,year));
+                    MapUtil.merge(map,registerMaintainMapper.getCountByPlatAndTypeAndDate(platId,year));
+                }
                 break;
         }
 
@@ -92,8 +95,48 @@ public class StatisticsServiceImpl implements StatisticsService {
     }
 
     @Override
-    public ResultVo getByPlatAndYearAndMonth(String platId, String year, String month, Integer pageNum, Integer pageSize) {
-        return null;
+    public ResultVo getGoodsTypePlatCountByTypeAndDate(String userId, Integer type, String year, String month) {
+
+        if("%".equals(year))
+            year = null;
+        if("%".equals(month))
+            month = null;
+
+        List<Integer> platIdsList = userPlatMapper.selectIdsByManager(userId);
+        List<CountVo> countVoList = new ArrayList<>();
+
+        for(Integer platId: platIdsList) {
+
+            CountVo countVo = null;
+            switch (type) {
+                case 1:
+                    countVo = registerMaterialMapper.getPlatCountByTypeAndDate(platId, year,month).check();
+                    break;
+                case 2:
+                    countVo = registerPartsMapper.getPlatCountByTypeAndDate(platId, year,month).check();
+                    break;
+                case 3:
+                    countVo = registerReagentMapper.getPlatCountByTypeAndDate(platId, year,month).check();
+                    break;
+                case 4:
+                    countVo = registerMaintainMapper.getPlatCountByTypeAndDate(platId, year,month).check();
+                    break;
+                case 0:
+                {
+                    countVo = new CountVo("",BigDecimal.ZERO);
+                    countVo.add(registerMaterialMapper.getPlatCountByTypeAndDate(platId, year,month).check());
+                    countVo.add(registerPartsMapper.getPlatCountByTypeAndDate(platId, year,month).check());
+                    countVo.add(registerReagentMapper.getPlatCountByTypeAndDate(platId, year,month).check());
+                    countVo.add(registerMaintainMapper.getPlatCountByTypeAndDate(platId, year,month).check());
+                    break;
+                }
+            }
+
+            countVoList.add(countVo);
+        }
+
+        return ResultUtil.createBySuccess(countVoList);
     }
+
 
 }

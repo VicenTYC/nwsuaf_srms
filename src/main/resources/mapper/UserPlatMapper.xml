@@ -9,13 +9,21 @@
   <sql id="Base_Column_List" >
     id, plat_id, user_id
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+
+	<select id="selectIdsByManager" resultType="java.lang.Integer">
+		SELECT plat_id
+		FROM user_plat
+		WHERE user_id = #{userId}
+	</select>
+
+
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from user_plat
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from user_plat
     where id = #{id,jdbcType=INTEGER}
   </delete>

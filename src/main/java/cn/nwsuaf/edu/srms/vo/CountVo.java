@@ -1,6 +1,5 @@
 package cn.nwsuaf.edu.srms.vo;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -17,14 +16,26 @@ import java.math.BigDecimal;
 public class CountVo {
 
     private String name;
-    private BigDecimal total_price;
+    private BigDecimal totalPrice;
 
     public CountVo(String name, BigDecimal total_price) {
         this.name = name;
 
         if(total_price == null)
-            this.total_price = new BigDecimal("0");
+            this.totalPrice = new BigDecimal("0");
         else
-            this.total_price = total_price;
+            this.totalPrice = total_price;
     }
+
+    public void add(CountVo countVo){
+        this.name = countVo.name;
+        this.totalPrice  = this.totalPrice.add(countVo.totalPrice);
+    }
+
+    public CountVo check(){
+        if(totalPrice == null)
+            this.totalPrice = new BigDecimal("0");
+        return this;
+    }
+
 }

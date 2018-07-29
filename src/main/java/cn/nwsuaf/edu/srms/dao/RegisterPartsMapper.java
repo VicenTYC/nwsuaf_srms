@@ -1,6 +1,7 @@
 package cn.nwsuaf.edu.srms.dao;
 
 import cn.nwsuaf.edu.srms.entity.RegisterParts;
+import cn.nwsuaf.edu.srms.vo.CountVo;
 import cn.nwsuaf.edu.srms.vo.RegisterVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -32,4 +33,6 @@ public interface RegisterPartsMapper {
     BigDecimal getCountByPlatAndYearAndMonth(@Param("platId") String platId, @Param("year") String year, @Param("month") String month);
 
     Map<String,BigDecimal> getCountByPlatAndTypeAndDate(@Param("platId") String platId, @Param("year") String year);
+
+    CountVo getPlatCountByTypeAndDate(@Param("platId") Integer platId, @Param("year") String year, @Param("month") String month);
 }

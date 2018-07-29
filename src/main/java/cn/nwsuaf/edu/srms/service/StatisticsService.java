@@ -14,5 +14,5 @@ public interface StatisticsService {
 
     ResultVo getGoodsTypeCountByPlatAndTypeAndDate(String platId, Integer type, String year);
 
-    ResultVo getByPlatAndYearAndMonth(String platId, String year, String month, Integer pageNum, Integer pageSize);
+    ResultVo getGoodsTypePlatCountByTypeAndDate(String userId, Integer type, String year, String month);
 }

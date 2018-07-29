@@ -4,6 +4,8 @@ import cn.nwsuaf.edu.srms.entity.UserPlat;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Mapper
 @Component
 public interface UserPlatMapper {
@@ -18,4 +20,6 @@ public interface UserPlatMapper {
     int updateByPrimaryKeySelective(UserPlat record);
 
     int updateByPrimaryKey(UserPlat record);
+
+    List<Integer> selectIdsByManager(String userId);
 }

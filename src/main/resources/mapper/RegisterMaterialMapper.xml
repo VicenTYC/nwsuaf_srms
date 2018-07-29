@@ -40,7 +40,7 @@
 	</resultMap>
 
   <sql id="Base_Column_List" >
-    id, material_id, producer_id, supplier_id, price, count, total_price, remark, user_id, 
+    id, material_id, producer_id, supplier_id, price, count, total_price, remark, user_id,
     create_time, status
   </sql>
 
@@ -113,14 +113,27 @@
 			AND year(create_time) = #{year}
 		</if>
 	</select>
+	<select id="getPlatCountByTypeAndDate" resultType="cn.nwsuaf.edu.srms.vo.CountVo">
+		SELECT platform.name as name,sum(total_price) as totalPrice
+		FROM register_material,pro_material,platform
+		WHERE plat_id = #{platId}
+		AND platform.id = #{platId}
+		AND pro_material.id = register_material.id
+		<if test="year != null" >
+			AND year(create_time) = #{year}
+		</if>
+		<if test="month != null" >
+			AND month(create_time) = #{month}
+		</if>
+	</select>
 
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from register_material
     where id = #{id,jdbcType=INTEGER}
   </select>
-
 
 
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
@@ -130,11 +143,11 @@
   <insert id="insert" parameterType="cn.nwsuaf.edu.srms.entity.RegisterMaterial" >
     insert into register_material (id, material_id, producer_id, 
       supplier_id, price, count, 
-      total_price, remark, user_id, 
+      total_price, remark, user_id,
       create_time, status)
     values (#{id,jdbcType=INTEGER}, #{materialId,jdbcType=INTEGER}, #{producerId,jdbcType=INTEGER}, 
       #{supplierId,jdbcType=INTEGER}, #{price,jdbcType=DECIMAL}, #{count,jdbcType=INTEGER}, 
-      #{totalPrice,jdbcType=DECIMAL}, #{remark,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, 
+      #{total_price,jdbcType=DECIMAL}, #{remark,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, 
       #{createTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="cn.nwsuaf.edu.srms.entity.RegisterMaterial" >
@@ -158,7 +171,7 @@
       <if test="count != null" >
         count,
       </if>
-      <if test="totalPrice != null" >
+      <if test="total_price != null" >
         total_price,
       </if>
       <if test="remark != null" >
@@ -193,8 +206,8 @@
       <if test="count != null" >
         #{count,jdbcType=INTEGER},
       </if>
-      <if test="totalPrice != null" >
-        #{totalPrice,jdbcType=DECIMAL},
+      <if test="total_price != null" >
+        #{total_price,jdbcType=DECIMAL},
       </if>
       <if test="remark != null" >
         #{remark,jdbcType=VARCHAR},
@@ -228,8 +241,8 @@
       <if test="count != null" >
         count = #{count,jdbcType=INTEGER},
       </if>
-      <if test="totalPrice != null" >
-        total_price = #{totalPrice,jdbcType=DECIMAL},
+      <if test="total_price != null" >
+        total_price = #{total_price,jdbcType=DECIMAL},
       </if>
       <if test="remark != null" >
         remark = #{remark,jdbcType=VARCHAR},
@@ -253,7 +266,7 @@
       supplier_id = #{supplierId,jdbcType=INTEGER},
       price = #{price,jdbcType=DECIMAL},
       count = #{count,jdbcType=INTEGER},
-      total_price = #{totalPrice,jdbcType=DECIMAL},
+      total_price = #{total_price,jdbcType=DECIMAL},
       remark = #{remark,jdbcType=VARCHAR},
       user_id = #{userId,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},

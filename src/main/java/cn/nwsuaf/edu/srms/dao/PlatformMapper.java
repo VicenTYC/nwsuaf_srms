@@ -23,4 +23,5 @@ public interface PlatformMapper {
     int updateByPrimaryKey(Platform record);
 
     List<Platform> selectByManager(@Param("userId") String userId);
+
 }
