@@ -10,8 +10,10 @@ import cn.nwsuaf.edu.srms.vo.ResultVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.catalina.Server;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import sun.java2d.SurfaceDataProxy;
 
 import javax.servlet.http.HttpSession;
 
@@ -33,15 +35,21 @@ public class ManagerRegisterController {
     @PostMapping(value = "/maintain/save")
     @ResponseBody
     public ResultVo saveMaintainRecord(@RequestBody RegisterMaintain registerMaintain, HttpSession session) {
-        int userId = (int) session.getAttribute(Const.CURRENT_USER);
+
+        System.out.println(ToStringBuilder.reflectionToString(registerMaintain));
+
+        int userId = Integer.parseInt((String)session.getAttribute(Const.CURRENT_USER));
+
         return managerRegisterService.saveMaintainRecord(registerMaintain,userId);
+
     }
 
     @ApiOperation(value = "维修提交")
     @PostMapping(value = "/maintain/commit")
     @ResponseBody
     public ResultVo commitMaintainRecord(@RequestBody RegisterMaintain registerMaintain, HttpSession session) {
-        int userId = (int) session.getAttribute(Const.CURRENT_USER);
+        int userId = Integer.parseInt((String)session.getAttribute(Const.CURRENT_USER));
+
         return managerRegisterService.commitMaintainRecord(registerMaintain,userId);
     }
 
@@ -68,7 +76,8 @@ public class ManagerRegisterController {
     @PostMapping(value = "/material/save")
     @ResponseBody
     public ResultVo saveMaterialRecord(@RequestBody RegisterMaterial registerMaterial, HttpSession session) {
-        int userId = (int) session.getAttribute(Const.CURRENT_USER);
+        int userId = Integer.parseInt((String)session.getAttribute(Const.CURRENT_USER));
+
         return managerRegisterService.saveMaterialRecord(registerMaterial,userId);
     }
 
@@ -76,7 +85,8 @@ public class ManagerRegisterController {
     @PostMapping(value = "/material/commit")
     @ResponseBody
     public ResultVo commitMaterialRecord(@RequestBody RegisterMaterial registerMaterial, HttpSession session) {
-        int userId = (int) session.getAttribute(Const.CURRENT_USER);
+        int userId = Integer.parseInt((String)session.getAttribute(Const.CURRENT_USER));
+
         return managerRegisterService.commitMaterialRecord(registerMaterial,userId);
     }
 
@@ -103,7 +113,8 @@ public class ManagerRegisterController {
     @PostMapping(value = "/reagent/save")
     @ResponseBody
     public ResultVo saveReagentRecord(@RequestBody RegisterReagent registerReagent, HttpSession session) {
-        int userId = (int) session.getAttribute(Const.CURRENT_USER);
+        int userId = Integer.parseInt((String)session.getAttribute(Const.CURRENT_USER));
+
         return managerRegisterService.saveReagentRecord(registerReagent,userId);
     }
 
@@ -111,7 +122,8 @@ public class ManagerRegisterController {
     @PostMapping(value = "/reagent/commit")
     @ResponseBody
     public ResultVo commitReagentRecord(@RequestBody RegisterReagent registerReagent, HttpSession session) {
-        int userId = (int) session.getAttribute(Const.CURRENT_USER);
+        int userId = Integer.parseInt((String)session.getAttribute(Const.CURRENT_USER));
+
         return managerRegisterService.commitReagentRecord(registerReagent,userId);
     }
 
@@ -138,7 +150,8 @@ public class ManagerRegisterController {
     @PostMapping(value = "/parts/save")
     @ResponseBody
     public ResultVo savePartsRecord(@RequestBody RegisterParts registerParts, HttpSession session) {
-        int userId = (int) session.getAttribute(Const.CURRENT_USER);
+        int userId = Integer.parseInt((String)session.getAttribute(Const.CURRENT_USER));
+
         return managerRegisterService.savePartsRecord(registerParts,userId);
     }
 
@@ -146,7 +159,8 @@ public class ManagerRegisterController {
     @PostMapping(value = "/parts/commit")
     @ResponseBody
     public ResultVo commitPartsRecord(@RequestBody RegisterParts registerParts, HttpSession session) {
-        int userId = (int) session.getAttribute(Const.CURRENT_USER);
+        int userId = Integer.parseInt((String)session.getAttribute(Const.CURRENT_USER));
+
         return managerRegisterService.commitPartsRecord(registerParts,userId);
     }
 

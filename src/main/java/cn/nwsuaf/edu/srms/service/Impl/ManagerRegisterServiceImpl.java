@@ -13,6 +13,7 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -48,6 +49,7 @@ public class ManagerRegisterServiceImpl implements ManagerRegisterService {
     public ResultVo saveMaintainRecord(RegisterMaintain registerMaintain, int userId) {
 
         registerMaintain.setUserId(userId);
+        registerMaintain.setTotalPrice(registerMaintain.getPrice().multiply(BigDecimal.valueOf(registerMaintain.getCount())));
         registerMaintain.setStatus(Const.REGTSTER.SAVE);
 
         if(registerMaintain.getId() == null) {
@@ -64,10 +66,12 @@ public class ManagerRegisterServiceImpl implements ManagerRegisterService {
     public ResultVo commitMaintainRecord(RegisterMaintain registerMaintain, int userId) {
 
         registerMaintain.setUserId(userId);
+        registerMaintain.setTotalPrice(registerMaintain.getPrice().multiply(BigDecimal.valueOf(registerMaintain.getCount())));
         registerMaintain.setStatus(Const.REGTSTER.COMMIT);
 
-        if(registerMaintain.getId() == null)
+        if(registerMaintain.getId() == null) {
             registerMaintainMapper.insert(registerMaintain);
+        }
         else
             registerMaintainMapper.updateByPrimaryKey(registerMaintain);
 
@@ -112,6 +116,7 @@ public class ManagerRegisterServiceImpl implements ManagerRegisterService {
     @Override
     public ResultVo saveMaterialRecord(RegisterMaterial registerMaterial, int userId) {
         registerMaterial.setUserId(userId);
+        registerMaterial.setTotalPrice(registerMaterial.getPrice().multiply(BigDecimal.valueOf(registerMaterial.getCount())));
         registerMaterial.setStatus(Const.REGTSTER.SAVE);
 
         if(registerMaterial.getId() == null)
@@ -125,6 +130,7 @@ public class ManagerRegisterServiceImpl implements ManagerRegisterService {
     @Override
     public ResultVo commitMaterialRecord(RegisterMaterial registerMaterial, int userId) {
         registerMaterial.setUserId(userId);
+        registerMaterial.setTotalPrice(registerMaterial.getPrice().multiply(BigDecimal.valueOf(registerMaterial.getCount())));
         registerMaterial.setStatus(Const.REGTSTER.COMMIT);
 
         if(registerMaterial.getId() == null)
@@ -172,6 +178,7 @@ public class ManagerRegisterServiceImpl implements ManagerRegisterService {
 
     @Override
     public ResultVo savePartsRecord(RegisterParts registerParts, int userId) {
+        registerParts.setTotalPrice(registerParts.getPrice().multiply(BigDecimal.valueOf(registerParts.getCount())));
         registerParts.setUserId(userId);
         registerParts.setStatus(Const.REGTSTER.SAVE);
 
@@ -185,6 +192,7 @@ public class ManagerRegisterServiceImpl implements ManagerRegisterService {
 
     @Override
     public ResultVo commitPartsRecord(RegisterParts registerParts, int userId) {
+        registerParts.setTotalPrice(registerParts.getPrice().multiply(BigDecimal.valueOf(registerParts.getCount())));
         registerParts.setUserId(userId);
         registerParts.setStatus(Const.REGTSTER.COMMIT);
 
@@ -236,6 +244,7 @@ public class ManagerRegisterServiceImpl implements ManagerRegisterService {
     public ResultVo saveReagentRecord(RegisterReagent registerReagent, int userId) {
         registerReagent.setUserId(userId);
         registerReagent.setStatus(Const.REGTSTER.SAVE);
+        registerReagent.setTotalPrice(registerReagent.getPrice().multiply(BigDecimal.valueOf(registerReagent.getCount())));
 
         if(registerReagent.getId() == null)
             registerReagentMapper.insert(registerReagent);
@@ -249,6 +258,7 @@ public class ManagerRegisterServiceImpl implements ManagerRegisterService {
     public ResultVo commitReagentRecord(RegisterReagent registerReagent, int userId) {
         registerReagent.setUserId(userId);
         registerReagent.setStatus(Const.REGTSTER.COMMIT);
+        registerReagent.setTotalPrice(registerReagent.getPrice().multiply(BigDecimal.valueOf(registerReagent.getCount())));
 
         if(registerReagent.getId() == null)
             registerReagentMapper.insert(registerReagent);

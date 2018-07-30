@@ -19,7 +19,7 @@ public class RegisterVoUtil {
             if(Objects.equals(registerVo.getStatus(), Const.REGTSTER.SAVE)){
                 registerVo.setStatusString("已保存");
             } else if(Objects.equals(registerVo.getStatus(), Const.REGTSTER.COMMIT)){
-                registerVo.setStatusString("未审核");
+                registerVo.setStatusString("已提交，审核中");
             } if(Objects.equals(registerVo.getStatus(), Const.REGTSTER.PASS)){
                 registerVo.setStatusString("已通过");
             } if(Objects.equals(registerVo.getStatus(), Const.REGTSTER.UNPASS)){

@@ -21,18 +21,18 @@
 		</javaTypeResolver>
 
 		<!-- 实体类生成的位置 -->
-		<javaModelGenerator targetPackage="cn.nwsuaf.edu.srms.entity" targetProject="src/main/java">
+		<javaModelGenerator targetPackage="cn.nwsuaf.edu.srms.temp" targetProject="src/main/java">
 			<property name="enableSubPackages" value="false"/>
 			<property name="trimStrings" value="true"/>
 		</javaModelGenerator>
 
 		<!-- *Mapper.xml 文件的位置 -->
-		<sqlMapGenerator targetPackage="cn.nwsuaf.edu.srms.dao" targetProject="src/main/java">
+		<sqlMapGenerator targetPackage="cn.nwsuaf.edu.srms.temp" targetProject="src/main/java">
 			<property name="enableSubPackages" value="false"/>
 		</sqlMapGenerator>
 
 		<!-- Mapper 接口文件的位置 -->
-		<javaClientGenerator targetPackage="cn.nwsuaf.edu.srms.dao" targetProject="src/main/java" type="XMLMAPPER">
+		<javaClientGenerator targetPackage="cn.nwsuaf.edu.srms.temp" targetProject="src/main/java" type="XMLMAPPER">
 			<property name="enableSubPackages" value="false"/>
 		</javaClientGenerator>
 

@@ -28,7 +28,7 @@ public interface RegisterMaterialMapper {
 
     List<Integer> getIds(@Param("maintainIdList") List<Integer> maintainIdList, @Param("year") String year, @Param("month") String month);
 
-    List<RegisterVo> getRegister(List<Integer> idList);
+    List<RegisterVo> getRegister(@Param("idList") List<Integer> idList);
 
     BigDecimal getCountByPlatAndYearAndMonth(@Param("platId") String platId, @Param("year") String year, @Param("month") String month);
 

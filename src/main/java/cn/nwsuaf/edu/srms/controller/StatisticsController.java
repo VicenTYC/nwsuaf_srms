@@ -65,13 +65,13 @@ public class StatisticsController {
         return statisticsService.getCountsByPlatAndYearAndMonth(platId,year,month);
     }
 
-    @ApiOperation(value = "根据平台和时间得到 具体分类的分类 时间-花费柱状图+表格")
+    @ApiOperation(value = "根据平台和时间 具体分类 得到 时间-花费柱状图+表格")
     @PostMapping("get_count_type_year")
     @ResponseBody
     @LoginRequired
     public ResultVo getGoodsTypeCountByPlatAndTypeAndDate(@RequestParam(value = "platId") String platId,
-                                                          @RequestParam(value = "type") Integer type,
-                                                          @RequestParam(value = "year") String year){
+                                                          @RequestParam(value = "type",defaultValue = "0") Integer type,
+                                                          @RequestParam(value = "year",defaultValue = "%") String year){
         return statisticsService.getGoodsTypeCountByPlatAndTypeAndDate(platId,type,year);
     }
 

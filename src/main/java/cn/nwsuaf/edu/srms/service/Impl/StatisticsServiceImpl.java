@@ -131,7 +131,6 @@ public class StatisticsServiceImpl implements StatisticsService {
                     break;
                 }
             }
-
             countVoList.add(countVo);
         }
 
