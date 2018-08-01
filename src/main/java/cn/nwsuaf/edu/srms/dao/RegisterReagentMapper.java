@@ -35,4 +35,10 @@ public interface RegisterReagentMapper {
     Map<String,BigDecimal> getCountByPlatAndTypeAndDate(@Param("platId") String platId, @Param("year") String year);
 
     CountVo getPlatCountByTypeAndDate(@Param("platId") Integer platId, @Param("year") String year, @Param("month") String month);
+
+    List<RegisterVo> getAdminRegister(@Param("commit") Integer commit);
+
+    int updateRegister(@Param("registerId") String registerId, @Param("pass") Integer pass);
+
+    int updateAllRegister(@Param("pass") Integer pass, @Param("commit") Integer commit);
 }

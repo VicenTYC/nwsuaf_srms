@@ -20,6 +20,8 @@ public class RegisterVo {
 
     private Integer id;
 
+    private String platName;
+
     private Integer goodsId;
     private String goodsName;
     private Integer maintainerId;

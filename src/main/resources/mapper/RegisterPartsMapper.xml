@@ -17,6 +17,8 @@
 	<resultMap id="RegisterMap" type="cn.nwsuaf.edu.srms.vo.RegisterVo" >
 		<id column="id" property="id" jdbcType="INTEGER" />
 
+		<result column="plat_name" property="platName" jdbcType="VARCHAR" />
+
 		<result column="parts_id" property="goodsId" jdbcType="INTEGER" />
 		<result column="parts_name" property="goodsName" jdbcType="VARCHAR" />
 
@@ -77,6 +79,24 @@
 		AND register_parts.user_id = user.id
 	</select>
 
+	<select id="getAdminRegister" resultMap="RegisterMap">
+		SELECT register_parts.id as id,platform.name as plat_name,
+		pro_parts.id as parts_id,pro_parts.name as parts_name,
+		com_producer.id as producer_id,com_producer.name as producer_name,
+		com_supplier.id as supplier_id,com_supplier.name as supplier_name,
+		user.id as user_id,user.name as user_name,
+		register_parts.price,register_parts.count,
+		register_parts.total_price,register_parts.remark,
+		register_parts.create_time,register_parts.status
+		FROM register_parts,user,pro_parts,com_producer,com_supplier,platform
+		WHERE pro_parts.plat_id = platform.id
+		AND register_parts.parts_id = pro_parts.id
+		AND register_parts.producer_id = com_producer.id
+		AND register_parts.supplier_id = com_supplier.id
+		AND register_parts.user_id = user.id
+		AND status = #{commit}
+	</select>
+
 	<select id="getCountByPlatAndYearAndMonth" resultType="java.math.BigDecimal">
 		SELECT sum(total_price)
 		FROM register_parts,pro_parts
@@ -124,9 +144,16 @@
 			AND month(create_time) = #{month}
 		</if>
 	</select>
-
-
-
+	<update id="updateRegister">
+		update register_parts
+		set status = #{pass}
+		where id = #{registerId}
+	</update>
+	<update id="updateAllRegister">
+		update register_parts
+		set status = #{pass}
+		where status = #{commit}
+	</update>
 
 
 	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
@@ -139,7 +166,7 @@
 		delete from register_parts
 		where id = #{id,jdbcType=INTEGER}
 	</delete>
-	<insert id="insert" parameterType="cn.nwsuaf.edu.srms.temp.RegisterParts" >
+	<insert id="insert" parameterType="cn.nwsuaf.edu.srms.entity.RegisterParts" >
 		insert into register_parts (id, parts_id, producer_id,
 		supplier_id, price, count,
 		total_price, remark, user_id,
@@ -149,7 +176,7 @@
 		#{totalPrice,jdbcType=DECIMAL}, #{remark,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER},
 		now(), #{status,jdbcType=INTEGER})
 	</insert>
-	<insert id="insertSelective" parameterType="cn.nwsuaf.edu.srms.temp.RegisterParts" >
+	<insert id="insertSelective" parameterType="cn.nwsuaf.edu.srms.entity.RegisterParts" >
 		insert into register_parts
 		<trim prefix="(" suffix=")" suffixOverrides="," >
 			<if test="id != null" >
@@ -218,7 +245,7 @@
 			</if>
 		</trim>
 	</insert>
-	<update id="updateByPrimaryKeySelective" parameterType="cn.nwsuaf.edu.srms.temp.RegisterParts" >
+	<update id="updateByPrimaryKeySelective" parameterType="cn.nwsuaf.edu.srms.entity.RegisterParts" >
 		update register_parts
 		<set >
 			<if test="partsId != null" >
@@ -252,7 +279,7 @@
 		</set>
 		where id = #{id,jdbcType=INTEGER}
 	</update>
-	<update id="updateByPrimaryKey" parameterType="cn.nwsuaf.edu.srms.temp.RegisterParts" >
+	<update id="updateByPrimaryKey" parameterType="cn.nwsuaf.edu.srms.entity.RegisterParts" >
 		update register_parts
 		set parts_id = #{partsId,jdbcType=INTEGER},
 		producer_id = #{producerId,jdbcType=INTEGER},

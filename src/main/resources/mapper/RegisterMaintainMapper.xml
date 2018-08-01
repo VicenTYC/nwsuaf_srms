@@ -18,6 +18,8 @@
 	<resultMap id="RegisterMap" type="cn.nwsuaf.edu.srms.vo.RegisterVo" >
 		<id column="id" property="id" jdbcType="INTEGER" />
 
+		<result column="plat_name" property="platName" jdbcType="VARCHAR" />
+
 		<result column="maintain_id" property="goodsId" jdbcType="INTEGER" />
 		<result column="maintain_name" property="goodsName" jdbcType="VARCHAR" />
 
@@ -80,6 +82,24 @@
 		AND register_maintain.user_id = user.id
 	</select>
 
+	<select id="getAdminRegister" resultMap="RegisterMap">
+		SELECT register_maintain.id as id,platform.name as plat_name,
+		pro_maintain.id as maintain_id,pro_maintain.name as maintain_name,
+		com_maintainer.id as maintainer_id,com_maintainer.name as maintainer_name,
+		com_supplier.id as supplier_id,com_supplier.name as supplier_name,
+		user.id as user_id,user.name as user_name,
+		register_maintain.price,register_maintain.count,
+		register_maintain.total_price,register_maintain.remark,
+		register_maintain.create_time,register_maintain.status
+		FROM register_maintain,user,pro_maintain,com_maintainer,com_supplier,platform
+		WHERE pro_maintain.plat_id = platform.id
+		AND register_maintain.maintain_id = pro_maintain.id
+		AND register_maintain.maintainer_id = com_maintainer.id
+		AND register_maintain.supplier_id = com_supplier.id
+		AND register_maintain.user_id = user.id
+		AND status = #{commit}
+	</select>
+
 	<select id="getCountByPlatAndYearAndMonth" resultType="java.math.BigDecimal">
 		SELECT sum(total_price)
 		FROM register_maintain,pro_maintain
@@ -127,6 +147,19 @@
 			AND month(create_time) = #{month}
 		</if>
 	</select>
+	<update id="updateRegister">
+		update register_maintain
+		set status = #{pass}
+		where id = #{registerId}
+	</update>
+	<update id="updateAllRegister">
+		update register_maintain
+		set status = #{pass}
+		where status = #{commit}
+	</update>
+
+
+
 
 	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
 		select
@@ -134,7 +167,6 @@
 		from register_maintain
 		where id = #{id,jdbcType=INTEGER}
 	</select>
-
 
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
 		delete from register_maintain
