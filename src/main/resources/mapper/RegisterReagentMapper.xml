@@ -111,6 +111,24 @@
 		order by create_time DESC
 	</select>
 
+	<select id="getViewRegister" resultMap="RegisterMap">
+		SELECT register_reagent.id as id,platform.name as plat_name,
+		pro_reagent.id as reagent_id,pro_reagent.name as reagent_name,
+		com_producer.id as producer_id,com_producer.name as producer_name,
+		com_supplier.id as supplier_id,com_supplier.name as supplier_name,
+		user.id as user_id,user.name as user_name,
+		register_reagent.price,register_reagent.count,
+		register_reagent.total_price,register_reagent.remark,
+		register_reagent.create_time,register_reagent.status
+		FROM register_reagent,user,pro_reagent,com_producer,com_supplier,platform
+		WHERE pro_reagent.plat_id = platform.id
+		AND register_reagent.reagent_id = pro_reagent.id
+		AND register_reagent.producer_id = com_producer.id
+		AND register_reagent.supplier_id = com_supplier.id
+		AND register_reagent.user_id = user.id
+		AND status > #{commit}
+		order by create_time DESC
+	</select>
 	<select id="getAdminRegister" resultMap="RegisterMap">
 		SELECT register_reagent.id as id,platform.name as plat_name,
 		pro_reagent.id as reagent_id,pro_reagent.name as reagent_name,
@@ -127,13 +145,14 @@
 		AND register_reagent.supplier_id = com_supplier.id
 		AND register_reagent.user_id = user.id
 		AND status = #{commit}
+		order by create_time DESC
 	</select>
 
 	<select id="getCountByPlatAndYearAndMonth" resultType="java.math.BigDecimal">
 		SELECT sum(total_price)
 		FROM register_reagent,pro_reagent
 		WHERE plat_id = #{platId}
-		AND pro_reagent.id = register_reagent.id
+		AND pro_reagent.id = register_reagent.reagent_id
 		<if test="year != null" >
 			AND year(create_time) = #{year}
 		</if>
@@ -158,7 +177,7 @@
 		year(create_time) as 年份
 		FROM register_reagent,pro_reagent
 		WHERE plat_id = #{platId}
-		AND pro_reagent.id = register_reagent.id
+		AND pro_reagent.id = register_reagent.reagent_id
 		<if test="year != null" >
 			AND year(create_time) = #{year}
 		</if>
@@ -168,7 +187,7 @@
 		FROM register_reagent,pro_reagent,platform
 		WHERE plat_id = #{platId}
 		AND platform.id = #{platId}
-		AND pro_reagent.id = register_reagent.id
+		AND pro_reagent.id = register_reagent.reagent_id
 		<if test="year != null" >
 			AND year(create_time) = #{year}
 		</if>

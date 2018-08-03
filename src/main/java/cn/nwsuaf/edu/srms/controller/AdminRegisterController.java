@@ -34,7 +34,7 @@ public class AdminRegisterController {
     public ResultVo getAgreeRegister(@RequestParam(value = "type") Integer type,
                                      @RequestParam(value = "pageNum",defaultValue = "1") Integer pageNum,
                                      @RequestParam(value = "pageSize",defaultValue = "10") Integer pageSize){
-        return adminRegisterService.getAdminViewRegister(type,pageNum,pageSize);
+        return adminRegisterService.getViewRegister(type,pageNum,pageSize);
     }
 
     @PostMapping(value = "agree")

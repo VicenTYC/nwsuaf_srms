@@ -19,4 +19,6 @@ public interface AdminRegisterService {
 
     ResultVo getAdminViewRegister(Integer type, Integer pageNum, Integer pageSize);
 
+    ResultVo getViewRegister(Integer type, Integer pageNum, Integer pageSize);
+
 }

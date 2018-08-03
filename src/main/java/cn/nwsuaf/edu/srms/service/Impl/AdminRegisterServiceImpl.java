@@ -68,10 +68,37 @@ public class AdminRegisterServiceImpl implements AdminRegisterService {
         if (idList != null && idList.size() != 0) {
             RegisterVoUtil.setString(resultVoList);
 
-            //PageInfo<RegisterVo> registerVoPageInfo = new PageInfo<>(i);
-
             PageInfo pageInfo = new PageInfo(idList);
             pageInfo.setList(resultVoList);
+            return ResultUtil.createBySuccess(pageInfo);
+        } else {
+            return ResultUtil.createByErrorMessage("无记录数据");
+        }
+    }
+
+    @Override
+    public ResultVo getViewRegister(Integer type, Integer pageNum, Integer pageSize) {
+        List<RegisterVo> resultVoList = null;
+
+        PageHelper.startPage(pageNum, pageSize);
+        switch (type) {
+            case 1:
+                resultVoList = registerMaterialMapper.getViewRegister(Const.REGTSTER.COMMIT);
+                break;
+            case 2:
+                resultVoList = registerPartsMapper.getViewRegister(Const.REGTSTER.COMMIT);
+                break;
+            case 3:
+                resultVoList = registerReagentMapper.getViewRegister(Const.REGTSTER.COMMIT);
+                break;
+            case 4:
+                resultVoList = registerMaintainMapper.getViewRegister(Const.REGTSTER.COMMIT);
+                break;
+        }
+
+        if (resultVoList != null && resultVoList.size() != 0) {
+            RegisterVoUtil.setString(resultVoList);
+            PageInfo<RegisterVo> pageInfo = new PageInfo<>(resultVoList);
             return ResultUtil.createBySuccess(pageInfo);
         } else {
             return ResultUtil.createByErrorMessage("无记录数据");

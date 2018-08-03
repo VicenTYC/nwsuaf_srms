@@ -45,4 +45,6 @@ public interface RegisterMaterialMapper {
     List<Integer> getViewIds(@Param("commit") Integer commit);
 
     List<RegisterVo> getAdminViewRegister(@Param("idList") List<Integer> idList);
+
+    List<RegisterVo> getViewRegister(@Param("commit") Integer commit);
 }
