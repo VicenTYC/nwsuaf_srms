@@ -61,6 +61,33 @@
 		</if>
 		order by create_time DESC
 	</select>
+	<select id="getViewIds" resultType="java.lang.Integer">
+		SELECT id
+		FROM register_material
+		WHERE status > #{commit}
+		order by create_time DESC
+	</select>
+	<select id="getAdminViewRegister" resultMap="RegisterMap">
+		SELECT register_material.id as id,platform.name as plat_name,
+		pro_material.id as material_id,pro_material.name as material_name,
+		com_producer.id as producer_id,com_producer.name as producer_name,
+		com_supplier.id as supplier_id,com_supplier.name as supplier_name,
+		user.id as user_id,user.name as user_name,
+		register_material.price,register_material.count,
+		register_material.total_price,register_material.remark,
+		register_material.create_time,register_material.status
+		FROM register_material,user,pro_material,com_producer,com_supplier,platform
+		WHERE register_material.id in
+		<foreach item="item" index="index" open="(" separator="," close=")" collection="idList">
+			#{item}
+		</foreach>
+		AND pro_material.plat_id = platform.id
+		AND register_material.material_id = pro_material.id
+		AND register_material.producer_id = com_producer.id
+		AND register_material.supplier_id = com_supplier.id
+		AND register_material.user_id = user.id
+		order by create_time DESC
+	</select>
 	<select id="getRegister" resultMap="RegisterMap">
 		SELECT register_material.id as id,
 		pro_material.id as material_id,pro_material.name as material_name,
@@ -79,7 +106,9 @@
 		AND register_material.producer_id = com_producer.id
 		AND register_material.supplier_id = com_supplier.id
 		AND register_material.user_id = user.id
+		order by create_time DESC
 	</select>
+
 	<select id="getAdminRegister" resultMap="RegisterMap">
 		SELECT register_material.id as id,platform.name as plat_name,
 		pro_material.id as material_id,pro_material.name as material_name,
@@ -179,7 +208,7 @@
 		values (#{id,jdbcType=INTEGER}, #{materialId,jdbcType=INTEGER}, #{producerId,jdbcType=INTEGER},
 		#{supplierId,jdbcType=INTEGER}, #{price,jdbcType=DECIMAL}, #{count,jdbcType=INTEGER},
 		#{totalPrice,jdbcType=DECIMAL}, #{remark,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER},
-		entity(), #{status,jdbcType=INTEGER})
+		now(), #{status,jdbcType=INTEGER})
 	</insert>
 	<insert id="insertSelective" parameterType="cn.nwsuaf.edu.srms.entity.RegisterMaterial" >
 		insert into register_material
@@ -244,7 +273,7 @@
 			<if test="userId != null" >
 				#{userId,jdbcType=INTEGER},
 			</if>
-			create_time = entity(),
+			create_time = now(),
 			<if test="status != null" >
 				#{status,jdbcType=INTEGER},
 			</if>
@@ -278,7 +307,7 @@
 				user_id = #{userId,jdbcType=INTEGER},
 			</if>
 			<if test="createTime != null" >
-				create_time = entity(),
+				create_time = now(),
 			</if>
 			<if test="status != null" >
 				status = #{status,jdbcType=INTEGER},
@@ -296,7 +325,7 @@
 		total_price = #{totalPrice,jdbcType=DECIMAL},
 		remark = #{remark,jdbcType=VARCHAR},
 		user_id = #{userId,jdbcType=INTEGER},
-		create_time = entity(),
+		create_time = now(),
 		status = #{status,jdbcType=INTEGER}
 		where id = #{id,jdbcType=INTEGER}
 	</update>

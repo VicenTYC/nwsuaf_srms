@@ -40,6 +40,13 @@ public class Const {
 
     }
 
+    public interface GOODTYPE{
+        Integer MATERIAL = 1;
+        Integer PARTS = 2;
+        Integer REAGENT = 3;
+        Integer MAINTAIN = 4;
+    }
+
     public interface CURD{
         String GETSUCCESS = "查询成功";
         String GETERROR = "查询失败";

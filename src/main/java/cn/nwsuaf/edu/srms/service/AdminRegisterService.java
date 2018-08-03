@@ -16,4 +16,7 @@ public interface AdminRegisterService {
     ResultVo unAgreeRegister(Integer type, String registerId);
 
     ResultVo agreeAllRegister(Integer type);
+
+    ResultVo getAdminViewRegister(Integer type, Integer pageNum, Integer pageSize);
+
 }

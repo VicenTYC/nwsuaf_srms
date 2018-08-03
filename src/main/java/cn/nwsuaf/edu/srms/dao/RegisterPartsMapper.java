@@ -41,4 +41,8 @@ public interface RegisterPartsMapper {
     int updateRegister(@Param("registerId") String registerId, @Param("pass") Integer pass);
 
     int updateAllRegister(@Param("pass") Integer pass, @Param("commit") Integer commit);
+
+    List<Integer> getViewIds(@Param("commit") Integer commit);
+
+    List<RegisterVo> getAdminViewRegister(@Param("idList") List<Integer> idList);
 }

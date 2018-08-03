@@ -10,6 +10,9 @@ import cn.nwsuaf.edu.srms.util.RegisterVoUtil;
 import cn.nwsuaf.edu.srms.util.ResultUtil;
 import cn.nwsuaf.edu.srms.vo.RegisterVo;
 import cn.nwsuaf.edu.srms.vo.ResultVo;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,6 +37,48 @@ public class AdminRegisterServiceImpl implements AdminRegisterService {
     private RegisterMaterialMapper registerMaterialMapper;
 
     @Override
+    public ResultVo getAdminViewRegister(Integer type, Integer pageNum, Integer pageSize) {
+        List<RegisterVo> resultVoList = null;
+        List<Integer> idList = null;
+
+        PageHelper.startPage(pageNum, pageSize);
+        switch (type) {
+            case 1:
+                idList = registerMaterialMapper.getViewIds(Const.REGTSTER.COMMIT);
+                if (idList.size() != 0)
+                    resultVoList = registerMaterialMapper.getAdminViewRegister(idList);
+                break;
+            case 2:
+                idList = registerPartsMapper.getViewIds(Const.REGTSTER.COMMIT);
+                if (idList.size() != 0)
+                    resultVoList = registerPartsMapper.getAdminViewRegister(idList);
+                break;
+            case 3:
+                idList = registerReagentMapper.getViewIds(Const.REGTSTER.COMMIT);
+                if (idList.size() != 0)
+                    resultVoList = registerReagentMapper.getAdminViewRegister(idList);
+                break;
+            case 4:
+                idList = registerMaintainMapper.getViewIds(Const.REGTSTER.COMMIT);
+                if (idList.size() != 0)
+                    resultVoList = registerMaintainMapper.getAdminViewRegister(idList);
+                break;
+        }
+
+        if (idList != null && idList.size() != 0) {
+            RegisterVoUtil.setString(resultVoList);
+
+            //PageInfo<RegisterVo> registerVoPageInfo = new PageInfo<>(i);
+
+            PageInfo pageInfo = new PageInfo(idList);
+            pageInfo.setList(resultVoList);
+            return ResultUtil.createBySuccess(pageInfo);
+        } else {
+            return ResultUtil.createByErrorMessage("无记录数据");
+        }
+    }
+
+    @Override
     public ResultVo getAdminRegister(Integer type) {
 
         List<RegisterVo> resultVoList = null;
@@ -54,7 +99,6 @@ public class AdminRegisterServiceImpl implements AdminRegisterService {
         }
 
         RegisterVoUtil.setString(resultVoList);
-
         return ResultUtil.createBySuccess(resultVoList);
     }
 
@@ -65,20 +109,20 @@ public class AdminRegisterServiceImpl implements AdminRegisterService {
 
         switch (type) {
             case 1:
-                status = registerMaterialMapper.updateRegister(registerId,Const.REGTSTER.PASS);
+                status = registerMaterialMapper.updateRegister(registerId, Const.REGTSTER.PASS);
                 break;
             case 2:
-                status = registerPartsMapper.updateRegister(registerId,Const.REGTSTER.PASS);
+                status = registerPartsMapper.updateRegister(registerId, Const.REGTSTER.PASS);
                 break;
             case 3:
-                status = registerReagentMapper.updateRegister(registerId,Const.REGTSTER.PASS);
+                status = registerReagentMapper.updateRegister(registerId, Const.REGTSTER.PASS);
                 break;
             case 4:
-                status = registerMaintainMapper.updateRegister(registerId,Const.REGTSTER.PASS);
+                status = registerMaintainMapper.updateRegister(registerId, Const.REGTSTER.PASS);
                 break;
         }
 
-        if(status == 1)
+        if (status == 1)
             return ResultUtil.createBySuccessMessage("审核成功");
         return ResultUtil.createBySuccessMessage("审核错误");
     }
@@ -89,20 +133,20 @@ public class AdminRegisterServiceImpl implements AdminRegisterService {
 
         switch (type) {
             case 1:
-                status = registerMaterialMapper.updateRegister(registerId,Const.REGTSTER.UNPASS);
+                status = registerMaterialMapper.updateRegister(registerId, Const.REGTSTER.UNPASS);
                 break;
             case 2:
-                status = registerPartsMapper.updateRegister(registerId,Const.REGTSTER.UNPASS);
+                status = registerPartsMapper.updateRegister(registerId, Const.REGTSTER.UNPASS);
                 break;
             case 3:
-                status = registerReagentMapper.updateRegister(registerId,Const.REGTSTER.UNPASS);
+                status = registerReagentMapper.updateRegister(registerId, Const.REGTSTER.UNPASS);
                 break;
             case 4:
-                status = registerMaintainMapper.updateRegister(registerId,Const.REGTSTER.UNPASS);
+                status = registerMaintainMapper.updateRegister(registerId, Const.REGTSTER.UNPASS);
                 break;
         }
 
-        if(status == 1)
+        if (status == 1)
             return ResultUtil.createBySuccessMessage("审核成功");
         return ResultUtil.createBySuccessMessage("审核错误");
     }
@@ -113,16 +157,16 @@ public class AdminRegisterServiceImpl implements AdminRegisterService {
 
         switch (type) {
             case 1:
-                status = registerMaterialMapper.updateAllRegister(Const.REGTSTER.PASS,Const.REGTSTER.COMMIT);
+                status = registerMaterialMapper.updateAllRegister(Const.REGTSTER.PASS, Const.REGTSTER.COMMIT);
                 break;
             case 2:
-                status = registerPartsMapper.updateAllRegister(Const.REGTSTER.PASS,Const.REGTSTER.COMMIT);
+                status = registerPartsMapper.updateAllRegister(Const.REGTSTER.PASS, Const.REGTSTER.COMMIT);
                 break;
             case 3:
-                status = registerReagentMapper.updateAllRegister(Const.REGTSTER.PASS,Const.REGTSTER.COMMIT);
+                status = registerReagentMapper.updateAllRegister(Const.REGTSTER.PASS, Const.REGTSTER.COMMIT);
                 break;
             case 4:
-                status = registerMaintainMapper.updateAllRegister(Const.REGTSTER.PASS,Const.REGTSTER.COMMIT);
+                status = registerMaintainMapper.updateAllRegister(Const.REGTSTER.PASS, Const.REGTSTER.COMMIT);
                 break;
         }
 
@@ -130,4 +174,6 @@ public class AdminRegisterServiceImpl implements AdminRegisterService {
 
         return ResultUtil.createBySuccessMessage("审核成功");
     }
+
+
 }

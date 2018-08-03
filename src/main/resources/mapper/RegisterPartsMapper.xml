@@ -59,6 +59,36 @@
 		</if>
 		order by create_time DESC
 	</select>
+
+	<select id="getViewIds" resultType="java.lang.Integer">
+		SELECT id
+		FROM register_parts
+		WHERE status > #{commit}
+		order by create_time DESC
+	</select>
+	<select id="getAdminViewRegister" resultMap="RegisterMap">
+		SELECT register_parts.id as id,platform.name as plat_name,
+		pro_parts.id as parts_id,pro_parts.name as parts_name,
+		com_producer.id as producer_id,com_producer.name as producer_name,
+		com_supplier.id as supplier_id,com_supplier.name as supplier_name,
+		user.id as user_id,user.name as user_name,
+		register_parts.price,register_parts.count,
+		register_parts.total_price,register_parts.remark,
+		register_parts.create_time,register_parts.status
+		FROM register_parts,user,pro_parts,com_producer,com_supplier,platform
+		WHERE register_parts.id in
+		<foreach item="item" index="index" open="(" separator="," close=")" collection="idList">
+			#{item}
+		</foreach>
+		AND pro_parts.plat_id = platform.id
+		AND register_parts.parts_id = pro_parts.id
+		AND register_parts.producer_id = com_producer.id
+		AND register_parts.supplier_id = com_supplier.id
+		AND register_parts.user_id = user.id
+		order by create_time DESC
+	</select>
+
+
 	<select id="getRegister" resultMap="RegisterMap">
 		SELECT register_parts.id as id,
 		pro_parts.id as parts_id,pro_parts.name as parts_name,

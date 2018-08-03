@@ -57,7 +57,7 @@ public class ManagerInstrumentController {
     @LoginRequired
     public ResultVo<String> addInstrument(@RequestBody @ApiParam(value = "添加的仪器详细信息") ProInstrument proInstrument, HttpSession session) {
 
-        Integer userId = (Integer) session.getAttribute(Const.CURRENT_USER);
+        Integer userId = Integer.valueOf((String) session.getAttribute(Const.CURRENT_USER));
 
         return managerInstrumentService.addInstrument(proInstrument,userId);
     }

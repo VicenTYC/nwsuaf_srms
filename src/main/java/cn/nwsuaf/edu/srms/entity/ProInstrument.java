@@ -17,7 +17,6 @@ public class ProInstrument {
 
     private Integer userId;
 
-    @JsonIgnore
     private Integer platId;
 
 }

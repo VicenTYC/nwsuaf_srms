@@ -8,11 +8,11 @@ import cn.nwsuaf.edu.srms.util.ResultUtil;
 import cn.nwsuaf.edu.srms.vo.ResultVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.apache.catalina.Server;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+
 
 /**
  * Created by IntelliJ IDEA.
@@ -35,19 +35,19 @@ public class StatisticsController {
     @ResponseBody
     @LoginRequired
     public ResultVo getGoodsByPlatAndYearAndMonth(@RequestParam(value = "platId") String platId,
-                                                  @RequestParam(value = "type",defaultValue = "0") String type,
+                                                  @RequestParam(value = "type",defaultValue = "0") Integer type,
                                                   @RequestParam(value = "pageNum",defaultValue = "1") Integer pageNum,
                                                   @RequestParam(value = "pageSize",defaultValue = "10") Integer pageSize,
                                                   @RequestParam(value = "year",defaultValue = "%") String year,
                                                   @RequestParam(value = "month",defaultValue = "%") String month){
         switch (type) {
-            case Const.TYPE.MAINTAIN:
+            case 4:
                 return managerRegisterService.getMaintainRecord(platId, pageNum, pageSize, null, year, month);
-            case Const.TYPE.MATERIAL:
+            case 1:
                 return managerRegisterService.getMaterialRecord(platId, pageNum, pageSize, null, year, month);
-            case Const.TYPE.PARTS:
+            case 2:
                 return managerRegisterService.getPartsRecord(platId, pageNum, pageSize, null, year, month);
-            case Const.TYPE.REAGENT:
+            case 3:
                 return managerRegisterService.getReagentRecord(platId, pageNum, pageSize, null, year, month);
             default:
                 return ResultUtil.createByErrorMessage("无记录");

@@ -21,33 +21,42 @@ public class AdminRegisterController {
     @Autowired
     private AdminRegisterService adminRegisterService;
 
-    @PostMapping(value = "get")
+    @PostMapping(value = "get_commit")
     @ApiOperation(value = "管理员查看所有待审核记录")
     @ResponseBody
-    public ResultVo getRegister(@RequestParam(value = "type",defaultValue = "1") Integer type){
+    public ResultVo getUnAgreeRegister(@RequestParam(value = "type") Integer type){
         return adminRegisterService.getAdminRegister(type);
+    }
+
+    @PostMapping(value = "get_view")
+    @ApiOperation(value = "管理员查看所有审核记录")
+    @ResponseBody
+    public ResultVo getAgreeRegister(@RequestParam(value = "type") Integer type,
+                                     @RequestParam(value = "pageNum",defaultValue = "1") Integer pageNum,
+                                     @RequestParam(value = "pageSize",defaultValue = "10") Integer pageSize){
+        return adminRegisterService.getAdminViewRegister(type,pageNum,pageSize);
     }
 
     @PostMapping(value = "agree")
     @ApiOperation(value = "管理员同意某一记录")
     @ResponseBody
-    public ResultVo agreeRegister(@RequestParam(value = "type",defaultValue = "1") Integer type,
-                                  @RequestParam(value = "registerId",defaultValue = "1") String registerId){
+    public ResultVo agreeRegister(@RequestParam(value = "type") Integer type,
+                                  @RequestParam(value = "registerId") String registerId){
         return adminRegisterService.agreeRegister(type,registerId);
     }
 
     @PostMapping(value = "un_agree")
     @ApiOperation(value = "管理员不同意某一记录")
     @ResponseBody
-    public ResultVo unAgreeRegister(@RequestParam(value = "type",defaultValue = "1") Integer type,
-                                    @RequestParam(value = "registerId",defaultValue = "1") String registerId){
+    public ResultVo unAgreeRegister(@RequestParam(value = "type") Integer type,
+                                    @RequestParam(value = "registerId") String registerId){
         return adminRegisterService.unAgreeRegister(type,registerId);
     }
 
     @PostMapping(value = "agree_all")
     @ApiOperation(value = "管理员同意所有待审核记录")
     @ResponseBody
-    public ResultVo agreeAllRegister(@RequestParam(value = "type",defaultValue = "1") Integer type){
+    public ResultVo agreeAllRegister(@RequestParam(value = "type") Integer type){
         return adminRegisterService.agreeAllRegister(type);
     }
 }
