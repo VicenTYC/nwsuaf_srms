@@ -1,5 +1,6 @@
 package cn.nwsuaf.edu.srms.util;
 
+import cn.nwsuaf.edu.srms.common.Const;
 import cn.nwsuaf.edu.srms.entity.User;
 import cn.nwsuaf.edu.srms.vo.UserVo;
 
@@ -21,10 +22,13 @@ public class UserVoUtil {
         userVo.setTelephone(user.getTelephone());
         userVo.setEmail(user.getEmail());
 
+        if(user.getType() == 0)
+            userVo.setRole(Const.MANAGER);
+        else
+            userVo.setRole(Const.ADMIN);
+
         return userVo;
     }
-
-
     public static void UserVoToUser(User user,UserVo userVo){
 
         user.setUsername(userVo.getUsername());

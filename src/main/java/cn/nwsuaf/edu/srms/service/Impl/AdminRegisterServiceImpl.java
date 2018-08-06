@@ -10,7 +10,6 @@ import cn.nwsuaf.edu.srms.util.RegisterVoUtil;
 import cn.nwsuaf.edu.srms.util.ResultUtil;
 import cn.nwsuaf.edu.srms.vo.RegisterVo;
 import cn.nwsuaf.edu.srms.vo.ResultVo;
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -112,16 +111,16 @@ public class AdminRegisterServiceImpl implements AdminRegisterService {
 
         switch (type) {
             case 1:
-                resultVoList = registerMaterialMapper.getAdminRegister(Const.REGTSTER.COMMIT);
+                resultVoList = registerMaterialMapper.getCommitRegister(Const.REGTSTER.COMMIT);
                 break;
             case 2:
-                resultVoList = registerPartsMapper.getAdminRegister(Const.REGTSTER.COMMIT);
+                resultVoList = registerPartsMapper.getCommitRegister(Const.REGTSTER.COMMIT);
                 break;
             case 3:
-                resultVoList = registerReagentMapper.getAdminRegister(Const.REGTSTER.COMMIT);
+                resultVoList = registerReagentMapper.getCommitRegister(Const.REGTSTER.COMMIT);
                 break;
             case 4:
-                resultVoList = registerMaintainMapper.getAdminRegister(Const.REGTSTER.COMMIT);
+                resultVoList = registerMaintainMapper.getCommitRegister(Const.REGTSTER.COMMIT);
                 break;
         }
 

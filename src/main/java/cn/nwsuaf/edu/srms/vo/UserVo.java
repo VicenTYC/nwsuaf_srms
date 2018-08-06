@@ -27,6 +27,8 @@ public class UserVo {
 
     private String email;
 
+    private String role;
+
     public UserVo(User user) {
         this.username = user.getUsername();
         this.name = user.getName();

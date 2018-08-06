@@ -8,6 +8,9 @@ package cn.nwsuaf.edu.srms.common;
  */
 public class Const {
 
+    public static final String MANAGER = "manager";
+    public static final String ADMIN = "admin";
+
     public static final String CURRENT_USER = "currentUser";
 
     public interface LOGIN{

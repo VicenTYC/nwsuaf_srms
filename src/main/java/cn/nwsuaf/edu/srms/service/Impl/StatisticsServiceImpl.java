@@ -7,6 +7,7 @@ import cn.nwsuaf.edu.srms.util.MapUtil;
 import cn.nwsuaf.edu.srms.util.ResultUtil;
 import cn.nwsuaf.edu.srms.vo.CountVo;
 import cn.nwsuaf.edu.srms.vo.ResultVo;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,14 +36,21 @@ public class StatisticsServiceImpl implements StatisticsService {
     private RegisterReagentMapper registerReagentMapper;
     @Autowired
     private RegisterPartsMapper registerPartsMapper;
+    @Autowired
+    private UserMapper userMapper;
+    @Autowired PlatformMapper platformMapper;
 
     @Override
-    public ResultVo getCountsByPlatAndYearAndMonth(String platId, String year, String month) {
+    public ResultVo getCountsByPlatAndYearAndMonth(String platId,String year,String month) {
 
+        if(platId.equals("0"))
+            platId = "%";
         if(year.equals("%"))
             year = null;
         if(month.equals("%"))
             month = null;
+
+        System.out.println(platId);
 
         List<CountVo> countVoList = new ArrayList<>();
         countVoList.add(
@@ -64,33 +72,34 @@ public class StatisticsServiceImpl implements StatisticsService {
     @Override
     public ResultVo getGoodsTypeCountByPlatAndTypeAndDate(String platId, Integer type, String year) {
 
+        if(platId.equals("0"))
+            platId = "%";
         if("%".equals(year))
             year = null;
 
-        Map<String,BigDecimal> map = new HashMap<>();
+        Map<String,BigDecimal> map = MapUtil.init();
         switch (type) {
             case 1:
-                 map = registerMaterialMapper.getCountByPlatAndTypeAndDate(platId,year);
+                MapUtil.merge(map,registerMaterialMapper.getCountByPlatAndTypeAndDate(platId,year));
                 break;
             case 2:
-                map = registerPartsMapper.getCountByPlatAndTypeAndDate(platId,year);
+                MapUtil.merge(map,registerPartsMapper.getCountByPlatAndTypeAndDate(platId,year));
                 break;
             case 3:
-                map = registerReagentMapper.getCountByPlatAndTypeAndDate(platId,year);
+                MapUtil.merge(map,registerReagentMapper.getCountByPlatAndTypeAndDate(platId,year));
                 break;
             case 4:
-                map = registerMaintainMapper.getCountByPlatAndTypeAndDate(platId,year);
+                MapUtil.merge(map,registerMaintainMapper.getCountByPlatAndTypeAndDate(platId,year));
                 break;
             case 0:
                 {
-                    map = registerMaterialMapper.getCountByPlatAndTypeAndDate(platId,year);
+                    MapUtil.merge(map,registerMaterialMapper.getCountByPlatAndTypeAndDate(platId,year));
                     MapUtil.merge(map,registerPartsMapper.getCountByPlatAndTypeAndDate(platId,year));
                     MapUtil.merge(map,registerReagentMapper.getCountByPlatAndTypeAndDate(platId,year));
                     MapUtil.merge(map,registerMaintainMapper.getCountByPlatAndTypeAndDate(platId,year));
                 }
                 break;
         }
-
         return ResultUtil.createBySuccess(map);
     }
 
@@ -102,7 +111,11 @@ public class StatisticsServiceImpl implements StatisticsService {
         if("%".equals(month))
             month = null;
 
-        List<Integer> platIdsList = userPlatMapper.selectIdsByManager(userId);
+        List<Integer> platIdsList = null;
+        if(userMapper.selectByPrimaryKey(Integer.valueOf(userId)).getType() == 0)
+            platIdsList = userPlatMapper.selectIdsByManager(userId);
+        else
+            platIdsList = platformMapper.getAllIds();
         List<CountVo> countVoList = new ArrayList<>();
 
         for(Integer platId: platIdsList) {

@@ -24,4 +24,7 @@ public interface PlatformMapper {
 
     List<Platform> selectByManager(@Param("userId") String userId);
 
+    List<Platform> getAll();
+
+    List<Integer> getAllIds();
 }

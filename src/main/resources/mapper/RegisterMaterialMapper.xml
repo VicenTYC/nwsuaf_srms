@@ -129,7 +129,7 @@
 		order by create_time DESC
 	</select>
 
-	<select id="getAdminRegister" resultMap="RegisterMap">
+	<select id="getCommitRegister" resultMap="RegisterMap">
 		SELECT register_material.id as id,platform.name as plat_name,
 		pro_material.id as material_id,pro_material.name as material_name,
 		com_producer.id as producer_id,com_producer.name as producer_name,
@@ -152,8 +152,8 @@
 	<select id="getCountByPlatAndYearAndMonth" resultType="java.math.BigDecimal">
 		SELECT sum(total_price)
 		FROM register_material,pro_material
-		WHERE plat_id = #{platId}
-		AND pro_material.id = register_material.material_id
+		WHERE  plat_id like #{platId}
+			AND pro_material.id = register_material.material_id
 		<if test="year != null" >
 			AND year(create_time) = #{year}
 		</if>
@@ -177,7 +177,7 @@
 			sum(case month(create_time) when '12' then total_price else 0 end) as 十二月份,
 			year(create_time) as 年份
 		FROM register_material,pro_material
-		WHERE plat_id = #{platId}
+		WHERE plat_id like #{platId}
 		AND pro_material.id = register_material.material_id
 		<if test="year != null" >
 			AND year(create_time) = #{year}

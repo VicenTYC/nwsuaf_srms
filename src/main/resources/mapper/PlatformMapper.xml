@@ -14,9 +14,19 @@
 		FROM platform,user_plat
 		WHERE user_plat.user_id = #{userId} AND user_plat.plat_id = platform.id
 	</select>
+  <select id="getAll" resultType="cn.nwsuaf.edu.srms.entity.Platform">
+        SELECT platform.id,platform.name
+		FROM platform
+  </select>
+	<select id="getAllIds" resultType="java.lang.Integer">
+		SELECT platform.id
+		FROM platform
+	</select>
 
 
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+
+
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from platform
