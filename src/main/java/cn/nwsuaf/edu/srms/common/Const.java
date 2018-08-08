@@ -13,6 +13,11 @@ public class Const {
 
     public static final String CURRENT_USER = "currentUser";
 
+    public interface COM_STATUS{
+        Integer ONLINE = 1;
+        Integer UNLINE = 0;
+    }
+
     public interface LOGIN{
         String SUCCESS = "登录成功";
         String ERROR = "用户名或密码错误";

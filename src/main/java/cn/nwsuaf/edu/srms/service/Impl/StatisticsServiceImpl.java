@@ -54,9 +54,6 @@ public class StatisticsServiceImpl implements StatisticsService {
 
         List<CountVo> countVoList = new ArrayList<>();
         countVoList.add(
-                new CountVo(Const.TYPE.MAINTAIN, registerMaintainMapper.getCountByPlatAndYearAndMonth(platId,year,month))
-        );
-        countVoList.add(
                 new CountVo(Const.TYPE.MATERIAL, registerMaterialMapper.getCountByPlatAndYearAndMonth(platId,year,month))
         );
         countVoList.add(
@@ -64,6 +61,9 @@ public class StatisticsServiceImpl implements StatisticsService {
         );
         countVoList.add(
                 new CountVo(Const.TYPE.REAGENT, registerReagentMapper.getCountByPlatAndYearAndMonth(platId,year,month))
+        );
+        countVoList.add(
+                new CountVo(Const.TYPE.MAINTAIN, registerMaintainMapper.getCountByPlatAndYearAndMonth(platId,year,month))
         );
 
         return ResultUtil.createBySuccess(countVoList);

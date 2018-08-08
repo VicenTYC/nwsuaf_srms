@@ -2,6 +2,7 @@ package cn.nwsuaf.edu.srms.dao;
 
 import cn.nwsuaf.edu.srms.entity.ComMaintainer;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -21,5 +22,7 @@ public interface ComMaintainerMapper {
 
     int updateByPrimaryKey(ComMaintainer record);
 
-    List<ComMaintainer> getAll();
+    List<ComMaintainer> getMaintainerByName(@Param("name") String name);
+
+    int deleteById(@Param("id") String id);
 }

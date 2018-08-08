@@ -30,24 +30,18 @@ public class ManagerFirmController {
     @Autowired
     private ManagerFirmService managerFirmService;
 
-    @ApiOperation(value = "查询维修商")
+
+    @ApiOperation(value = "分页查询维修商")
     @PostMapping(value = "maintainer/list")
     @ResponseBody
     @LoginRequired
-    public ResultVo<List<ComMaintainer>> getAllMaintainer() {
-        return managerFirmService.getAllMaintainer();
-    }
-
-    @ApiOperation(value = "分页查询维修商")
-    @PostMapping(value = "maintainer/list_page")
-    @ResponseBody
-    @LoginRequired
-    public ResultVo<PageInfo<ComMaintainer>> getPageMaintainer(@RequestParam(value = "pageNum",defaultValue = "1") Integer pageNum,
+    public ResultVo<PageInfo<ComMaintainer>> getPageMaintainer(@RequestParam(value = "name",defaultValue = "%") String name,
+                                                               @RequestParam(value = "pageNum",defaultValue = "1") Integer pageNum,
                                                                @RequestParam(value = "pageSize",defaultValue = "10") Integer pageSize) {
-        return managerFirmService.getPageMaintainer(pageNum,pageSize);
+        return managerFirmService.getPageMaintainer(pageNum,pageSize,name);
     }
 
-    @ApiOperation(value = "添加维修商")
+    @ApiOperation(value = "添加、修改维修商")
     @PostMapping(value = "maintainer/add")
     @ResponseBody
     @LoginRequired
@@ -55,24 +49,25 @@ public class ManagerFirmController {
         return managerFirmService.addMaintainer(comMaintain);
     }
 
-    @ApiOperation(value = "查询生产商")
-    @PostMapping(value = "producer/list")
+    @ApiOperation(value = "删除维修商")
+    @PostMapping(value = "maintainer/delete")
     @ResponseBody
     @LoginRequired
-    public ResultVo<List<ComProducer>> getAllProducer() {
-        return managerFirmService.getAllProducer();
+    public ResultVo<String> deleteMaintainer(@RequestParam(value = "id") String id) {
+        return managerFirmService.deleteMaintainer(id);
     }
 
     @ApiOperation(value = "分页查询生产商")
-    @PostMapping(value = "producer/list_page")
+    @PostMapping(value = "producer/list")
     @ResponseBody
     @LoginRequired
-    public ResultVo<PageInfo<ComProducer>> getPageProducer(@RequestParam(value = "pageNum",defaultValue = "1") Integer pageNum,
+    public ResultVo<PageInfo<ComProducer>> getPageProducer(@RequestParam(value = "name",defaultValue = "%") String name,
+                                                           @RequestParam(value = "pageNum",defaultValue = "1") Integer pageNum,
                                                            @RequestParam(value = "pageSize",defaultValue = "10") Integer pageSize) {
-        return managerFirmService.getPageProducer(pageNum,pageSize);
+        return managerFirmService.getPageProducer(pageNum,pageSize,name);
     }
 
-    @ApiOperation(value = "添加生产商")
+    @ApiOperation(value = "添加、修改生产商")
     @PostMapping(value = "producer/add")
     @ResponseBody
     @LoginRequired
@@ -80,29 +75,38 @@ public class ManagerFirmController {
         return managerFirmService.addProducer(comProducer);
     }
 
-    @ApiOperation(value = "查询供应商")
-    @PostMapping(value = "supplier/list")
+    @ApiOperation(value = "删除生产商")
+    @PostMapping(value = "producer/delete")
     @ResponseBody
     @LoginRequired
-    public ResultVo<List<ComSupplier>> getAllSupplier() {
-        return managerFirmService.getAllSupplier();
+    public ResultVo<String> deleteProducer(@RequestParam(value = "id") String id) {
+        return managerFirmService.deleteProducer(id);
     }
 
     @ApiOperation(value = "分页查询供应商")
-    @PostMapping(value = "supplier/list_page")
+    @PostMapping(value = "supplier/list")
     @ResponseBody
     @LoginRequired
-    public ResultVo<PageInfo<ComSupplier>> getPageSupplier(@RequestParam(value = "pageNum",defaultValue = "1") Integer pageNum,
+    public ResultVo<PageInfo<ComSupplier>> getPageSupplier(@RequestParam(value = "name",defaultValue = "%") String name,
+                                                           @RequestParam(value = "pageNum",defaultValue = "1") Integer pageNum,
                                                            @RequestParam(value = "pageSize",defaultValue = "10") Integer pageSize) {
-        return managerFirmService.getPageSupplier(pageNum,pageSize);
+        return managerFirmService.getPageSupplier(pageNum,pageSize,name);
     }
 
-    @ApiOperation(value = "添加供应商")
+    @ApiOperation(value = "添加、修改供应商")
     @PostMapping(value = "supplier/add")
     @ResponseBody
     @LoginRequired
     public ResultVo<String> addSupplier(@RequestBody ComSupplier comSupplier) {
         return managerFirmService.addSupplier(comSupplier);
+    }
+
+    @ApiOperation(value = "删除供应商")
+    @PostMapping(value = "supplier/delete")
+    @ResponseBody
+    @LoginRequired
+    public ResultVo<String> deleteSupplier(@RequestParam(value = "id") String id) {
+        return managerFirmService.deleteSupplier(id);
     }
 
 }

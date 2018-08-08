@@ -2,6 +2,7 @@ package cn.nwsuaf.edu.srms.dao;
 
 import cn.nwsuaf.edu.srms.entity.ComSupplier;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -21,5 +22,7 @@ public interface ComSupplierMapper {
 
     int updateByPrimaryKey(ComSupplier record);
 
-    List<ComSupplier> getAll();
+    List<ComSupplier> getSupplierByName(String name);
+
+    int deleteById(@Param("id") String id);
 }

@@ -15,21 +15,24 @@ import java.util.List;
  * Time: 16:48
  */
 public interface ManagerFirmService {
-    ResultVo<List<ComMaintainer>> getAllMaintainer();
 
-    ResultVo<PageInfo<ComMaintainer>> getPageMaintainer(Integer pageNum, Integer pageSize);
+    ResultVo<PageInfo<ComMaintainer>> getPageMaintainer(Integer pageNum, Integer pageSize,String name);
 
     ResultVo<String> addMaintainer(ComMaintainer comMaintain);
 
-    ResultVo<List<ComProducer>> getAllProducer();
+    ResultVo<String> deleteMaintainer(String id);
 
-    ResultVo<PageInfo<ComProducer>> getPageProducer(Integer pageNum, Integer pageSize);
+
+    ResultVo<PageInfo<ComProducer>> getPageProducer(Integer pageNum, Integer pageSize, String name);
 
     ResultVo addProducer(ComProducer comProducer);
 
-    ResultVo<List<ComSupplier>> getAllSupplier();
+    ResultVo<String> deleteProducer(String id);
+
+
+    ResultVo<PageInfo<ComSupplier>> getPageSupplier(Integer pageNum, Integer pageSize, String name);
 
     ResultVo<String> addSupplier(ComSupplier comSupplier);
 
-    ResultVo<PageInfo<ComSupplier>> getPageSupplier(Integer pageNum, Integer pageSize);
+    ResultVo<String> deleteSupplier(String id);
 }
