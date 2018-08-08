@@ -10,6 +10,7 @@ import cn.nwsuaf.edu.srms.entity.ProParts;
 import cn.nwsuaf.edu.srms.entity.ProReagent;
 import cn.nwsuaf.edu.srms.service.ManagerGoodsService;
 import cn.nwsuaf.edu.srms.util.ResultUtil;
+import cn.nwsuaf.edu.srms.util.StringUtil;
 import cn.nwsuaf.edu.srms.vo.ResultVo;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -37,17 +38,12 @@ public class ManagerGoodsServiceImpl implements ManagerGoodsService {
     private ProPartsMapper proPartsMapper;
 
     @Override
-    public ResultVo<List<ProMaterial>> getMaterialByPlat(String platId) {
+    public ResultVo<PageInfo<ProMaterial>> getMaterialPageByPlat(String platId, String name, Integer pageNum, Integer pageSize) {
 
-        List<ProMaterial> proMaterialList = proMaterialMapper.getByPlat(platId);
-        return ResultUtil.createBySuccess(proMaterialList);
-    }
-
-    @Override
-    public ResultVo<PageInfo<ProMaterial>> getMaterialPageByPlat(String platId, Integer pageNum, Integer pageSize) {
+        name = StringUtil.isLike(name);
 
         PageHelper.startPage(pageNum,pageSize);
-        List<ProMaterial> proMaterialList = proMaterialMapper.getByPlat(platId);
+        List<ProMaterial> proMaterialList = proMaterialMapper.getByPlat(platId,name);
         PageInfo<ProMaterial> pageInfo = new PageInfo<>(proMaterialList);
 
         return ResultUtil.createBySuccess(pageInfo);
@@ -63,19 +59,14 @@ public class ManagerGoodsServiceImpl implements ManagerGoodsService {
         return ResultUtil.createBySuccessMessage("添加耗材失败");
     }
 
-    @Override
-    public ResultVo<List<ProMaintain>> getMaintainByPlat(String platId) {
-
-        List<ProMaintain> proMaintainList = proMaintainMapper.getByPlat(platId);
-        return ResultUtil.createBySuccess(proMaintainList);
-
-    }
 
     @Override
-    public ResultVo getMaintainPageByPlat(String platId, Integer pageNum, Integer pageSize) {
+    public ResultVo getMaintainPageByPlat(String platId, String name, Integer pageNum, Integer pageSize) {
+
+        name = StringUtil.isLike(name);
 
         PageHelper.startPage(pageNum,pageSize);
-        List<ProMaintain> proMaintainList = proMaintainMapper.getByPlat(platId);
+        List<ProMaintain> proMaintainList = proMaintainMapper.getByPlat(platId,name);
         PageInfo<ProMaintain> pageInfo = new PageInfo<>(proMaintainList);
 
         return ResultUtil.createBySuccess(pageInfo);
@@ -90,17 +81,13 @@ public class ManagerGoodsServiceImpl implements ManagerGoodsService {
         return ResultUtil.createBySuccessMessage("添加维修失败");
     }
 
-    @Override
-    public ResultVo<List<ProParts>> getPartsByPlat(String platId) {
-        List<ProParts> proPartsList = proPartsMapper.getByPlat(platId);
-        return ResultUtil.createBySuccess(proPartsList);
-    }
 
     @Override
-    public ResultVo getPartsPageByPlat(String platId, Integer pageNum, Integer pageSize) {
+    public ResultVo getPartsPageByPlat(String platId, String name, Integer pageNum, Integer pageSize) {
+        name = StringUtil.isLike(name);
 
         PageHelper.startPage(pageNum,pageSize);
-        List<ProParts> proPartsList = proPartsMapper.getByPlat(platId);
+        List<ProParts> proPartsList = proPartsMapper.getByPlat(platId,name);
         PageInfo<ProParts> pageInfo = new PageInfo<>(proPartsList);
 
         return ResultUtil.createBySuccess(pageInfo);
@@ -116,17 +103,13 @@ public class ManagerGoodsServiceImpl implements ManagerGoodsService {
         return ResultUtil.createBySuccessMessage("添加配件失败");
     }
 
-    @Override
-    public ResultVo<List<ProReagent>> getReagentByPlat(String platId) {
-        List<ProReagent> proReagentList = proReagentMapper.getByPlat(platId);
-        return ResultUtil.createBySuccess(proReagentList);
-    }
 
     @Override
-    public ResultVo getReagentPageByPlat(String platId, Integer pageNum, Integer pageSize) {
+    public ResultVo getReagentPageByPlat(String platId, String name, Integer pageNum, Integer pageSize) {
+        name = StringUtil.isLike(name);
 
         PageHelper.startPage(pageNum,pageSize);
-        List<ProReagent> proReagentList = proReagentMapper.getByPlat(platId);
+        List<ProReagent> proReagentList = proReagentMapper.getByPlat(platId,name);
         PageInfo<ProReagent> pageInfo = new PageInfo<>(proReagentList);
         return ResultUtil.createBySuccess(pageInfo);
 

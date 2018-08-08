@@ -22,7 +22,7 @@ public interface ProPartsMapper {
 
     int updateByPrimaryKey(ProParts record);
 
-    List<ProParts> getByPlat(String platId);
+    List<ProParts> getByPlat(@Param("platId") String platId, @Param("name") String name);
 
     List<Integer> getIdsByPlat(@Param("platId") String platId, @Param("name") String name);
 }

@@ -14,6 +14,7 @@
 		SELECT id,name
 		FROM pro_maintain
 		WHERE plat_id = #{platId}
+		AND name LIKE #{name}
 	</select>
 
 	<select id="getIdsByPlat" resultType="java.lang.Integer">

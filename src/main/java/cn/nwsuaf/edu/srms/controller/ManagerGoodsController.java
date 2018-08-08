@@ -29,22 +29,15 @@ public class ManagerGoodsController {
     @Autowired
     private ManagerGoodsService managerGoodsService;
 
-    @ApiOperation(value = "耗材类商品查询")
+    @ApiOperation(value = "耗材类商品分页查询")
     @PostMapping(value = "material/list")
     @ResponseBody
     @LoginRequired
-    public ResultVo<List<ProMaterial>> getMaterial(@RequestParam(value = "platId") String platId) {
-        return managerGoodsService.getMaterialByPlat(platId);
-    }
-
-    @ApiOperation(value = "耗材类商品分页查询")
-    @PostMapping(value = "material/list_page")
-    @ResponseBody
-    @LoginRequired
     public ResultVo<PageInfo<ProMaterial>> getMaterialByPage(@RequestParam(value = "platId") String platId,
+                                                             @RequestParam(value = "name",defaultValue = "%") String name,
                                                              @RequestParam(value = "pageNum") Integer pageNum,
                                                              @RequestParam(value = "pageSize") Integer pageSize) {
-        return managerGoodsService.getMaterialPageByPlat(platId,pageNum,pageSize);
+        return managerGoodsService.getMaterialPageByPlat(platId,name,pageNum,pageSize);
     }
 
     @ApiOperation(value = "耗材类商品添加")
@@ -55,22 +48,16 @@ public class ManagerGoodsController {
         return managerGoodsService.addMaterial(proMaterial);
     }
 
-    @ApiOperation(value = "维修类商品查询")
+
+    @ApiOperation(value = "维修类商品分页查询")
     @PostMapping(value = "maintain/list")
     @ResponseBody
     @LoginRequired
-    public ResultVo getMaintain(@RequestParam(value = "platId") String platId) {
-        return managerGoodsService.getMaintainByPlat(platId);
-    }
-
-    @ApiOperation(value = "维修类商品分页查询")
-    @PostMapping(value = "maintain/list_page")
-    @ResponseBody
-    @LoginRequired
     public ResultVo getMaintainByPage(@RequestParam(value = "platId") String platId,
+                                      @RequestParam(value = "name",defaultValue = "%") String name,
                                       @RequestParam(value = "pageNum") Integer pageNum,
                                       @RequestParam(value = "pageSize") Integer pageSize) {
-        return managerGoodsService.getMaintainPageByPlat(platId,pageNum,pageSize);
+        return managerGoodsService.getMaintainPageByPlat(platId,name,pageNum,pageSize);
     }
 
     @ApiOperation(value = "维修类商品添加")
@@ -81,22 +68,16 @@ public class ManagerGoodsController {
         return managerGoodsService.addMaintain(proMaintain);
     }
 
-    @ApiOperation(value = "配件类商品分页查询")
-    @PostMapping(value = "parts/list_page")
-    @ResponseBody
-    @LoginRequired
-    public ResultVo getPartsByPage(@RequestParam(value = "platId") String platId,
-                                   @RequestParam(value = "pageNum") Integer pageNum,
-                                   @RequestParam(value = "pageSize") Integer pageSize) {
-        return managerGoodsService.getPartsPageByPlat(platId,pageNum,pageSize);
-    }
 
-    @ApiOperation(value = "配件类商品查询")
+    @ApiOperation(value = "配件类商品分页查询")
     @PostMapping(value = "parts/list")
     @ResponseBody
     @LoginRequired
-    public ResultVo getParts(@RequestParam(value = "platId") String platId) {
-        return managerGoodsService.getPartsByPlat(platId);
+    public ResultVo getPartsByPage(@RequestParam(value = "platId") String platId,
+                                   @RequestParam(value = "name",defaultValue = "%") String name,
+                                   @RequestParam(value = "pageNum") Integer pageNum,
+                                   @RequestParam(value = "pageSize") Integer pageSize) {
+        return managerGoodsService.getPartsPageByPlat(platId,name,pageNum,pageSize);
     }
 
     @ApiOperation(value = "配件类商品添加")
@@ -107,22 +88,16 @@ public class ManagerGoodsController {
         return managerGoodsService.addParts(proParts);
     }
 
-    @ApiOperation(value = "试剂类商品查询")
+
+    @ApiOperation(value = "试剂类商品分页查询")
     @PostMapping(value = "reagent/list")
     @ResponseBody
     @LoginRequired
-    public ResultVo getReagent(@RequestParam(value = "platId") String platId) {
-        return managerGoodsService.getReagentByPlat(platId);
-    }
-
-    @ApiOperation(value = "试剂类商品分页查询")
-    @PostMapping(value = "reagent/list_page")
-    @ResponseBody
-    @LoginRequired
     public ResultVo getReagentByPage(@RequestParam(value = "platId") String platId,
+                                     @RequestParam(value = "name",defaultValue = "%") String name,
                                      @RequestParam(value = "pageNum") Integer pageNum,
                                      @RequestParam(value = "pageSize") Integer pageSize) {
-        return managerGoodsService.getReagentPageByPlat(platId,pageNum,pageSize);
+        return managerGoodsService.getReagentPageByPlat(platId,name,pageNum,pageSize);
     }
 
     @ApiOperation(value = "试剂类商品添加")

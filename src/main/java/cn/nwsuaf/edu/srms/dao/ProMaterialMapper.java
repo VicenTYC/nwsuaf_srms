@@ -22,7 +22,7 @@ public interface ProMaterialMapper {
 
     int updateByPrimaryKey(ProMaterial record);
 
-    List<ProMaterial> getByPlat(String platId);
+    List<ProMaterial> getByPlat(@Param("platId") String platId, @Param("name") String name);
 
     List<Integer> getIdsByPlat(@Param("platId") String platId, @Param("name") String name);
 

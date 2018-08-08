@@ -11,27 +11,29 @@
   <sql id="Base_Column_List" >
     id, number, name, user_id, plat_id
   </sql>
-	<select id="getInstrumentByPlat" resultType="cn.nwsuaf.edu.srms.vo.InstrumentVo">
-		SELECT id,number,name
-		from pro_instrument
-    	where plat_id= #{platId}
-	</select>
+  <select id="getInstrumentByPlat" resultType="cn.nwsuaf.edu.srms.vo.InstrumentVo">
+    SELECT id,number,name
+    from pro_instrument
+    where plat_id= #{platId}
+    AND name LIKE #{name}
+  </select>
 
-	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
     <include refid="Base_Column_List" />
     from pro_instrument
     where id = #{id,jdbcType=INTEGER}
   </select>
-	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from pro_instrument
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="cn.nwsuaf.edu.srms.entity.ProInstrument" >
-    insert into pro_instrument (id, number, name, 
-      user_id, plat_id)
-    values (#{id,jdbcType=INTEGER}, #{number,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, 
-      #{userId,jdbcType=INTEGER}, #{platId,jdbcType=INTEGER})
+    insert into pro_instrument (id, number, name,
+    user_id, plat_id)
+    values (#{id,jdbcType=INTEGER}, #{number,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR},
+    #{userId,jdbcType=INTEGER}, #{platId,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="cn.nwsuaf.edu.srms.entity.ProInstrument" >
     insert into pro_instrument
@@ -91,9 +93,9 @@
   <update id="updateByPrimaryKey" parameterType="cn.nwsuaf.edu.srms.entity.ProInstrument" >
     update pro_instrument
     set number = #{number,jdbcType=BIGINT},
-      name = #{name,jdbcType=VARCHAR},
-      user_id = #{userId,jdbcType=INTEGER},
-      plat_id = #{platId,jdbcType=INTEGER}
+    name = #{name,jdbcType=VARCHAR},
+    user_id = #{userId,jdbcType=INTEGER},
+    plat_id = #{platId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

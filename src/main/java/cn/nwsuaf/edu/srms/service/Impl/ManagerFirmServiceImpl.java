@@ -9,6 +9,7 @@ import cn.nwsuaf.edu.srms.entity.ComProducer;
 import cn.nwsuaf.edu.srms.entity.ComSupplier;
 import cn.nwsuaf.edu.srms.service.ManagerFirmService;
 import cn.nwsuaf.edu.srms.util.ResultUtil;
+import cn.nwsuaf.edu.srms.util.StringUtil;
 import cn.nwsuaf.edu.srms.vo.ResultVo;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -35,9 +36,7 @@ public class ManagerFirmServiceImpl implements ManagerFirmService {
 
     @Override
     public ResultVo<PageInfo<ComMaintainer>> getPageMaintainer(Integer pageNum,Integer pageSize,String name) {
-
-        if(!name.equals("%"))
-            name = "%"+name+"%";
+        name = StringUtil.isLike(name);
 
         PageHelper.startPage(pageNum,pageSize);
         List<ComMaintainer> comMaintainerList = comMaintainerMapper.getMaintainerByName(name);
@@ -77,8 +76,7 @@ public class ManagerFirmServiceImpl implements ManagerFirmService {
     @Override
     public ResultVo<PageInfo<ComProducer>> getPageProducer(Integer pageNum, Integer pageSize, String name) {
 
-        if(!name.equals("%"))
-            name = "%"+name+"%";
+        name = StringUtil.isLike(name);
 
         PageHelper.startPage(pageNum,pageSize);
         List<ComProducer> comProducerList = comProducerMapper.getProducerByName(name);
@@ -117,8 +115,7 @@ public class ManagerFirmServiceImpl implements ManagerFirmService {
     @Override
     public ResultVo<PageInfo<ComSupplier>> getPageSupplier(Integer pageNum, Integer pageSize, String name) {
 
-        if(!name.equals("%"))
-            name = "%"+name+"%";
+        name = StringUtil.isLike(name);
 
         PageHelper.startPage(pageNum,pageSize);
         List<ComSupplier> comSupplierList = comSupplierMapper.getSupplierByName(name);

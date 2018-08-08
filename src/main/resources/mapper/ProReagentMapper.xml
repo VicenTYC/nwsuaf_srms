@@ -25,6 +25,7 @@
 		SELECT id,name,specification
 		FROM pro_reagent
 		WHERE plat_id =#{platId}
+		AND name LIKE #{name}
 	</select>
 
 
