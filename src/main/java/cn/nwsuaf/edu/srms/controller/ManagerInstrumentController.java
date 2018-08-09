@@ -31,24 +31,16 @@ public class ManagerInstrumentController {
     @Autowired
     private ManagerInstrumentService managerInstrumentService;
 
-    @ApiOperation(value = "获取平台仪器")
+    @ApiOperation(value = "分页获取平台仪器")
     @PostMapping(value = "list")
     @ResponseBody
     @LoginRequired
-    public ResultVo<List<InstrumentVo>> getAllInstrument(@RequestParam(name = "platId") @ApiParam(value = "选择的平台id") Integer platId) {
-
-        return managerInstrumentService.getInstrumentByPlat(platId);
-    }
-
-    @ApiOperation(value = "分页获取平台仪器")
-    @PostMapping(value = "list_page")
-    @ResponseBody
-    @LoginRequired
     public ResultVo<PageInfo<InstrumentVo>> getPageInstrument(@RequestParam(name = "platId") @ApiParam(value = "选择的平台id") Integer platId,
+                                                              @RequestParam(value = "name",defaultValue = "%") String name,
                                                               @RequestParam(value = "pageNum",defaultValue = "1") Integer pageNum,
                                                               @RequestParam(value = "pageSize",defaultValue = "10") Integer pageSize) {
 
-        return managerInstrumentService.getPageInstrumentByPlat(platId,pageNum,pageSize);
+        return managerInstrumentService.getPageInstrumentByPlat(platId,name,pageNum,pageSize);
     }
 
     @ApiOperation(value = "添加仪器")

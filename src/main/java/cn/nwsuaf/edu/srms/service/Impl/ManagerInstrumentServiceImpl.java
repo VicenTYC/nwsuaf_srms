@@ -4,9 +4,9 @@ import cn.nwsuaf.edu.srms.dao.ProInstrumentMapper;
 import cn.nwsuaf.edu.srms.entity.ProInstrument;
 import cn.nwsuaf.edu.srms.service.ManagerInstrumentService;
 import cn.nwsuaf.edu.srms.util.ResultUtil;
+import cn.nwsuaf.edu.srms.util.StringUtil;
 import cn.nwsuaf.edu.srms.vo.InstrumentVo;
 import cn.nwsuaf.edu.srms.vo.ResultVo;
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,13 +27,6 @@ public class ManagerInstrumentServiceImpl implements ManagerInstrumentService {
     private ProInstrumentMapper proInstrumentMapper;
 
     @Override
-    public ResultVo<List<InstrumentVo>> getInstrumentByPlat(Integer platId) {
-
-        List<InstrumentVo> proInstrumentList = proInstrumentMapper.getInstrumentByPlat(platId);
-        return ResultUtil.createBySuccess(proInstrumentList);
-    }
-
-    @Override
     public ResultVo<String> addInstrument(ProInstrument proInstrument, Integer userId) {
 
         proInstrument.setUserId(userId);
@@ -46,10 +39,11 @@ public class ManagerInstrumentServiceImpl implements ManagerInstrumentService {
     }
 
     @Override
-    public ResultVo<PageInfo<InstrumentVo>> getPageInstrumentByPlat(Integer platId, Integer pageNum, Integer pageSize) {
+    public ResultVo<PageInfo<InstrumentVo>> getPageInstrumentByPlat(Integer platId, String name, Integer pageNum, Integer pageSize) {
+        name = StringUtil.isLike(name);
 
         PageHelper.startPage(pageNum,pageSize);
-        List<InstrumentVo> proInstrumentList = proInstrumentMapper.getInstrumentByPlat(platId);
+        List<InstrumentVo> proInstrumentList = proInstrumentMapper.getInstrumentByPlat(platId,name);
 
         PageInfo<InstrumentVo> pageInfo = new PageInfo<>(proInstrumentList);
 

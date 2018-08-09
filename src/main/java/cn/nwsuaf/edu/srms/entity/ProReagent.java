@@ -15,7 +15,6 @@ public class ProReagent {
 
     private String specification;
 
-    @JsonIgnore
     private Integer platId;
 
 }

@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.nwsuaf.edu.srms.dao.RegisterPartsMapper" >
-  <resultMap id="BaseResultMap" type="cn.nwsuaf.edu.srms.entity.RegisterParts" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="parts_id" property="partsId" jdbcType="INTEGER" />
-    <result column="producer_id" property="producerId" jdbcType="INTEGER" />
-    <result column="supplier_id" property="supplierId" jdbcType="INTEGER" />
-    <result column="price" property="price" jdbcType="DECIMAL" />
-    <result column="count" property="count" jdbcType="INTEGER" />
-    <result column="total_price" property="totalPrice" jdbcType="DECIMAL" />
-    <result column="remark" property="remark" jdbcType="VARCHAR" />
-    <result column="user_id" property="userId" jdbcType="INTEGER" />
-    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
-    <result column="status" property="status" jdbcType="INTEGER" />
-  </resultMap>
+	<resultMap id="BaseResultMap" type="cn.nwsuaf.edu.srms.entity.RegisterParts" >
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="parts_id" property="partsId" jdbcType="INTEGER" />
+		<result column="producer_id" property="producerId" jdbcType="INTEGER" />
+		<result column="supplier_id" property="supplierId" jdbcType="INTEGER" />
+		<result column="price" property="price" jdbcType="DECIMAL" />
+		<result column="count" property="count" jdbcType="INTEGER" />
+		<result column="total_price" property="totalPrice" jdbcType="DECIMAL" />
+		<result column="remark" property="remark" jdbcType="VARCHAR" />
+		<result column="user_id" property="userId" jdbcType="INTEGER" />
+		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+	</resultMap>
+
 	<resultMap id="RegisterMap" type="cn.nwsuaf.edu.srms.vo.RegisterVo" >
 		<id column="id" property="id" jdbcType="INTEGER" />
 
@@ -39,10 +40,10 @@
 		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
 		<result column="status" property="status" jdbcType="INTEGER" />
 	</resultMap>
-  <sql id="Base_Column_List" >
-    id, parts_id, producer_id, supplier_id, price, count, total_price, remark, user_id,
-    create_time, status
-  </sql>
+	<sql id="Base_Column_List" >
+		id, parts_id, producer_id, supplier_id, price, count, total_price, remark, user_id,
+		create_time, status
+	</sql>
 
 	<select id="getIds" resultType="java.lang.Integer">
 		SELECT id
@@ -152,7 +153,7 @@
 		SELECT sum(total_price)
 		FROM register_parts,pro_parts
 		WHERE plat_id like #{platId}
-			AND pro_parts.id = register_parts.parts_id
+		AND pro_parts.id = register_parts.parts_id
 		<if test="year != null" >
 			AND year(create_time) = #{year}
 		</if>
@@ -257,7 +258,7 @@
 			<if test="userId != null" >
 				user_id,
 			</if>
-				create_time,
+			create_time,
 			<if test="status != null" >
 				status,
 			</if>
@@ -323,7 +324,7 @@
 			<if test="userId != null" >
 				user_id = #{userId,jdbcType=INTEGER},
 			</if>
-				create_time = now(),
+			create_time = now(),
 			<if test="status != null" >
 				status = #{status,jdbcType=INTEGER},
 			</if>

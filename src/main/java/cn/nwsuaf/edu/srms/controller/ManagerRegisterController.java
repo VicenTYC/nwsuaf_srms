@@ -36,8 +36,6 @@ public class ManagerRegisterController {
     @ResponseBody
     public ResultVo saveMaintainRecord(@RequestBody RegisterMaintain registerMaintain, HttpSession session) {
 
-        System.out.println(ToStringBuilder.reflectionToString(registerMaintain));
-
         int userId = Integer.parseInt((String)session.getAttribute(Const.CURRENT_USER));
 
         return managerRegisterService.saveMaintainRecord(registerMaintain,userId);
@@ -71,6 +69,7 @@ public class ManagerRegisterController {
                                       @RequestParam(value = "month",defaultValue = "%") String month) {
         return managerRegisterService.getMaintainRecord(platId,pageNum,pageSize,name,year,month);
     }
+
 
     @ApiOperation(value = "耗材保存")
     @PostMapping(value = "/material/save")

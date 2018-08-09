@@ -15,7 +15,6 @@ public class ProParts {
 
     private String specification;
 
-    @JsonIgnore
     private Integer platId;
 
 }

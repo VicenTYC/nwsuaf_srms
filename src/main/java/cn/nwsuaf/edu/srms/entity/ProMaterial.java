@@ -15,7 +15,6 @@ public class ProMaterial {
 
     private String specification;
 
-    @JsonIgnore
     private Integer platId;
 
 }

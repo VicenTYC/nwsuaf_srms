@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.nwsuaf.edu.srms.dao.RegisterMaterialMapper" >
-  <resultMap id="BaseResultMap" type="cn.nwsuaf.edu.srms.entity.RegisterMaterial" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="material_id" property="materialId" jdbcType="INTEGER" />
-    <result column="producer_id" property="producerId" jdbcType="INTEGER" />
-    <result column="supplier_id" property="supplierId" jdbcType="INTEGER" />
-    <result column="price" property="price" jdbcType="DECIMAL" />
-    <result column="count" property="count" jdbcType="INTEGER" />
-    <result column="total_price" property="totalPrice" jdbcType="DECIMAL" />
-    <result column="remark" property="remark" jdbcType="VARCHAR" />
-    <result column="user_id" property="userId" jdbcType="INTEGER" />
-    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
-    <result column="status" property="status" jdbcType="INTEGER" />
-  </resultMap>
+	<resultMap id="BaseResultMap" type="cn.nwsuaf.edu.srms.entity.RegisterMaterial" >
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="material_id" property="materialId" jdbcType="INTEGER" />
+		<result column="producer_id" property="producerId" jdbcType="INTEGER" />
+		<result column="supplier_id" property="supplierId" jdbcType="INTEGER" />
+		<result column="price" property="price" jdbcType="DECIMAL" />
+		<result column="count" property="count" jdbcType="INTEGER" />
+		<result column="total_price" property="totalPrice" jdbcType="DECIMAL" />
+		<result column="remark" property="remark" jdbcType="VARCHAR" />
+		<result column="user_id" property="userId" jdbcType="INTEGER" />
+		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+	</resultMap>
 
 	<resultMap id="RegisterMap" type="cn.nwsuaf.edu.srms.vo.RegisterVo" >
 		<id column="id" property="id" jdbcType="INTEGER" />
@@ -41,10 +41,10 @@
 		<result column="status" property="status" jdbcType="INTEGER" />
 	</resultMap>
 
-  <sql id="Base_Column_List" >
-    id, material_id, producer_id, supplier_id, price, count, total_price, remark, user_id,
-    create_time, status
-  </sql>
+	<sql id="Base_Column_List" >
+		id, material_id, producer_id, supplier_id, price, count, total_price, remark, user_id,
+		create_time, status
+	</sql>
 
 	<select id="getIds" resultType="java.lang.Integer">
 		SELECT id
@@ -153,7 +153,7 @@
 		SELECT sum(total_price)
 		FROM register_material,pro_material
 		WHERE  plat_id like #{platId}
-			AND pro_material.id = register_material.material_id
+		AND pro_material.id = register_material.material_id
 		<if test="year != null" >
 			AND year(create_time) = #{year}
 		</if>
@@ -163,19 +163,19 @@
 	</select>
 	<select id="getCountByPlatAndTypeAndDate" resultType="java.util.Map">
 		SELECT
-			sum(case month(create_time) when '1' then total_price else 0 end) as 一月份,
-			sum(case month(create_time) when '2' then total_price else 0 end) as 二月份,
-			sum(case month(create_time) when '3' then total_price else 0 end) as 三月份,
-			sum(case month(create_time) when '4' then total_price else 0 end) as 四月份,
-			sum(case month(create_time) when '5' then total_price else 0 end) as 五月份,
-			sum(case month(create_time) when '6' then total_price else 0 end) as 六月份,
-			sum(case month(create_time) when '7' then total_price else 0 end) as 七月份,
-			sum(case month(create_time) when '8' then total_price else 0 end) as 八月份,
-			sum(case month(create_time) when '9' then total_price else 0 end) as 九月份,
-			sum(case month(create_time) when '10' then total_price else 0 end) as 十月份,
-			sum(case month(create_time) when '11' then total_price else 0 end) as 十一月份,
-			sum(case month(create_time) when '12' then total_price else 0 end) as 十二月份,
-			year(create_time) as 年份
+		sum(case month(create_time) when '1' then total_price else 0 end) as 一月份,
+		sum(case month(create_time) when '2' then total_price else 0 end) as 二月份,
+		sum(case month(create_time) when '3' then total_price else 0 end) as 三月份,
+		sum(case month(create_time) when '4' then total_price else 0 end) as 四月份,
+		sum(case month(create_time) when '5' then total_price else 0 end) as 五月份,
+		sum(case month(create_time) when '6' then total_price else 0 end) as 六月份,
+		sum(case month(create_time) when '7' then total_price else 0 end) as 七月份,
+		sum(case month(create_time) when '8' then total_price else 0 end) as 八月份,
+		sum(case month(create_time) when '9' then total_price else 0 end) as 九月份,
+		sum(case month(create_time) when '10' then total_price else 0 end) as 十月份,
+		sum(case month(create_time) when '11' then total_price else 0 end) as 十一月份,
+		sum(case month(create_time) when '12' then total_price else 0 end) as 十二月份,
+		year(create_time) as 年份
 		FROM register_material,pro_material
 		WHERE plat_id like #{platId}
 		AND pro_material.id = register_material.material_id
@@ -210,17 +210,17 @@
 
 
 	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    	select
-    	<include refid="Base_Column_List" />
-    	from register_material
-    	where id = #{id,jdbcType=INTEGER}
-  	</select>
+		select
+		<include refid="Base_Column_List" />
+		from register_material
+		where id = #{id,jdbcType=INTEGER}
+	</select>
 
 
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    	delete from register_material
-    	where id = #{id,jdbcType=INTEGER}
-  	</delete>
+		delete from register_material
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
 	<insert id="insert" parameterType="cn.nwsuaf.edu.srms.entity.RegisterMaterial" >
 		insert into register_material (id, material_id, producer_id,
 		supplier_id, price, count,
@@ -261,7 +261,7 @@
 			<if test="userId != null" >
 				user_id,
 			</if>
-				create_time,
+			create_time,
 			<if test="status != null" >
 				status,
 			</if>

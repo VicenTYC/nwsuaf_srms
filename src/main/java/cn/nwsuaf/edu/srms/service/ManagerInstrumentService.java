@@ -14,9 +14,8 @@ import java.util.List;
  * Time: 17:13
  */
 public interface ManagerInstrumentService {
-    ResultVo<List<InstrumentVo>> getInstrumentByPlat(Integer platId);
 
     ResultVo<String> addInstrument(ProInstrument proInstrument, Integer userId);
 
-    ResultVo<PageInfo<InstrumentVo>> getPageInstrumentByPlat(Integer platId, Integer pageNum, Integer pageSize);
+    ResultVo<PageInfo<InstrumentVo>> getPageInstrumentByPlat(Integer platId, String name, Integer pageNum, Integer pageSize);
 }

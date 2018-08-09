@@ -13,7 +13,6 @@ public class ProMaintain {
 
     private String name;
 
-    @JsonIgnore
     private Integer platId;
 
 }

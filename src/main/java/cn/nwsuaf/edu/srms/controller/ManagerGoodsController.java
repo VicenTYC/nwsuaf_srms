@@ -10,6 +10,7 @@ import cn.nwsuaf.edu.srms.vo.ResultVo;
 import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -45,6 +46,7 @@ public class ManagerGoodsController {
     @ResponseBody
     @LoginRequired
     public ResultVo addMaterial(@RequestBody ProMaterial proMaterial) {
+        System.out.println(ToStringBuilder.reflectionToString(proMaterial));
         return managerGoodsService.addMaterial(proMaterial);
     }
 
